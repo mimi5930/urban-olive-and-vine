@@ -1,5 +1,5 @@
 // From FeatherIcons v4.29.0
-export default function ChevronLeftIcon({
+export default function Circle({
   ...props
 }: React.SVGAttributes<SVGSVGElement>) {
   return (
@@ -15,7 +15,7 @@ export default function ChevronLeftIcon({
       strokeLinejoin="round"
       {...props}
     >
-      <polyline points="15 18 9 12 15 6"></polyline>
+      <circle cx="12" cy="12" r="10"></circle>
     </svg>
   );
 }

@@ -2,7 +2,7 @@
 
 export default function ChevronRightIcon({
   ...props
-}: React.HTMLAttributes<SVGElement>) {
+}: React.SVGAttributes<SVGSVGElement>) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

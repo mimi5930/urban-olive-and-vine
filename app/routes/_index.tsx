@@ -4,7 +4,7 @@ import { Navbar } from "~/components";
 import image from "~/img/restaurant-min.jpg";
 import image2 from "~/img/restaurant -2.jpg";
 import wineClinkImg from "~/img/wine-clink.jpg";
-import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
+import { ChevronLeftIcon, ChevronRightIcon, Circle } from "~/components/svg";
 import { Button } from "~/components/ui/button";
 
 export const meta: MetaFunction = () => {
@@ -103,6 +103,21 @@ export default function Index() {
           >
             <ChevronRightIcon className="transition-translate absolute right-0 mr-5 box-border text-eggshell duration-500 group-hover:scale-125" />
           </button>
+          {/* CIRCLES */}
+          <div className="absolute bottom-0 flex w-full justify-center gap-1 p-2">
+            <button onClick={() => setCurrentHeroImg(0)}>
+              <Circle
+                className="h-3 w-3"
+                fill={currentHeroImg >= 0 ? "white" : "none"}
+              ></Circle>
+            </button>
+            <button onClick={() => setCurrentHeroImg(1)}>
+              <Circle
+                className="h-3 w-3"
+                fill={currentHeroImg >= 1 ? "white" : "none"}
+              ></Circle>
+            </button>
+          </div>
         </div>
       </section>
     </section>
