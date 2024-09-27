@@ -5,6 +5,9 @@ export default {
   content: ["./app/**/{**,.client,.server}/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      // fontSize: {
+      //   title: ''
+      // },
       colors: {
         "logo-green": {
           "50": "#f8fee8",
