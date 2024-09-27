@@ -4,6 +4,7 @@ import { Navbar } from "~/components";
 import { Button } from "~/components/ui/button";
 import image from "~/img/restaurant-min.jpg";
 import image2 from "~/img/restaurant -2.jpg";
+import wineClinkImg from "~/img/wine-clink.jpg";
 
 export const meta: MetaFunction = () => {
   return [
@@ -35,11 +36,22 @@ export default function Index() {
               transform: `translate(${-100 * currentHeroImg}%)`,
             }}
           >
-            <img src={image} alt="" className="h-full w-full object-cover" />
+            <img
+              src={image}
+              alt=""
+              className="h-full w-full object-cover brightness-75"
+            />
             <div className="absolute bottom-0 left-0 flex h-full w-full items-center justify-evenly">
-              <div className="flex h-1/2 w-1/5 flex-col items-center justify-center gap-5 bg-slate-50">
-                <h2>What is Urban?</h2>
-                <p>Lorem ipsum dolor sit amet. Lora</p>
+              <div className="flex h-1/2 w-1/5 flex-col items-center justify-center gap-5">
+                <h2 className="text-5xl font-extrabold text-eggshell-200 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+                  Who are we?
+                </h2>
+                <p className="text-lg font-medium text-eggshell-50">
+                  Lorem ipsum dolor sit amet. Lora
+                </p>
+              </div>
+              <div id="imageContainer" className="h-1/2 w-1/5 shadow-lg">
+                <img src={wineClinkImg} alt="" className="h-full w-full" />
               </div>
             </div>
           </div>
