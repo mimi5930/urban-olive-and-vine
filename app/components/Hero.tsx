@@ -84,7 +84,7 @@ export default function Hero() {
 
 export function HeroContainer({ children }: ChildProps) {
   return (
-    <section className="relative mt-5 h-1/2 w-screen shadow">
+    <section className="relative mt-5 h-1/2 w-full shadow">
       <div className="flex h-full w-full overflow-hidden">{children}</div>
     </section>
   );
@@ -221,7 +221,7 @@ export function HeroContentCircles({
         return (
           <button key={index} onClick={() => setCurrentHeroSlide(index)}>
             <Circle
-              className={`h-3 w-3 ${currentHeroSlide >= index ? "fill-eggshell-200" : ""}`}
+              className={`h-3 w-3 stroke-eggshell-200 ${currentHeroSlide >= index ? "fill-eggshell-200" : ""}`}
             ></Circle>
           </button>
         );
