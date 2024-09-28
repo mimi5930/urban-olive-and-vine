@@ -9,7 +9,7 @@ import image from "~/img/urbanolive-logo.png";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-center">
+    <header className="flex justify-center">
       <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
         <NavigationMenu className="max-w-full items-center justify-evenly">
           <div className="flex-1">
@@ -60,6 +60,6 @@ export default function Navbar() {
           </div>
         </NavigationMenu>
       </div>
-    </div>
+    </header>
   );
 }
