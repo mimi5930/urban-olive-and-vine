@@ -96,7 +96,7 @@ export function ImageContainer({
 }: ChildProps & { currentHeroSlide: number }) {
   return (
     <div
-      className="relative box-border h-full w-full flex-shrink-0 flex-grow-0 transition-transform duration-500"
+      className="relative box-border h-full w-full flex-shrink-0 flex-grow-0 transition-transform duration-500 ease-out"
       style={{
         transform: `translate(${-100 * currentHeroSlide}%)`,
       }}

@@ -31,7 +31,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-screen overflow-x-hidden bg-eggshell">
+      <body className="min-h-screen bg-eggshell">
         {children}
         <ScrollRestoration />
         <Scripts />

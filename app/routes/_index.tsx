@@ -16,7 +16,7 @@ export const meta: MetaFunction = () => {
 
 export default function Index() {
   return (
-    <section className="h-screen w-screen">
+    <section className="h-screen w-full">
       <Navbar />
       <Hero />
       <section>
