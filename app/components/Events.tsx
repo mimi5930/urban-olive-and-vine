@@ -64,7 +64,7 @@ const testEvents: Event[] = [
 export default function Events() {
   return (
     <section className="min-h-[50vh] bg-eggshell-50 p-12">
-      <h1 className="text-center text-7xl">Events</h1>
+      <h1 className="text-center text-7xl">Upcoming Events</h1>
       <div className="flex justify-center py-12">
         <div className="grid w-3/4 grid-cols-3 gap-10">
           {testEvents.map((event, index) => {
@@ -89,14 +89,14 @@ export function EventCard({
         <CardDescription>{date}</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center">
-        <div className="h-1/2 w-[60%]">
+        <div className="aspect-square h-full p-6">
           <img
             className="h-full w-full rounded-xl object-cover shadow-lg"
             src={image}
             alt={alt}
           />
         </div>
-        <p className="justify-self-start pt-6">{description}</p>
+        <p className="justify-self-start">{description}</p>
       </CardContent>
       <CardFooter className="justify-evenly">
         <Button>Learn More</Button>
