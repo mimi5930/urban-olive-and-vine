@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { CallToAction, Events, Hero, Navbar } from "~/components";
+import { CallToAction, Events, Hero, Navbar, Footer } from "~/components";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,6 +18,7 @@ export default function Index() {
       <Hero />
       <CallToAction />
       <Events />
+      <Footer />
     </section>
   );
 }
