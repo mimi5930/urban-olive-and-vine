@@ -1,8 +1,9 @@
 import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export default function Footer() {
   return (
-    <footer className="flex h-24 items-center justify-center gap-10 bg-feldgrau-900 text-white">
+    <footer className="flex h-24 items-center justify-center gap-10 bg-feldgrau-900 p-5 text-white">
       <div className="flex grow justify-center">
         <div className="flex flex-col">
           <p>
@@ -14,11 +15,13 @@ export default function Footer() {
           </p>
         </div>
       </div>
-      <div className="flex grow items-center gap-5">
+      <form className="flex grow items-center gap-5">
         <p>STAY INFORMED WITH OUR WEEKLY NEWSLETTER</p>
-        <input type="email" />
-        <Button variant="outline">Subscribe</Button>
-      </div>
+        <Input type="email" placeholder="Email"></Input>
+        <Button type="submit" variant="outline">
+          Subscribe
+        </Button>
+      </form>
     </footer>
   );
 }
