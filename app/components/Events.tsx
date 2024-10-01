@@ -66,7 +66,7 @@ export default function Events() {
     <section className="min-h-[50vh] bg-eggshell-50 p-12">
       <h1 className="text-center text-7xl">Upcoming Events</h1>
       <div className="flex justify-center py-12">
-        <div className="grid w-3/4 grid-cols-3 gap-10">
+        <div className="grid grid-cols-3 gap-10">
           {testEvents.map((event, index) => {
             return <EventCard event={event} key={index} />;
           })}

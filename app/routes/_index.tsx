@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { CallToAction, Events, Hero, Navbar, Footer } from "~/components";
+import { CallToAction, Events, Footer, Hero } from "~/components";
 
 export const meta: MetaFunction = () => {
   return [
@@ -14,7 +14,6 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <section className="h-screen w-full">
-      <Navbar />
       <Hero />
       <CallToAction />
       <Events />

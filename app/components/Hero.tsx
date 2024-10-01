@@ -7,6 +7,7 @@ import image3 from "../img/restaurant-3.jpg";
 import musician from "../img/musician.jpg";
 import wineClinkImg from "../img/wine-clink.jpg";
 import { cn } from "~/lib/utils";
+import { ImageHeadingText } from "./Text";
 
 type ChildProps = {
   children: React.ReactNode;
@@ -85,7 +86,7 @@ export default function Hero() {
 export function HeroContainer({ children }: ChildProps) {
   return (
     <section className="relative mt-5 h-1/2 w-full shadow">
-      <div className="flex h-full w-full overflow-hidden">{children}</div>
+      <div className="flex h-full w-full overflow-clip">{children}</div>
     </section>
   );
 }
@@ -138,9 +139,7 @@ export function HeroContent({
       {...props}
     >
       <div className="flex h-1/2 w-1/5 flex-col items-start justify-center gap-5">
-        <h2 className="text-start text-5xl font-extrabold text-eggshell-200 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-          {title}
-        </h2>
+        <ImageHeadingText>{title}</ImageHeadingText>
         {description && (
           <p className="text-start text-lg font-medium text-eggshell-50">
             {description}
