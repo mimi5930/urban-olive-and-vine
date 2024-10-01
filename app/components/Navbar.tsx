@@ -6,12 +6,13 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import image from "~/img/urbanolive-logo.png";
+import { FacebookIcon, InstagramIcon } from "./svg";
 
 export default function Navbar() {
   return (
     <header className="flex justify-center">
       <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
-        <NavigationMenu className="max-w-full items-center justify-evenly">
+        <NavigationMenu className="relative max-w-full items-center justify-evenly">
           <div className="flex-1">
             <NavigationMenuList className="gap-4">
               <NavigationMenuItem>
@@ -20,7 +21,7 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/">
+                <Link to="/about">
                   <p>Our Story</p>
                 </Link>
               </NavigationMenuItem>
@@ -57,6 +58,14 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
+          </div>
+          <div className="absolute right-0 top-0 flex h-full items-center gap-2">
+            <Link to="/">
+              <FacebookIcon />
+            </Link>
+            <Link to="/">
+              <InstagramIcon />
+            </Link>
           </div>
         </NavigationMenu>
       </div>
