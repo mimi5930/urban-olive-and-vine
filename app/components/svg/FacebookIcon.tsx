@@ -3,6 +3,7 @@ export default function FacebookIcon({
 }: React.SVGAttributes<SVGElement>) {
   return (
     <svg
+      aria-label="Facebook"
       xmlns="http://www.w3.org/2000/svg"
       width="24"
       height="24"

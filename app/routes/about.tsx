@@ -1,5 +1,5 @@
 import { ImageHeadingText } from "~/components";
-import { Card, CardContent } from "~/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
 import urbanImage from "~/img/urban-outside.jpg";
 
 export default function about() {
@@ -17,6 +17,9 @@ export default function about() {
       </div>
       <h1 className="p-5 text-center text-5xl">Nurture Your Senses</h1>
       <Card className="w-4/5">
+        {/* <CardHeader>
+          <CardTitle>Nurture Your Senses</CardTitle>
+        </CardHeader> */}
         <CardContent>
           <p className="p-5">
             More than just a bistro, we created Urban Olive & Vine to be a place
