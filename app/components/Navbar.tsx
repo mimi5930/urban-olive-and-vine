@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="flex-1">
             <NavigationMenuList className="gap-4">
               <NavigationMenuItem>
-                <Link to="/">
+                <Link to="/menu">
                   <Button>Menus</Button>
                 </Link>
               </NavigationMenuItem>
@@ -59,12 +59,12 @@ export default function Navbar() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </div>
-          <div className="absolute right-0 top-0 flex h-full items-center gap-2">
+          <div className="group absolute right-0 top-0 flex h-full items-center gap-2">
             <Link to="/">
-              <FacebookIcon />
+              <FacebookIcon className="text-feldgrau transition-opacity duration-300 group-hover:opacity-50 group-hover:hover:opacity-100" />
             </Link>
             <Link to="/">
-              <InstagramIcon />
+              <InstagramIcon className="text-feldgrau transition-opacity duration-300 group-hover:opacity-50 group-hover:hover:opacity-100" />
             </Link>
           </div>
         </NavigationMenu>
