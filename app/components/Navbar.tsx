@@ -53,7 +53,7 @@ export default function Navbar() {
                 </Link>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/">
+                <Link to="/events">
                   <Button variant="outline">Live Music</Button>
                 </Link>
               </NavigationMenuItem>
