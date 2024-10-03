@@ -61,7 +61,7 @@ export function SpecialsCard({
               return (
                 <li key={index}>
                   <p className="font-bold">{name}</p>
-                  <p className="flex opacity-80">
+                  <p className="flex text-muted-foreground">
                     {description}
                     {isGlutenFree && (
                       <span>

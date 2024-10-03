@@ -5,3 +5,4 @@ export { default as Events } from "./Events";
 export { default as Footer } from "./Footer";
 export { ImageHeadingText } from "./Text";
 export { default as Specials } from "./Specials";
+export { default as Menus } from "./Menu";

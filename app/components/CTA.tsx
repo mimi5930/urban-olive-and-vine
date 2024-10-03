@@ -1,6 +1,7 @@
 import picture from "~/img/eat.jpg";
 import picture2 from "~/img/enjoy.jpg";
 import { Button } from "./ui/button";
+import { Link } from "@remix-run/react";
 
 export default function CallToAction() {
   return (
@@ -20,7 +21,9 @@ export default function CallToAction() {
             gluten-free, vegetarian and vegan options are available. We also
             have a special menu that changes often.
           </p>
-          <Button>See Our Menu</Button>
+          <Link to="/menu">
+            <Button>See Our Menu</Button>
+          </Link>
         </div>
       </div>
       <div className="flex h-[40vh] flex-row-reverse items-center justify-evenly bg-eggshell-50 p-12">

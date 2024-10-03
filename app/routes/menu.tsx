@@ -1,4 +1,8 @@
-import { Specials } from "~/components";
+import { Link } from "@remix-run/react";
+import { Menus, Specials } from "~/components";
+import { Button } from "~/components/ui/button";
+import { capitalizeFirstLetter } from "~/lib/utils";
+import menus from "../mockData/urban-menu.json";
 
 export default function menu() {
   const specials = {
@@ -39,42 +43,23 @@ export default function menu() {
     ],
   };
 
-  const menus = [
-    {
-      menuTitle: "main",
-      menuSections: [
-        {
-          title: "Salads, Soups, and Quiche",
-          notes: [
-            "Add warm rotisserie chicken to any salad $3.00",
-            "Add cold smoked salmon to any salad $5.00",
-          ],
-          items: [
-            {
-              name: "Caesar Salad",
-              description:
-                "Carrot, cucumber, red onion, and tomato on top of a bed of spring greens with your choice of dressing",
-              price: "12.99",
-              isVegan: true,
-            },
-            {
-              name: "Soup Sampler",
-              description: "Can't decide which soup to get? Try three!",
-              price: "10.00",
-              isSpecial: true,
-            },
-          ],
-        },
-      ],
-    },
-  ];
-
   return (
     <section className="flex size-full flex-col items-center">
       <Specials specials={specials} />
       <section className="mt-5">
-        <h2>Our Menu</h2>
+        <h2 className="my-5 text-center text-5xl">Our Menus</h2>
+        <div className="my-2 flex justify-center gap-2">
+          {menus.map((currentMenu, index) => {
+            const { menuTitle: title } = currentMenu;
+            return (
+              <Link key={index} to={`/menu#${title}`}>
+                <Button>{capitalizeFirstLetter(title)}</Button>
+              </Link>
+            );
+          })}
+        </div>
       </section>
+      <Menus menus={menus} />
     </section>
   );
 }

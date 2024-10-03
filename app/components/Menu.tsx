@@ -1,5 +1,6 @@
-import { cn } from "~/lib/utils";
-import { GlutenFreeIcon, VeganIcon } from "./svg";
+import { capitalizeFirstLetter, cn } from "~/lib/utils";
+import { DownloadIcon, GlutenFreeIcon, VeganIcon } from "./svg";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type MenuItem = {
   name: string;
@@ -27,7 +28,10 @@ type MenusProps = React.HTMLAttributes<HTMLDivElement> & {
 
 export default function Menus({ menus, className, ...props }: MenusProps) {
   return (
-    <section className={cn("", className)} {...props}>
+    <section
+      className={cn("mt-5 flex w-[90%] flex-col gap-5", className)}
+      {...props}
+    >
       {menus.map((currentMenu, index) => {
         return <MenuSection key={index} menu={currentMenu} />;
       })}
@@ -42,16 +46,26 @@ export function MenuSection({
 }: React.HTMLAttributes<HTMLDivElement> & { menu: MenuSection }) {
   const { menuTitle, menuSelections } = menu;
   return (
-    <div className={className} {...props}>
-      <h1>{menuTitle}</h1>
-      {menuSelections.map((currentMenuSelection, index) => {
-        return (
-          <MenuSelection menuSelection={currentMenuSelection} key={index} />
-        );
-      })}
-    </div>
+    <Card id={menuTitle}>
+      <CardHeader className={className} {...props}>
+        <CardTitle className="flex items-center justify-center gap-2 text-3xl">
+          {capitalizeFirstLetter(menuTitle)}
+          <span className="group">
+            <a href="#">
+              <DownloadIcon className="opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
+            </a>
+          </span>
+        </CardTitle>
+        {menuSelections.map((currentMenuSelection, index) => {
+          return (
+            <MenuSelection menuSelection={currentMenuSelection} key={index} />
+          );
+        })}
+      </CardHeader>
+    </Card>
   );
 }
+MenuSection.displayName = "MenuSection";
 
 export function MenuSelection({
   menuSelection,
@@ -60,12 +74,14 @@ export function MenuSelection({
 }) {
   const { title, notes, items } = menuSelection;
   return (
-    <div>
-      <h2>{title}</h2>
-      <ul>
+    <CardContent className="mt-5">
+      <h2 className="border-b-4 border-double text-xl font-semibold">
+        {title}
+      </h2>
+      <ul className="divide-y">
         {notes.map((currentNote, index) => {
           return (
-            <li key={index}>
+            <li className="p-3" key={index}>
               <p>{currentNote}</p>
             </li>
           );
@@ -74,7 +90,7 @@ export function MenuSelection({
       {items.map((currentItem, index) => {
         return <MenuItem item={currentItem} key={index} />;
       })}
-    </div>
+    </CardContent>
   );
 }
 
@@ -85,14 +101,20 @@ export function MenuItem({
 }: React.HTMLAttributes<HTMLDivElement> & {
   item: MenuItem;
 }) {
-  const { name, description, price, isGlutenFree, isVegan, isSpecial } = item;
+  const {
+    name,
+    description,
+    price,
+    isGlutenFree = false,
+    isVegan = false,
+    isSpecial = false,
+  } = item;
   const special: React.HtmlHTMLAttributes<HTMLDivElement>["className"] =
-    // TODO Add border
-    isSpecial ? "FANCYBORDER" : "";
+    isSpecial ? "border-4 border-double border-logo-green p-3" : "";
   return (
-    <div className={cn(special, className)} {...props}>
-      <div>
-        <h2>
+    <div className={cn("my-4", special, className)} {...props}>
+      <div className="flex justify-between">
+        <h3 className="flex gap-1 text-lg font-semibold">
           {isGlutenFree && (
             <span>
               <GlutenFreeIcon />
@@ -104,10 +126,10 @@ export function MenuItem({
             </span>
           )}
           {name}
-        </h2>
-        <p>{price}</p>
+        </h3>
+        <p className="font-semibold">{price}</p>
       </div>
-      <p>{description}</p>
+      <p className="italic text-muted-foreground">{description}</p>
     </div>
   );
 }

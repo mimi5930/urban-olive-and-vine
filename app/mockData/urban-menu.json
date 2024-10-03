@@ -1,0 +1,3026 @@
+[
+  {
+    "menuTitle": "Gluten-Free",
+    "menuSelections": [
+      {
+        "title": "Dairy",
+        "notes": [
+          "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+          "Pellentesque viverra pede ac diam.",
+          "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+          "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+          "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio."
+        ],
+        "items": [
+          {
+            "name": "BBQ Ribs",
+            "description": "Nullam molestie nibh in lectus. Pellentesque at nulla.",
+            "price": "$13.95",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "In sagittis dui vel nisl. Duis ac nibh.",
+            "price": "$16.19",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+            "price": "$10.87",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+            "price": "$19.39",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Nunc rhoncus dui vel sem.",
+            "price": "$18.22",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.",
+            "price": "$18.89",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim.",
+            "price": "$10.04",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Phasellus in felis.",
+            "price": "$12.00",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+            "price": "$14.48",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Seafood",
+        "notes": [
+          "Maecenas rhoncus aliquam lacus.",
+          "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+          "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl."
+        ],
+        "items": [
+          {
+            "name": "Greek Gyro",
+            "description": "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+            "price": "$13.78",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+            "price": "$12.48",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Integer a nibh.",
+            "price": "$11.88",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Curabitur at ipsum ac tellus semper interdum.",
+            "price": "$20.00",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+            "price": "$17.00",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+            "price": "$17.47",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue.",
+            "price": "$18.84",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Condiments",
+        "notes": [
+          "Integer a nibh. In quis justo.",
+          "Duis mattis egestas metus. Aenean fermentum."
+        ],
+        "items": [
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Suspendisse potenti.",
+            "price": "$19.48",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+            "price": "$16.42",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor.",
+            "price": "$13.45",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "price": "$14.35",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+            "price": "$14.31",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Beverages",
+        "notes": [
+          "Nunc rhoncus dui vel sem.",
+          "Nulla mollis molestie lorem.",
+          "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante."
+        ],
+        "items": [
+          {
+            "name": "Taco Salad",
+            "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
+            "price": "$18.11",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
+            "price": "$15.03",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
+            "price": "$18.34",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Proin eu mi.",
+            "price": "$13.14",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Nunc rhoncus dui vel sem. Sed sagittis.",
+            "price": "$16.86",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+            "price": "$15.70",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+            "price": "$18.91",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "In hac habitasse platea dictumst.",
+            "price": "$19.37",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Seafood",
+        "notes": [
+          "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+          "Aenean fermentum. Donec ut mauris eget massa tempor convallis.",
+          "Nulla mollis molestie lorem.",
+          "Mauris sit amet eros."
+        ],
+        "items": [
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Praesent lectus.",
+            "price": "$10.28",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Integer ac leo.",
+            "price": "$14.77",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Pellentesque at nulla. Suspendisse potenti.",
+            "price": "$16.59",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
+            "price": "$14.18",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Taco Salad",
+            "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
+            "price": "$13.04",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+            "price": "$11.96",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Morbi porttitor lorem id ligula.",
+            "price": "$17.44",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+            "price": "$13.23",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Condiments",
+        "notes": [
+          "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+          "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+          "Morbi non quam nec dui luctus rutrum.",
+          "Praesent id massa id nisl venenatis lacinia.",
+          "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem."
+        ],
+        "items": [
+          {
+            "name": "Mushroom Risotto",
+            "description": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+            "price": "$18.33",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+            "price": "$17.02",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+            "price": "$11.40",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+            "price": "$19.42",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+            "price": "$15.64",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",
+            "price": "$12.20",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+            "price": "$13.18",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+            "price": "$13.36",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
+            "price": "$17.81",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit.",
+            "price": "$11.29",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Quisque ut erat.",
+            "price": "$17.93",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Pellentesque ultrices mattis odio. Donec vitae nisi.",
+            "price": "$11.20",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuTitle": "Steak",
+    "menuSelections": [
+      {
+        "title": "Fruits",
+        "notes": [
+          "Suspendisse potenti.",
+          "Suspendisse potenti. In eleifend quam a odio.",
+          "Maecenas rhoncus aliquam lacus.",
+          "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+          "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+        ],
+        "items": [
+          {
+            "name": "BBQ Ribs",
+            "description": "Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo. In blandit ultrices enim.",
+            "price": "$14.64",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus.",
+            "price": "$19.83",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui.",
+            "price": "$16.10",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "price": "$15.11",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Morbi a ipsum. Integer a nibh. In quis justo.",
+            "price": "$17.72",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+            "price": "$19.85",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+            "price": "$17.72",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
+            "price": "$10.48",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Taco Salad",
+            "description": "Quisque ut erat.",
+            "price": "$12.70",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem. Quisque ut erat.",
+            "price": "$16.46",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Snacks",
+        "notes": [
+          "Duis at velit eu est congue elementum. In hac habitasse platea dictumst.",
+          "Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+          "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+          "Duis mattis egestas metus."
+        ],
+        "items": [
+          {
+            "name": "Lobster Bisque",
+            "description": "Curabitur gravida nisi at nibh.",
+            "price": "$12.19",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+            "price": "$14.35",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl.",
+            "price": "$12.35",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+            "price": "$15.78",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+            "price": "$11.75",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo.",
+            "price": "$12.97",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Desserts",
+        "notes": [
+          "Phasellus sit amet erat.",
+          "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+          "Maecenas pulvinar lobortis est. Phasellus sit amet erat."
+        ],
+        "items": [
+          {
+            "name": "Beef Tacos",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+            "price": "$14.38",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Aliquam erat volutpat. In congue.",
+            "price": "$17.80",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Aliquam sit amet diam in magna bibendum imperdiet.",
+            "price": "$19.16",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "price": "$19.33",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.",
+            "price": "$17.07",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Morbi non quam nec dui luctus rutrum.",
+            "price": "$15.84",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+            "price": "$15.08",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+            "price": "$16.10",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+            "price": "$11.67",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Maecenas tincidunt lacus at velit.",
+            "price": "$19.97",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit.",
+            "price": "$12.32",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus.",
+            "price": "$15.10",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+            "price": "$10.81",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$14.65",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Duis ac nibh.",
+            "price": "$19.41",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum.",
+            "price": "$11.09",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Donec dapibus.",
+            "price": "$13.25",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
+            "price": "$13.41",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+            "price": "$12.20",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Desserts",
+        "notes": [
+          "Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",
+          "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum."
+        ],
+        "items": [
+          {
+            "name": "Caesar Salad",
+            "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+            "price": "$19.87",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
+            "price": "$16.33",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Nulla mollis molestie lorem. Quisque ut erat. Curabitur gravida nisi at nibh.",
+            "price": "$19.68",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$16.88",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
+            "price": "$12.28",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Etiam pretium iaculis justo.",
+            "price": "$19.34",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam. Nam tristique tortor eu pede.",
+            "price": "$17.09",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+            "price": "$17.94",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+            "price": "$18.59",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Snacks",
+        "notes": ["Vivamus vestibulum sagittis sapien."],
+        "items": [
+          {
+            "name": "Fish and Chips",
+            "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+            "price": "$15.70",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+            "price": "$11.03",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Nulla tempus.",
+            "price": "$10.80",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Aliquam non mauris. Morbi non lectus.",
+            "price": "$15.80",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+            "price": "$12.81",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+            "price": "$11.82",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+            "price": "$18.85",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$16.14",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Praesent blandit.",
+            "price": "$19.21",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Morbi porttitor lorem id ligula.",
+            "price": "$11.06",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuTitle": "Breakfast",
+    "menuSelections": [
+      {
+        "title": "Beverages",
+        "notes": ["Nulla ac enim."],
+        "items": [
+          {
+            "name": "Beef Stroganoff",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$12.58",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+            "price": "$14.12",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Ut at dolor quis odio consequat varius. Integer ac leo.",
+            "price": "$15.75",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+            "price": "$10.50",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+            "price": "$14.47",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.",
+            "price": "$15.14",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "In quis justo. Maecenas rhoncus aliquam lacus.",
+            "price": "$16.80",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
+            "price": "$19.29",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Duis mattis egestas metus.",
+            "price": "$17.89",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+            "price": "$14.09",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$10.83",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+            "price": "$15.48",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Duis mattis egestas metus.",
+            "price": "$18.53",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Beverages",
+        "notes": ["Aliquam quis turpis eget elit sodales scelerisque."],
+        "items": [
+          {
+            "name": "Lobster Bisque",
+            "description": "Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+            "price": "$12.57",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Quisque ut erat.",
+            "price": "$11.01",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+            "price": "$10.03",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
+            "price": "$13.67",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.",
+            "price": "$13.36",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+            "price": "$12.59",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
+            "price": "$12.52",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+            "price": "$17.82",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Nulla suscipit ligula in lacus.",
+            "price": "$16.99",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue.",
+            "price": "$19.46",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+            "price": "$12.02",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Nullam porttitor lacus at turpis.",
+            "price": "$18.06",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum.",
+            "price": "$19.29",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue.",
+            "price": "$18.55",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Aliquam non mauris. Morbi non lectus.",
+            "price": "$18.83",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit. Nam nulla.",
+            "price": "$11.18",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Donec dapibus. Duis at velit eu est congue elementum.",
+            "price": "$15.14",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Dairy",
+        "notes": [
+          "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.",
+          "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio."
+        ],
+        "items": [
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum.",
+            "price": "$17.63",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Duis bibendum.",
+            "price": "$15.04",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+            "price": "$13.27",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
+            "price": "$15.15",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
+            "price": "$16.32",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Morbi non lectus.",
+            "price": "$16.16",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Curry",
+            "description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+            "price": "$11.47",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+            "price": "$19.16",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Nulla justo. Aliquam quis turpis eget elit sodales scelerisque.",
+            "price": "$16.63",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+            "price": "$13.01",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+            "price": "$18.58",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
+            "price": "$17.06",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+            "price": "$16.12",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Phasellus sit amet erat. Nulla tempus.",
+            "price": "$12.68",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Nulla nisl. Nunc nisl.",
+            "price": "$19.32",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+            "price": "$19.18",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+            "price": "$16.74",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+            "price": "$12.64",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+            "price": "$18.40",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.",
+            "price": "$14.58",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuTitle": "Beer Selection",
+    "menuSelections": [
+      {
+        "title": "Desserts",
+        "notes": [
+          "Pellentesque viverra pede ac diam.",
+          "Morbi non quam nec dui luctus rutrum. Nulla tellus.",
+          "Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla."
+        ],
+        "items": [
+          {
+            "name": "Cobb Salad",
+            "description": "In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+            "price": "$16.21",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl. Duis ac nibh.",
+            "price": "$19.96",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",
+            "price": "$18.65",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$11.15",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+            "price": "$18.87",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+            "price": "$14.80",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.",
+            "price": "$14.22",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.",
+            "price": "$14.03",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",
+            "price": "$13.02",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Duis bibendum.",
+            "price": "$14.96",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",
+            "price": "$18.59",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+            "price": "$12.96",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.",
+            "price": "$10.12",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Condiments",
+        "notes": [
+          "Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+          "Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
+        ],
+        "items": [
+          {
+            "name": "BBQ Ribs",
+            "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+            "price": "$12.44",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa.",
+            "price": "$18.21",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Curry",
+            "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
+            "price": "$13.30",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
+            "price": "$14.56",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+            "price": "$15.07",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Etiam justo.",
+            "price": "$11.18",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet.",
+            "price": "$10.24",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Eggplant Parmesan",
+            "description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",
+            "price": "$18.85",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
+            "price": "$19.13",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+            "price": "$17.29",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+            "price": "$15.59",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+            "price": "$13.19",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+            "price": "$19.30",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+            "price": "$12.02",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+            "price": "$13.25",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+            "price": "$17.97",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+            "price": "$11.84",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+            "price": "$18.28",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Vivamus tortor. Duis mattis egestas metus.",
+            "price": "$16.88",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Seafood",
+        "notes": [
+          "Sed sagittis.",
+          "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+          "Nunc rhoncus dui vel sem. Sed sagittis.",
+          "Donec quis orci eget orci vehicula condimentum.",
+          "Praesent blandit."
+        ],
+        "items": [
+          {
+            "name": "Cobb Salad",
+            "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+            "price": "$17.44",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend.",
+            "price": "$10.32",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.",
+            "price": "$19.87",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.",
+            "price": "$12.66",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
+            "price": "$16.22",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$12.21",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Maecenas ut massa quis augue luctus tincidunt.",
+            "price": "$12.45",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+            "price": "$10.27",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "In blandit ultrices enim. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl.",
+            "price": "$13.76",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+            "price": "$15.04",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero.",
+            "price": "$18.41",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Seafood",
+        "notes": [
+          "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede."
+        ],
+        "items": [
+          {
+            "name": "Caesar Salad",
+            "description": "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.",
+            "price": "$19.43",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Praesent blandit. Nam nulla.",
+            "price": "$10.83",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+            "price": "$12.30",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+            "price": "$17.59",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+            "price": "$19.43",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Nullam molestie nibh in lectus. Pellentesque at nulla.",
+            "price": "$11.09",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante.",
+            "price": "$12.94",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Morbi ut odio.",
+            "price": "$18.66",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Proin risus. Praesent lectus.",
+            "price": "$13.18",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue.",
+            "price": "$19.22",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus.",
+            "price": "$11.69",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$16.87",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Suspendisse accumsan tortor quis turpis. Sed ante.",
+            "price": "$16.02",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Nulla tellus. In sagittis dui vel nisl.",
+            "price": "$12.66",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+            "price": "$19.29",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum.",
+            "price": "$10.55",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+            "price": "$18.54",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante.",
+            "price": "$17.71",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla.",
+            "price": "$11.66",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+            "price": "$18.33",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Vegetables",
+        "notes": [
+          "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+          "Vivamus tortor. Duis mattis egestas metus."
+        ],
+        "items": [
+          {
+            "name": "Mushroom Risotto",
+            "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst.",
+            "price": "$13.58",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat.",
+            "price": "$13.06",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy.",
+            "price": "$12.11",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus.",
+            "price": "$17.74",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Pellentesque ultrices mattis odio. Donec vitae nisi.",
+            "price": "$12.94",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Aliquam non mauris. Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis.",
+            "price": "$10.36",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum.",
+            "price": "$14.60",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum.",
+            "price": "$10.94",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo.",
+            "price": "$11.03",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Snacks",
+        "notes": [
+          "Vivamus vestibulum sagittis sapien.",
+          "Nulla mollis molestie lorem."
+        ],
+        "items": [
+          {
+            "name": "Beef Stroganoff",
+            "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+            "price": "$17.87",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+            "price": "$10.91",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Duis aliquam convallis nunc.",
+            "price": "$18.47",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus.",
+            "price": "$10.89",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+            "price": "$11.31",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vestibulum sagittis sapien.",
+            "price": "$18.37",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$18.47",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+            "price": "$15.50",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue.",
+            "price": "$17.62",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "In eleifend quam a odio.",
+            "price": "$19.84",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "price": "$10.77",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.",
+            "price": "$13.95",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
+            "price": "$10.51",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius.",
+            "price": "$17.70",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia.",
+            "price": "$14.33",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Duis bibendum.",
+            "price": "$17.37",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+            "price": "$14.44",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Curabitur gravida nisi at nibh.",
+            "price": "$12.88",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo. Morbi ut odio. Cras mi pede, malesuada in, imperdiet et, commodo vulputate, justo.",
+            "price": "$19.17",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Fruits",
+        "notes": [
+          "In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat."
+        ],
+        "items": [
+          {
+            "name": "Mushroom Risotto",
+            "description": "Integer ac neque. Duis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus. In sagittis dui vel nisl.",
+            "price": "$18.94",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+            "price": "$16.14",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Etiam vel augue. Vestibulum rutrum rutrum neque.",
+            "price": "$12.94",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+            "price": "$14.33",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+            "price": "$16.95",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pulled Pork Sandwich",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+            "price": "$12.19",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+            "price": "$18.31",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "In sagittis dui vel nisl. Duis ac nibh.",
+            "price": "$11.02",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis.",
+            "price": "$15.90",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuTitle": "Sushi",
+    "menuSelections": [
+      {
+        "title": "Beverages",
+        "notes": [
+          "In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+          "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+          "Maecenas tincidunt lacus at velit.",
+          "Suspendisse accumsan tortor quis turpis."
+        ],
+        "items": [
+          {
+            "name": "Taco Salad",
+            "description": "Morbi non lectus. Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus.",
+            "price": "$18.04",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
+            "price": "$14.24",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Suspendisse potenti. In eleifend quam a odio. In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt.",
+            "price": "$15.35",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Nunc rhoncus dui vel sem. Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci.",
+            "price": "$13.35",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+            "price": "$18.18",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+            "price": "$10.48",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum.",
+            "price": "$14.68",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo. Maecenas pulvinar lobortis est.",
+            "price": "$18.50",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla.",
+            "price": "$19.30",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci.",
+            "price": "$15.01",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat.",
+            "price": "$13.74",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "In sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+            "price": "$10.23",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+            "price": "$12.57",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Beverages",
+        "notes": [
+          "In congue.",
+          "Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+          "Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+          "Etiam faucibus cursus urna."
+        ],
+        "items": [
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Aenean fermentum.",
+            "price": "$15.58",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Proin interdum mauris non ligula pellentesque ultrices. Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",
+            "price": "$17.63",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Taco Salad",
+            "description": "Phasellus id sapien in sapien iaculis congue. Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus.",
+            "price": "$19.56",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis.",
+            "price": "$16.38",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
+            "price": "$16.52",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Grilled Chicken Salad",
+            "description": "Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc.",
+            "price": "$13.67",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Curry",
+            "description": "Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+            "price": "$17.30",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+            "price": "$12.06",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+            "price": "$12.72",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Quisque id justo sit amet sapien dignissim vestibulum.",
+            "price": "$19.55",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Taco Salad",
+            "description": "In hac habitasse platea dictumst.",
+            "price": "$13.93",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetarian Stir-Fry",
+            "description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy.",
+            "price": "$14.81",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Integer ac leo.",
+            "price": "$16.12",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+            "price": "$12.95",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst.",
+            "price": "$12.87",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Nulla tempus.",
+            "price": "$14.98",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Beverages",
+        "notes": [
+          "Morbi non quam nec dui luctus rutrum.",
+          "Nunc rhoncus dui vel sem."
+        ],
+        "items": [
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum.",
+            "price": "$13.70",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi.",
+            "price": "$12.95",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Greek Gyro",
+            "description": "Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
+            "price": "$18.50",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Vivamus vestibulum sagittis sapien.",
+            "price": "$18.19",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Pellentesque at nulla. Suspendisse potenti. Cras in purus eu magna vulputate luctus.",
+            "price": "$14.43",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$14.09",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "In hac habitasse platea dictumst. Maecenas ut massa quis augue luctus tincidunt. Nulla mollis molestie lorem.",
+            "price": "$10.90",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Stir-Fry",
+            "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus. Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio.",
+            "price": "$12.15",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Integer a nibh.",
+            "price": "$16.73",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl.",
+            "price": "$18.32",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+            "price": "$13.40",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem. Integer tincidunt ante vel ipsum. Praesent blandit lacinia erat.",
+            "price": "$18.55",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat.",
+            "price": "$10.07",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo.",
+            "price": "$19.90",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Taco Salad",
+            "description": "Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
+            "price": "$18.81",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl. Aenean lectus. Pellentesque eget nunc.",
+            "price": "$13.71",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Vivamus vestibulum sagittis sapien. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+            "price": "$10.99",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Margherita Pizza",
+            "description": "Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum.",
+            "price": "$15.53",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Spaghetti Bolognese",
+            "description": "Integer ac leo. Pellentesque ultrices mattis odio. Donec vitae nisi. Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla.",
+            "price": "$19.33",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "menuTitle": "Gluten-Free",
+    "menuSelections": [
+      {
+        "title": "Vegetables",
+        "notes": ["Aliquam sit amet diam in magna bibendum imperdiet."],
+        "items": [
+          {
+            "name": "Chicken Caesar Wrap",
+            "description": "Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+            "price": "$19.30",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Sed accumsan felis.",
+            "price": "$14.93",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "Curabitur at ipsum ac tellus semper interdum.",
+            "price": "$15.53",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Penne Arrabbiata",
+            "description": "Sed accumsan felis. Ut at dolor quis odio consequat varius. Integer ac leo. Pellentesque ultrices mattis odio.",
+            "price": "$12.11",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+            "price": "$14.45",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Fruits",
+        "notes": [
+          "Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros.",
+          "Nunc purus."
+        ],
+        "items": [
+          {
+            "name": "Margherita Pizza",
+            "description": "Praesent id massa id nisl venenatis lacinia.",
+            "price": "$10.58",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+            "price": "$16.51",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Vegetable Curry",
+            "description": "Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus. Suspendisse potenti. In eleifend quam a odio.",
+            "price": "$10.61",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+            "price": "$12.52",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Vegetable Curry",
+            "description": "Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem.",
+            "price": "$12.12",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
+            "price": "$16.12",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis. Duis consequat dui nec nisi volutpat eleifend. Donec ut dolor.",
+            "price": "$13.98",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.",
+            "price": "$16.55",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam vel augue. Vestibulum rutrum rutrum neque. Aenean auctor gravida sem.",
+            "price": "$10.13",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+            "price": "$15.32",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Caesar Salad",
+            "description": "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
+            "price": "$17.84",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam.",
+            "price": "$10.26",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Lobster Bisque",
+            "description": "In congue.",
+            "price": "$18.06",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Chicken Parmesan",
+            "description": "Morbi a ipsum. Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+            "price": "$12.64",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          }
+        ]
+      },
+      {
+        "title": "Condiments",
+        "notes": [
+          "Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus.",
+          "Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl.",
+          "Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+          "Vestibulum rutrum rutrum neque."
+        ],
+        "items": [
+          {
+            "name": "Caesar Salad",
+            "description": "Praesent blandit lacinia erat. Vestibulum sed magna at nunc commodo placerat. Praesent blandit.",
+            "price": "$13.88",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum. Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+            "price": "$13.85",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Steak Frites",
+            "description": "Vivamus in felis eu sapien cursus vestibulum. Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc.",
+            "price": "$18.82",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Chicken Alfredo",
+            "description": "Integer a nibh. In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
+            "price": "$17.88",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Caprese Panini",
+            "description": "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
+            "price": "$17.48",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+            "price": "$16.51",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Maecenas pulvinar lobortis est. Phasellus sit amet erat. Nulla tempus. Vivamus in felis eu sapien cursus vestibulum. Proin eu mi.",
+            "price": "$11.28",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Hawaiian Pizza",
+            "description": "In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem.",
+            "price": "$19.66",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      },
+      {
+        "title": "Seafood",
+        "notes": [
+          "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+          "Maecenas pulvinar lobortis est. Phasellus sit amet erat.",
+          "In hac habitasse platea dictumst.",
+          "Aenean auctor gravida sem. Praesent id massa id nisl venenatis lacinia."
+        ],
+        "items": [
+          {
+            "name": "Chicken Alfredo",
+            "description": "Nulla facilisi.",
+            "price": "$11.35",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Fish and Chips",
+            "description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula.",
+            "price": "$17.87",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Tacos",
+            "description": "Suspendisse potenti. Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum. Aliquam non mauris. Morbi non lectus.",
+            "price": "$14.07",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Mushroom Risotto",
+            "description": "Nam ultrices, libero non mattis pulvinar, nulla pede ullamcorper augue, a suscipit nulla elit ac nulla. Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla.",
+            "price": "$13.48",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Cobb Salad",
+            "description": "Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+            "price": "$18.54",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Maecenas tincidunt lacus at velit.",
+            "price": "$15.52",
+            "isVegan": true,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Beef Burger",
+            "description": "Curabitur in libero ut massa volutpat convallis. Morbi odio odio, elementum eu, interdum eu, tincidunt in, leo.",
+            "price": "$11.72",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Lemon Herb Salmon",
+            "description": "In sagittis dui vel nisl. Duis ac nibh.",
+            "price": "$14.87",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Pesto Pasta",
+            "description": "Aliquam sit amet diam in magna bibendum imperdiet.",
+            "price": "$17.56",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Turkey Club Sandwich",
+            "description": "Etiam justo.",
+            "price": "$16.56",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": false
+          },
+          {
+            "name": "BBQ Ribs",
+            "description": "Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus. Pellentesque at nulla. Suspendisse potenti.",
+            "price": "$18.55",
+            "isVegan": false,
+            "isSpecial": false,
+            "isGlutenFree": false
+          },
+          {
+            "name": "Beef Stroganoff",
+            "description": "In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna.",
+            "price": "$12.36",
+            "isVegan": false,
+            "isSpecial": true,
+            "isGlutenFree": true
+          },
+          {
+            "name": "Shrimp Scampi",
+            "description": "Nunc nisl.",
+            "price": "$10.82",
+            "isVegan": true,
+            "isSpecial": false,
+            "isGlutenFree": false
+          }
+        ]
+      }
+    ]
+  }
+]
