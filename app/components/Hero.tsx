@@ -32,7 +32,13 @@ export default function Hero() {
       title: "Lorem, ipsum dolor.",
       description: "Lorem ipsum dolor sit amet. Lora",
       linkButton: <Button>Lorem</Button>,
-      media: <img src={wineClinkImg} alt="" className="h-full w-full" />,
+      media: (
+        <img
+          src={wineClinkImg}
+          alt=""
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
     },
     {
       image: image2,
@@ -40,7 +46,13 @@ export default function Hero() {
       title: "Lorem, ipsum dolor. 2",
       description: "Lorem ipsum dolor sit amet. Lora 2",
       linkButton: <Button>Lorem2</Button>,
-      media: <img src={wineClinkImg} alt="" className="h-full w-full" />,
+      media: (
+        <img
+          src={wineClinkImg}
+          alt=""
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
     },
     {
       image: image3,
@@ -48,7 +60,13 @@ export default function Hero() {
       title: "Lorem, ipsum dolor. 3",
       description: "Lorem ipsum dolor sit amet. Lora 3",
       linkButton: <Button>Lorem3</Button>,
-      media: <img src={musician} alt="" className="h-full w-full" />,
+      media: (
+        <img
+          src={musician}
+          alt=""
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
     },
   ];
 
@@ -138,7 +156,7 @@ export function HeroContent({
       className="absolute bottom-0 left-0 flex h-full w-full items-center justify-evenly"
       {...props}
     >
-      <div className="flex h-1/2 w-1/5 flex-col items-start justify-center gap-5">
+      <div className="flex h-full w-1/3 flex-col items-start justify-center gap-5">
         <ImageHeadingText>{title}</ImageHeadingText>
         {description && (
           <p className="text-start text-lg font-medium text-eggshell-50">
@@ -147,7 +165,7 @@ export function HeroContent({
         )}
         {linkButton && linkButton}
       </div>
-      <div className="h-1/2 w-1/5 shadow-lg">{media}</div>
+      <div className="rounded-xlg h-1/2">{media}</div>
     </div>
   );
 }

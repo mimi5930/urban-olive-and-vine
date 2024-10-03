@@ -7,7 +7,7 @@ import {
   CardFooter,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import picture from "~/img/sample-musician.jpg";
+
 import { cn } from "~/lib/utils";
 
 export type Event = {
@@ -18,57 +18,21 @@ export type Event = {
   description: string;
 };
 
-const testEvents: Event[] = [
-  {
-    title: "Cool Band",
-    date: "Friday, Sep 6, 6:00 PM - 8:30 PM",
-    image: picture,
-    alt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iusto natus quos ut quidem maxime? Explicabo, eligendi amet. Excepturi reiciendis velit tempora rerum molestias, voluptate amet quia magni quaerat aut.",
-  },
-  {
-    title: "Cool Band",
-    date: "Friday, Sep 6, 6:00 PM - 8:30 PM",
-    image: picture,
-    alt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iusto natus quos ut quidem maxime? Explicabo, eligendi amet. Excepturi reiciendis velit tempora rerum molestias, voluptate amet quia magni quaerat aut.",
-  },
-  {
-    title: "Cool Band",
-    date: "Friday, Sep 6, 6:00 PM - 8:30 PM",
-    image: picture,
-    alt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iusto natus quos ut quidem maxime? Explicabo, eligendi amet. Excepturi reiciendis velit tempora rerum molestias, voluptate amet quia magni quaerat aut.",
-  },
-  {
-    title: "Cool Band",
-    date: "Friday, Sep 6, 6:00 PM - 8:30 PM",
-    image: picture,
-    alt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iusto natus quos ut quidem maxime? Explicabo, eligendi amet. Excepturi reiciendis velit tempora rerum molestias, voluptate amet quia magni quaerat aut.",
-  },
-  {
-    title: "Cool Band",
-    date: "Friday, Sep 6, 6:00 PM - 8:30 PM",
-    image: picture,
-    alt: "",
-    description:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi iusto natus quos ut quidem maxime? Explicabo, eligendi amet. Excepturi reiciendis velit tempora rerum molestias, voluptate amet quia magni quaerat aut.",
-  },
-];
-
-export default function Events() {
+export default function Events({
+  events,
+  className,
+  ...props
+}: React.HTMLAttributes<HTMLDivElement> & { events: Event[] }) {
   return (
-    <section className="min-h-[50vh] bg-eggshell-50 p-12">
+    <section
+      className={cn("min-h-[50vh] bg-eggshell-50 p-12", className)}
+      {...props}
+    >
       <h1 className="text-center text-7xl">Upcoming Events</h1>
       <div className="flex justify-center py-12">
         <div className="grid grid-cols-3 gap-10">
-          {testEvents.map((event, index) => {
-            return <EventCard event={event} key={index} />;
+          {events.map((currentEvent, index) => {
+            return <EventCard event={currentEvent} key={index} />;
           })}
         </div>
       </div>
@@ -79,11 +43,12 @@ Events.displayName = "Events";
 
 export function EventCard({
   event,
+  className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { event: Event }) {
   const { title, date, image, alt, description } = event;
   return (
-    <Card className={cn("w-full", props.className)} {...props}>
+    <Card className={cn("w-full", className)} {...props}>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
         <CardDescription>{date}</CardDescription>

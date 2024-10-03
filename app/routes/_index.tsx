@@ -1,5 +1,6 @@
 import type { MetaFunction } from "@remix-run/node";
 import { CallToAction, Events, Footer, Hero } from "~/components";
+import { mockEvents } from "~/mockData";
 
 export const meta: MetaFunction = () => {
   return [
@@ -16,7 +17,7 @@ export default function Index() {
     <section className="h-screen w-full">
       <Hero />
       <CallToAction />
-      <Events />
+      <Events events={mockEvents} />
       <Footer />
     </section>
   );
