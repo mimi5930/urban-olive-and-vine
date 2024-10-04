@@ -109,10 +109,15 @@ export function MenuItem({
     isVegan = false,
     isSpecial = false,
   } = item;
-  const special: React.HtmlHTMLAttributes<HTMLDivElement>["className"] =
-    isSpecial ? "border-4 border-double border-logo-green p-3" : "";
   return (
-    <div className={cn("my-4", special, className)} {...props}>
+    <div
+      className={cn(
+        "my-4",
+        isSpecial && "border-4 border-double border-logo-green p-3",
+        className,
+      )}
+      {...props}
+    >
       <div className="flex justify-between">
         <h3 className="flex gap-1 text-lg font-semibold">
           {isGlutenFree && (
