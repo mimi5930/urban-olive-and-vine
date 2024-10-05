@@ -1,12 +1,11 @@
-import { useEffect, useState } from "react";
-import { Button, buttonVariants } from "~/components/ui/button";
+import { useState } from "react";
+import { buttonVariants } from "~/components/ui/button";
 import { Calendar } from "~/components/ui/calendar";
 import { Card } from "~/components/ui/card";
 import { cn } from "~/lib/utils";
 import { mockEvents } from "../mockData";
 import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
-import picture from "../img/musician.jpg";
-import { type DayContentProps } from "react-day-picker";
+import picture from "~/img/musician.jpg";
 import {
   Accordion,
   AccordionItem,
@@ -14,7 +13,6 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import { Link } from "@remix-run/react";
-import { cva, type VariantProps } from "class-variance-authority";
 
 export default function events() {
   const [date, setDate] = useState<Date | undefined>(new Date());
@@ -104,71 +102,64 @@ export default function events() {
             onSelect={setDate}
             // !MODIFIERS!
             modifiers={{ electric: electricBananasDates }}
-            // modifiersClassNames={{ electric: "bg-red" }}
+            // modifiersStyles={{
+            //   electric: {
+            //     color: "white",
+            //   },
+            // }}
+            // modifiersClassNames={{ electric: styles.musicianDate }}
             // !
-            className="flex h-full w-full p-5"
+            className="relative flex h-full w-full p-5"
             classNames={{
-              months:
-                "flex w-full flex-col sm:flex-row space-y-4 sm:space-x-4 sm:space-y-0 flex-1",
-              month: "space-y-4 w-full flex flex-col",
-              table: "w-full h-full border-collapse space-y-1",
-              head_row: "",
-              row: "w-full mt-2",
-              cell: "",
+              months: "flex w-full flex-col space-y-4 flex-1",
+              month: "space-y-4 w-full flex flex-col ml-0",
+              month_grid: "w-full h-full border-collapse space-y-1",
+              weekdays: "",
+              week: "w-full mt-2",
+              nav: "space-x-1 flex justify-between w-full",
               caption_label: "text-xl font-medium",
-              day: cn(
+              day_button: cn(
                 buttonVariants({ variant: "ghost" }),
                 "size-24 p-0 font-normal aria-selected:opacity-100 hover:bg-feldgrau hover:text-white",
               ),
-              day_today: cn(
+              day: "relative z-20 p-0 text-center text-sm focus-within:relative focus-within:z-20 focus-within:rounded-md [&:has([aria-selected])]:bg-feldgrau [&:has([aria-selected].day-outside)]:bg-feldgrau/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
+              today: cn(
                 buttonVariants({ variant: "default" }),
-                "bg-logo-green size-24",
+                "size-24 p-0 bg-logo-green size-24 hover:bg-logo-green-800",
               ),
-              day_selected:
+              selected:
                 "bg-feldgrau text-primary-foreground hover:bg-feldgrau hover:text-primary-foreground focus:bg-feldgrau focus:text-primary-foreground",
-              head_cell: "rounded-md w-8 font-semi-bold text-lg",
-              tbody: "text-center",
+              weekday: "rounded-md w-8 font-semi-bold text-lg",
+              weeks: "text-center",
             }}
             components={{
-              IconLeft: () => <ChevronLeftIcon className="size-8" />,
-              IconRight: () => <ChevronRightIcon className="size-8" />,
-              DayContent: CustomDayContent,
+              Chevron: (props) => {
+                if (props.orientation === "left") {
+                  return <ChevronLeftIcon className="size-8" />;
+                }
+                return <ChevronRightIcon className="size-8" />;
+              },
+              Day: (props) => {
+                const { children, ...dayProps } = props;
+                return (
+                  <td {...dayProps}>
+                    {children}
+                    {dayProps.modifiers.electric && (
+                      <div className="pointer-events-none absolute top-0 size-full opacity-50">
+                        <img
+                          className="size-full object-cover blur-[2px]"
+                          src={picture}
+                          alt=""
+                        />
+                      </div>
+                    )}
+                  </td>
+                );
+              },
             }}
           />
         </Card>
       </div>
     </section>
-  );
-}
-
-export function CustomDayContent(props: DayContentProps) {
-  const dayDisplayVariants = cva(cn(buttonVariants({ variant: "ghost" }), ""), {
-    variants: {
-      variant: {
-        default:
-          "size-24 p-0 font-normal hover:bg-feldgrau hover:text-white aria-selected:opacity-100",
-        electric:
-          "size-24 p-0 font-normal hover:bg-red hover:text-white aria-selected:opacity-100",
-      },
-    },
-    defaultVariants: {
-      variant: "default",
-    },
-  });
-
-  console.log(props.activeModifiers);
-
-  const hasElectric = () => {
-    if ("electric" in props.activeModifiers) {
-      return "electric";
-    } else {
-      return "default";
-    }
-  };
-
-  return (
-    <span className={dayDisplayVariants({ variant: hasElectric() })}>
-      {props.date.getDate()}
-    </span>
   );
 }
