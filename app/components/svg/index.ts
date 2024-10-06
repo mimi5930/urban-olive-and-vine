@@ -6,3 +6,4 @@ export { default as InstagramIcon } from "./InstagramIcon";
 export { default as GlutenFreeIcon } from "./GlutenFreeIcon";
 export { default as VeganIcon } from "./VeganIcon";
 export { default as DownloadIcon } from "./DownloadIcon";
+export { default as CalendarIcon } from "./CalendarIcon";
