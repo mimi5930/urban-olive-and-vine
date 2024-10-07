@@ -11,6 +11,7 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 export type Event = {
+  id: number;
   title: string;
   date: string;
   image: string;
@@ -31,8 +32,8 @@ export default function Events({
       <h1 className="text-center text-7xl">Upcoming Events</h1>
       <div className="flex justify-center py-12">
         <div className="grid grid-cols-3 gap-10">
-          {events.map((currentEvent, index) => {
-            return <EventCard event={currentEvent} key={index} />;
+          {events.map((currentEvent) => {
+            return <EventCard event={currentEvent} key={currentEvent.id} />;
           })}
         </div>
       </div>

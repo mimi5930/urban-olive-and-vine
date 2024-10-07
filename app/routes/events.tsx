@@ -15,8 +15,8 @@ import {
   AccordionContent,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import { Link } from "@remix-run/react";
-import { Event } from "~/components/Events";
+import { Link, Outlet, useNavigate, useParams } from "@remix-run/react";
+import { type Event } from "~/components/Events";
 
 export default function events() {
   function sameDay(d1: Date, d2: Date) {
@@ -27,18 +27,40 @@ export default function events() {
     );
   }
 
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [currentEvent, setCurrentEvent] = useState<Event | undefined>(
-    mockEvents.find((event) => {
-      return sameDay(new Date(event.date), new Date());
-    }),
-  );
+  function findEventById(id: string | undefined, events: Event[]) {
+    if (!id) {
+      return undefined;
+    }
+    return events.find((event) => {
+      return event.id === Number(id);
+    });
+  }
+
+  function setAccordianLink(date: Date, title: string, events: Event[]) {
+    const event = events.find((event) => {
+      return sameDay(date, new Date(event.date)) && title === event.title;
+    });
+    return `${event?.id}`;
+  }
+
+  const { eventId } = useParams();
+  const navigate = useNavigate();
+  const currentEvent = findEventById(eventId, mockEvents);
+  const [date, setDate] = useState<Date | undefined>(() => {
+    console.log(eventId);
+    if (!eventId || !currentEvent) {
+      return new Date();
+    } else {
+      return new Date(currentEvent.date);
+    }
+  });
+
+  console.log(currentEvent);
 
   function groupObjectsByTitle(objectsArray: Event[]): {
     [key: string]: Date[];
   } {
     const groupedObjects: { [key: string]: Date[] } = {};
-
     objectsArray.forEach((obj) => {
       const dateObject = new Date(obj.date);
       if (!groupedObjects[obj.title]) {
@@ -46,7 +68,10 @@ export default function events() {
       }
       groupedObjects[obj.title].push(dateObject);
     });
-
+    // Sort the dates in ascending order for each title
+    for (const title in groupedObjects) {
+      groupedObjects[title].sort((a, b) => a.getTime() - b.getTime());
+    }
     return groupedObjects;
   }
 
@@ -55,7 +80,8 @@ export default function events() {
   return (
     <section className="mt-32 flex w-full flex-col">
       <h1 className="pb-5 text-center text-5xl">Events</h1>
-
+      {/* !Context */}
+      {/* <Outlet context={{ date: date }} /> */}
       {!currentEvent ? (
         <div className="h-[40vh]">
           <h2 className="text-center text-2xl">
@@ -107,7 +133,15 @@ export default function events() {
                 {sortedEvents[currentEvent.title].map((date, index) => {
                   return (
                     <AccordionContent key={index}>
-                      <Link className="hover:underline" to="/events">
+                      <Link
+                        className="hover:underline"
+                        to={setAccordianLink(
+                          date,
+                          currentEvent.title,
+                          mockEvents,
+                        )}
+                        onClick={() => setDate(date)}
+                      >
                         {date.toLocaleString(undefined, {
                           month: "long",
                           day: "2-digit",
@@ -128,12 +162,20 @@ export default function events() {
             required
             selected={date}
             onSelect={(date) => {
+              // see if date exists in the events array
+              const clickedEvent = mockEvents.find((event) => {
+                return sameDay(new Date(event.date), date);
+              });
+              // navigate to the event
+              if (clickedEvent) {
+                navigate(`/events/${clickedEvent.id}`, {
+                  preventScrollReset: true,
+                });
+                // or navigate to current page
+              } else {
+                navigate("/events", { preventScrollReset: true });
+              }
               setDate(date);
-              setCurrentEvent(
-                mockEvents.find((event) => {
-                  return sameDay(new Date(event.date), new Date(date));
-                }),
-              );
             }}
             modifiers={sortedEvents}
             className="relative flex h-full w-full p-5"
@@ -150,7 +192,6 @@ export default function events() {
                 "size-24 p-0 font-normal aria-selected:opacity-100 hover:bg-feldgrau hover:text-white",
               ),
               day: ":rounded-md relative z-20 p-0 text-center text-sm focus-within:relative focus-within:z-20 focus-within:rounded-md [&:has([aria-selected])]:bg-feldgrau [&:has([aria-selected].day-outside)]:bg-feldgrau/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
-
               selected:
                 "rounded-md bg-feldgrau text-primary-foreground hover:bg-feldgrau hover:text-primary-foreground focus:bg-feldgrau focus:text-primary-foreground",
               weekday: "rounded-md w-8 font-semi-bold text-lg",
@@ -158,12 +199,14 @@ export default function events() {
             }}
             components={{
               Chevron: (props) => {
+                // eslint-disable-next-line react/prop-types
                 if (props.orientation === "left") {
                   return <ChevronLeftIcon className="size-8" />;
                 }
                 return <ChevronRightIcon className="size-8" />;
               },
               Day: (props) => {
+                // eslint-disable-next-line react/prop-types
                 const { children, ...dayProps } = props;
                 let currentModifier = "";
                 Object.keys(sortedEvents).forEach((title) => {
@@ -199,7 +242,7 @@ export default function events() {
                       </div>
                     )}
                     {dayProps.modifiers.today && (
-                      <div className="border-gradient-to-r pointer-events-none absolute top-0 box-border size-full rounded-md border-4 border-logo-green"></div>
+                      <div className="pointer-events-none absolute top-0 box-border size-full rounded-sm border-4 border-logo-green"></div>
                     )}
                   </td>
                 );
