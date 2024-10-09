@@ -60,9 +60,8 @@ export function SpecialsCard({
               } = specials;
               return (
                 <li key={index}>
-                  <p className="font-bold">{name}</p>
-                  <p className="flex text-muted-foreground">
-                    {description}
+                  <div className="flex">
+                    <p className="font-bold">{name}</p>
                     {isGlutenFree && (
                       <span>
                         <GlutenFreeIcon className="ml-2 opacity-80" />
@@ -73,7 +72,8 @@ export function SpecialsCard({
                         <VeganIcon className="ml-2 opacity-80" />
                       </span>
                     )}
-                  </p>
+                  </div>
+                  <p className="text-muted-foreground">{description}</p>
                 </li>
               );
             })}

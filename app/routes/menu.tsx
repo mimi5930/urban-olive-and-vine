@@ -3,45 +3,10 @@ import { Menus, Specials } from "~/components";
 import { Button } from "~/components/ui/button";
 import { capitalizeFirstLetter } from "~/lib/utils";
 import menus from "../mockData/urban-menu.json";
+import { mockSpecials } from "~/mockData";
 
 export default function menu() {
-  const specials = {
-    soups: [
-      {
-        name: "Tomato Basil Bisque",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        isGlutenFree: true,
-      },
-      {
-        name: "Mushroom, Caramelized Onion & Brie",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        isGlutenFree: true,
-        isVegan: true,
-      },
-      {
-        name: "Mushroom, Caramelized Onion & Brie",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        isGlutenFree: true,
-        isVegan: true,
-      },
-      {
-        name: "Alphabet",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-      },
-    ],
-    quiche: [
-      {
-        name: "Quiche One",
-        description:
-          "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
-        isVegan: true,
-      },
-    ],
-  };
+  const specials = mockSpecials;
 
   return (
     <section className="flex size-full flex-col items-center">
