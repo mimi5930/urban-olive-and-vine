@@ -1,6 +1,6 @@
 import { type Event } from "~/components/Events";
 import events from "./urban-events.json";
-import picture from "~/img/sample-musician.jpg";
+// import picture from "~/img/sample-musician.jpg";
 import landScapePic from "~/img/musician.jpg";
 import specials from "./urban-specials.json";
 

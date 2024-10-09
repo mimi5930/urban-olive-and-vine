@@ -9,21 +9,26 @@ import {
 import { Button } from "~/components/ui/button";
 
 import { cn } from "~/lib/utils";
+import { CalendarIcon } from "./svg";
+import { SerializeFrom } from "@remix-run/node";
+import { Link } from "@remix-run/react";
 
+//* Type Definitions
 export type Event = {
   id: number;
   title: string;
   date: string;
   image: string;
-  alt: React.ImgHTMLAttributes<HTMLImageElement>["alt"];
+  alt: React.ComponentPropsWithoutRef<"img">["alt"];
   description: string;
 };
 
+//* Default Export
 export default function Events({
   events,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { events: Event[] }) {
+}: React.ComponentPropsWithoutRef<"div"> & { events: SerializeFrom<Event[]> }) {
   return (
     <section
       className={cn("min-h-[50vh] bg-eggshell-50 p-12", className)}
@@ -42,31 +47,41 @@ export default function Events({
 }
 Events.displayName = "Events";
 
+//* Event Card
 export function EventCard({
   event,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { event: Event }) {
-  const { title, date, image, alt, description } = event;
+}: React.HTMLAttributes<HTMLDivElement> & { event: SerializeFrom<Event> }) {
+  const { id, title, date, image, alt, description } = event;
   return (
-    <Card className={cn("w-full", className)} {...props}>
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>{date}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col items-center justify-center">
-        <div className="aspect-square h-full p-6">
-          <img
-            className="h-full w-full rounded-xl object-cover shadow-lg"
-            src={image}
-            alt={alt}
-          />
-        </div>
-        <p className="justify-self-start">{description}</p>
-      </CardContent>
-      <CardFooter className="justify-evenly">
-        <Button>Learn More</Button>
-        <Button>Add to Calendar</Button>
+    <Card
+      className={cn("relative flex w-full flex-col justify-between", className)}
+      {...props}
+    >
+      <div>
+        <CardHeader>
+          <CardTitle className="flex justify-between">
+            {title}
+            <CalendarIcon />
+          </CardTitle>
+          <CardDescription>{date}</CardDescription>
+        </CardHeader>
+        <CardContent className="flex flex-col items-center justify-center">
+          <div className="aspect-square h-full p-6">
+            <img
+              className="h-full w-full rounded-xl object-cover shadow-lg"
+              src={image}
+              alt={alt}
+            />
+          </div>
+          <p className="justify-self-start text-ellipsis">{description}</p>
+        </CardContent>
+      </div>
+      <CardFooter className="">
+        <Link to={`/events/${id}`}>
+          <Button>Learn More</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
