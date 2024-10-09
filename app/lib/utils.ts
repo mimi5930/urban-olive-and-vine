@@ -71,9 +71,13 @@ export function imageDateText(date: Date) {
   });
 }
 
-export function setAccordionLink(date: Date, title: string, events: Event[]) {
+export function findEventByDateAndTitle(
+  date: Date,
+  title: string,
+  events: Event[],
+) {
   const event = events.find((event) => {
     return sameDay(date, new Date(event.date)) && title === event.title;
   });
-  return `../${event?.id}`;
+  return `${event?.id}`;
 }

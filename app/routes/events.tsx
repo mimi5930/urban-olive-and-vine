@@ -10,6 +10,7 @@ import { type Event } from "~/components/Events";
 import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
 import { ClassNames } from "react-day-picker";
 
+// Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
   console.log("called event loader function");
 
@@ -17,19 +18,30 @@ export const loader = async (params: { params: { eventId: string } }) => {
   return json({ mockEvents, eventId });
 };
 
+//* Type defs
 export type EventOutletContextProps = {
-  date?: Date;
-  setDate?: React.Dispatch<React.SetStateAction<Date | undefined>>;
-  sortedEvents?: {
+  date: Date;
+  setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
+  sortedEvents: {
     [key: string]: Date[];
   };
+  events: SerializeFrom<Event[]>;
+  currentEvent: SerializeFrom<Event>;
+  setCurrentEvent: React.Dispatch<
+    React.SetStateAction<SerializeFrom<Event> | undefined>
+  >;
 };
 
+//* Root Export
 export default function Events() {
+  // state
   const navigate = useNavigate();
   const { mockEvents, eventId } = useLoaderData<typeof loader>();
 
-  const currentEvent = findEventById(eventId, mockEvents);
+  // modify data
+  const [currentEvent, setCurrentEvent] = useState(
+    findEventById(eventId, mockEvents),
+  );
   const [date, setDate] = useState<Date | undefined>(() => {
     console.log(eventId);
     if (!eventId || !currentEvent) {
@@ -38,16 +50,18 @@ export default function Events() {
       return new Date(currentEvent.date);
     }
   });
-
   const sortedEvents = groupObjectsByTitle(mockEvents);
 
+  // Click handler
   function calendarSelectHandler(date: Date) {
     // see if date exists in the events array
     const clickedEvent = mockEvents.find((event) => {
       return sameDay(new Date(event.date), date);
     });
+    console.log(clickedEvent ?? "there is a clicked event");
     // navigate to the event
     if (clickedEvent) {
+      setCurrentEvent(clickedEvent);
       navigate(`/events/${clickedEvent.id}`, {
         preventScrollReset: true,
       });
@@ -62,7 +76,14 @@ export default function Events() {
     <section className="mt-32 flex w-full flex-col">
       <h1 className="pb-5 text-center text-5xl">Events</h1>
       <Outlet
-        context={{ date: date, setDate: setDate, sortedEvents: sortedEvents }}
+        context={{
+          date: date,
+          setDate: setDate,
+          events: mockEvents,
+          sortedEvents: sortedEvents,
+          currentEvent: currentEvent,
+          setCurrentEvent: setCurrentEvent,
+        }}
       />
       <div className="flex justify-center">
         <Card>
@@ -82,6 +103,7 @@ export default function Events() {
   );
 }
 
+//* ClassNames for existing eleemnts in Calendar
 export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
   months: "flex w-full flex-col space-y-4 flex-1",
   month: "space-y-4 w-full flex flex-col ml-0",
@@ -101,10 +123,12 @@ export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
   weeks: "text-center",
 };
 
+//* Custom Components for Calendar
 export function calendarCustomComponents(sortedEvents: {
   [key: string]: Date[];
 }) {
   return {
+    // Chevrons
     Chevron: (props) => {
       // eslint-disable-next-line react/prop-types
       if (props.orientation === "left") {
@@ -112,6 +136,7 @@ export function calendarCustomComponents(sortedEvents: {
       }
       return <ChevronRightIcon className="size-8" />;
     },
+    // The Day component
     Day: (props) => {
       // eslint-disable-next-line react/prop-types
       const { children, ...dayProps } = props;
@@ -135,7 +160,7 @@ export function calendarCustomComponents(sortedEvents: {
         <td {...dayProps}>
           {children}
           {currentModifier && (
-            <div className="pointer-events-none absolute top-0 size-full opacity-40">
+            <div className="pointer-events-none absolute top-0 size-full opacity-30">
               <img
                 className="size-full rounded-md object-cover blur-[1px]"
                 src={currentPicture}

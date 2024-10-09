@@ -1,6 +1,6 @@
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
-import { json, Link, useLoaderData, useOutletContext } from "@remix-run/react";
+import { Link, useOutletContext } from "@remix-run/react";
 import { CalendarIcon } from "~/components/svg";
 import {
   Accordion,
@@ -9,23 +9,30 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import { EventOutletContextProps } from "./events";
-import { imageDateText, setAccordionLink, shortDateText } from "~/lib/utils";
-import { SerializeFrom } from "@remix-run/node";
+import {
+  findEventByDateAndTitle,
+  imageDateText,
+  sameDay,
+  shortDateText,
+} from "~/lib/utils";
 
-// Loader Function
-export const loader = async (params: { params: { eventId: string } }) => {
-  console.log("called eventID loader function");
-  const eventId = params.params.eventId;
-  const currentEvent = mockEvents.find((event) => {
-    return event.id === Number(eventId);
-  });
-  return json({ currentEvent, eventId });
-};
+// ! This will probably not be necessary
+// // Loader Function
+// export const loader = async (params: { params: { eventId: string } }) => {
+//   console.log("called eventID loader function");
+//   const eventId = params.params.eventId;
+//   const currentEvent = mockEvents.find((event) => {
+//     return event.id === Number(eventId);
+//   });
+//   return json({ currentEvent, eventId });
+// };
 
 // Root Export
 export default function IdEvent() {
-  const { currentEvent } = useLoaderData<typeof loader>();
-  const { setDate, sortedEvents } = useOutletContext<EventOutletContextProps>();
+  // ! Unneeded (currently) loader function
+  // const { currentEvent } = useLoaderData<typeof loader>();
+  const { setDate, sortedEvents, currentEvent, setCurrentEvent, events } =
+    useOutletContext<EventOutletContextProps>();
 
   if (currentEvent && sortedEvents && setDate)
     return (
@@ -37,6 +44,8 @@ export default function IdEvent() {
             currentEvent={currentEvent}
             sortedEvents={sortedEvents}
             setDate={setDate}
+            setCurrentEvent={setCurrentEvent}
+            events={events}
           />
         )}
       </div>
@@ -48,13 +57,12 @@ export function EventAccordion({
   currentEvent,
   sortedEvents,
   setDate,
-}: {
-  currentEvent: SerializeFrom<Event>;
-  sortedEvents: {
-    [key: string]: Date[];
-  };
-  setDate: React.Dispatch<React.SetStateAction<Date | undefined>>;
-}) {
+  setCurrentEvent,
+  events,
+}: Pick<
+  EventOutletContextProps,
+  "currentEvent" | "sortedEvents" | "setDate" | "setCurrentEvent" | "events"
+>) {
   return (
     <Accordion type="single" collapsible className="w-3/4">
       <AccordionItem value="item-1">
@@ -62,12 +70,27 @@ export function EventAccordion({
           Hear {currentEvent.title} Another Night
         </AccordionTrigger>
         {sortedEvents[currentEvent.title].map((date, index) => {
+          if (sameDay(date, new Date(currentEvent.date))) {
+            return;
+          }
+          const eventId = findEventByDateAndTitle(
+            date,
+            currentEvent.title,
+            mockEvents,
+          );
           return (
             <AccordionContent key={index}>
               <Link
                 className="hover:underline"
-                to={setAccordionLink(date, currentEvent.title, mockEvents)}
-                onClick={() => setDate(date)}
+                to={`../${eventId}`}
+                onClick={() => {
+                  setDate(date);
+                  setCurrentEvent(
+                    events[
+                      events.findIndex((event) => event.id === Number(eventId))
+                    ],
+                  );
+                }}
               >
                 {shortDateText(date)}
               </Link>
@@ -82,9 +105,7 @@ export function EventAccordion({
 // Event image and date display
 export function EventImage({
   currentEvent,
-}: {
-  currentEvent: SerializeFrom<Event>;
-}) {
+}: Pick<EventOutletContextProps, "currentEvent">) {
   return (
     <div className="relative float-left mb-5 mr-5 w-5/12">
       <img
@@ -102,9 +123,7 @@ export function EventImage({
 // event description with add to calendar
 export function EventDescription({
   currentEvent,
-}: {
-  currentEvent: SerializeFrom<Event>;
-}) {
+}: Pick<EventOutletContextProps, "currentEvent">) {
   return (
     <div>
       <div className="flex items-center gap-5">
