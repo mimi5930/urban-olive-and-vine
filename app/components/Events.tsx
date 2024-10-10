@@ -12,6 +12,7 @@ import { cn, mediumDateText } from "~/lib/utils";
 import { CalendarIcon } from "./svg";
 import { SerializeFrom } from "@remix-run/node";
 import { Link } from "@remix-run/react";
+import AddToCalendarButton from "./AddToCalendarButton";
 
 //* Type Definitions
 export type Event = {
@@ -64,7 +65,7 @@ export function EventCard({
         <CardHeader>
           <CardTitle className="flex justify-between">
             {title}
-            <CalendarIcon />
+            <AddToCalendarButton currentEvent={event} />
           </CardTitle>
           <CardDescription>
             {mediumDateText(new Date(startTime))}

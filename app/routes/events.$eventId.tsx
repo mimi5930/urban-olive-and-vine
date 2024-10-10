@@ -24,6 +24,7 @@ import {
   DropdownMenuTrigger,
 } from "~/components/ui/dropdown-menu";
 import createEventCalendarLinks from "~/lib/addToCalendar";
+import AddToCalendarButton from "~/components/AddToCalendarButton";
 
 // ! This will probably not be necessary
 // // Loader Function
@@ -133,33 +134,11 @@ export function EventImage({
 export function EventDescription({
   currentEvent,
 }: Pick<EventOutletContextProps, "currentEvent">) {
-  const calendarLinks: { [key: string]: { title: string; link: string } } =
-    createEventCalendarLinks(currentEvent);
   return (
     <div>
       <div className="flex items-center gap-5">
         <h2 className="text-2xl font-semibold">{currentEvent.title}</h2>
-        <DropdownMenu>
-          <DropdownMenuTrigger>
-            <CalendarIcon />
-          </DropdownMenuTrigger>
-          <DropdownMenuContent>
-            <DropdownMenuLabel>Add Event to</DropdownMenuLabel>
-            {Object.keys(calendarLinks).map((objKey, index) => {
-              return (
-                <Link
-                  className="hover:cursor-pointer hover:underline"
-                  to={calendarLinks[objKey].link}
-                  key={index}
-                >
-                  <DropdownMenuItem>
-                    {calendarLinks[objKey].title}
-                  </DropdownMenuItem>
-                </Link>
-              );
-            })}
-          </DropdownMenuContent>
-        </DropdownMenu>
+        <AddToCalendarButton currentEvent={currentEvent} />
       </div>
       <h2 className="text-1xl">
         {`${longDateText(new Date(currentEvent.startTime))} - ${timeDateText(new Date(currentEvent.endTime))}`}
