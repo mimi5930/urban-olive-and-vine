@@ -36,7 +36,7 @@ export function groupObjectsByTitle(objectsArray: SerializeFrom<Event[]>): {
 } {
   const groupedObjects: { [key: string]: Date[] } = {};
   objectsArray.forEach((obj) => {
-    const dateObject = new Date(obj.date);
+    const dateObject = new Date(obj.startTime);
     if (!groupedObjects[obj.title]) {
       groupedObjects[obj.title] = [];
     }
@@ -78,13 +78,19 @@ export function imageDateText(date: Date) {
   });
 }
 
+export function timeDateText(date: Date) {
+  return date.toLocaleString(undefined, {
+    timeStyle: "short",
+  });
+}
+
 export function findEventByDateAndTitle(
   date: Date,
   title: string,
   events: Event[],
 ) {
   const event = events.find((event) => {
-    return sameDay(date, new Date(event.date)) && title === event.title;
+    return sameDay(date, new Date(event.startTime)) && title === event.title;
   });
   return `${event?.id}`;
 }

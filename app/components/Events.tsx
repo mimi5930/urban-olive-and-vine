@@ -17,7 +17,8 @@ import { Link } from "@remix-run/react";
 export type Event = {
   id: number;
   title: string;
-  date: string;
+  startTime: string;
+  endTime: string;
   image: string;
   alt: React.ComponentPropsWithoutRef<"img">["alt"];
   description: string;
@@ -53,7 +54,7 @@ export function EventCard({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { event: SerializeFrom<Event> }) {
-  const { id, title, date, image, alt, description } = event;
+  const { id, title, startTime, image, alt, description } = event;
   return (
     <Card
       className={cn("relative flex w-full flex-col justify-between", className)}
@@ -65,7 +66,9 @@ export function EventCard({
             {title}
             <CalendarIcon />
           </CardTitle>
-          <CardDescription>{mediumDateText(new Date(date))}</CardDescription>
+          <CardDescription>
+            {mediumDateText(new Date(startTime))}
+          </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center">
           <div className="aspect-square h-full p-6">

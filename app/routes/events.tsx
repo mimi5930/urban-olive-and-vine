@@ -47,7 +47,7 @@ export default function Events() {
     if (!eventId || !currentEvent) {
       return new Date();
     } else {
-      return new Date(currentEvent.date);
+      return new Date(currentEvent.startTime);
     }
   });
   const sortedEvents = groupObjectsByTitle(mockEvents);
@@ -56,7 +56,7 @@ export default function Events() {
   function calendarSelectHandler(date: Date) {
     // see if date exists in the events array
     const clickedEvent = mockEvents.find((event) => {
-      return sameDay(new Date(event.date), date);
+      return sameDay(new Date(event.startTime), date);
     });
     console.log(clickedEvent ?? "there is a clicked event");
     // navigate to the event

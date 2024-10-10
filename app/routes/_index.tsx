@@ -18,9 +18,9 @@ export async function loader() {
 
   // organize events
   const organizedMockEvents = mockEvents.sort((a, b) => {
-    if (new Date(a.date) > new Date(b.date)) {
+    if (new Date(a.startTime) > new Date(b.startTime)) {
       return 1;
-    } else if (new Date(a.date) < new Date(b.date)) {
+    } else if (new Date(a.startTime) < new Date(b.startTime)) {
       return -1;
     }
     return 0;
@@ -31,7 +31,7 @@ export async function loader() {
   const filteredEvents = organizedMockEvents.filter((event) => {
     return (
       // event date
-      new Date(event.date) >
+      new Date(event.startTime) >
       // current date - 1
       new Date(currentDate.setDate(currentDate.getDate() - 1))
     );

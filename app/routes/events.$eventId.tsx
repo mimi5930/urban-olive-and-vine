@@ -14,6 +14,7 @@ import {
   longDateText,
   sameDay,
   shortDateText,
+  timeDateText,
 } from "~/lib/utils";
 import {
   DropdownMenu,
@@ -78,7 +79,7 @@ export function EventAccordion({
           Hear {currentEvent.title} Another Night
         </AccordionTrigger>
         {sortedEvents[currentEvent.title].map((date, index) => {
-          if (sameDay(date, new Date(currentEvent.date))) {
+          if (sameDay(date, new Date(currentEvent.startTime))) {
             return;
           }
           const eventId = findEventByDateAndTitle(
@@ -122,7 +123,7 @@ export function EventImage({
         alt={currentEvent.alt}
       />
       <div className="absolute right-5 top-5 rounded-sm bg-card p-4 font-semibold opacity-85">
-        {imageDateText(new Date(currentEvent.date))}
+        {imageDateText(new Date(currentEvent.startTime))}
       </div>
     </div>
   );
@@ -160,7 +161,9 @@ export function EventDescription({
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <h2 className="text-1xl">{longDateText(new Date(currentEvent.date))}</h2>
+      <h2 className="text-1xl">
+        {`${longDateText(new Date(currentEvent.startTime))} - ${timeDateText(new Date(currentEvent.endTime))}`}
+      </h2>
       <p>{currentEvent.description}</p>
     </div>
   );

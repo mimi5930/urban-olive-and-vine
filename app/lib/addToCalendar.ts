@@ -1,12 +1,20 @@
 import { SerializeFrom } from "@remix-run/node";
 import { type Event } from "../components/Events";
-import { google, outlook, office365, yahoo, ics } from "calendar-link";
+import {
+  google,
+  outlook,
+  office365,
+  yahoo,
+  ics,
+  CalendarEvent,
+} from "calendar-link";
 
 export default function createEventCalendarLinks(event: SerializeFrom<Event>) {
-  const calendarEvent = {
+  const calendarEvent: CalendarEvent = {
     title: event.title,
     description: event.description,
-    start: event.date,
+    start: event.startTime,
+    end: event.endTime,
     location: "Urban Olive & Vine, 520 2nd St, Hudson, WI 54016, USA",
   };
   return {
