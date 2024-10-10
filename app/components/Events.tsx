@@ -9,10 +9,15 @@ import {
 import { Button } from "~/components/ui/button";
 
 import { cn, mediumDateText } from "~/lib/utils";
-import { CalendarIcon } from "./svg";
 import { SerializeFrom } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import AddToCalendarButton from "./AddToCalendarButton";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
 
 //* Type Definitions
 export type Event = {
@@ -33,17 +38,22 @@ export default function Events({
 }: React.ComponentPropsWithoutRef<"div"> & { events: SerializeFrom<Event[]> }) {
   return (
     <section
-      className={cn("min-h-[50vh] bg-eggshell-50 p-12", className)}
+      className={cn("mt-10 min-h-[50vh] bg-eggshell-50 p-12", className)}
       {...props}
     >
-      <h1 className="text-center text-7xl">Upcoming Events</h1>
-      <div className="flex justify-center py-12">
-        <div className="grid grid-cols-3 gap-10">
+      <div className="flex items-center justify-center gap-5">
+        <div className="w-10 border-b-2 border-logo-brown"></div>
+        <h1 className="text-center text-7xl">Upcoming Events</h1>
+        <div className="w-10 border-b-2 border-logo-brown"></div>
+      </div>
+
+      {/* <div className="flex justify-center py-12">
+        <div className="grid w-4/5 grid-cols-3 justify-items-center gap-10">
           {events.map((currentEvent) => {
             return <EventCard event={currentEvent} key={currentEvent.id} />;
           })}
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
@@ -58,7 +68,10 @@ export function EventCard({
   const { id, title, startTime, image, alt, description } = event;
   return (
     <Card
-      className={cn("relative flex w-full flex-col justify-between", className)}
+      className={cn(
+        "relative flex w-full max-w-80 flex-col justify-between",
+        className,
+      )}
       {...props}
     >
       <div>

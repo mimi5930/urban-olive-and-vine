@@ -5,8 +5,8 @@ import { Link } from "@remix-run/react";
 
 export default function CallToAction() {
   return (
-    <section>
-      <div className="flex h-[50vh] items-center justify-evenly bg-eggshell-50 p-12">
+    <section className="h-[50vh]">
+      <div className="flex h-1/2 items-center justify-evenly bg-eggshell-50 p-12">
         <div className="w-96 shadow-2xl">
           <img
             className="h-full w-full rounded-xl object-cover"
@@ -26,7 +26,7 @@ export default function CallToAction() {
           </Link>
         </div>
       </div>
-      <div className="flex h-[40vh] flex-row-reverse items-center justify-evenly bg-eggshell-50 p-12">
+      <div className="flex h-1/2 flex-row-reverse items-center justify-evenly bg-eggshell-50 p-12">
         <div className="w-96 shadow-2xl">
           <img
             className="h-full w-full rounded-xl object-cover"
@@ -41,7 +41,9 @@ export default function CallToAction() {
             Live music on Thursday, Friday & Saturday evenings. Schedule subject
             to change. If you are interested in playing here contact Chad.
           </p>
-          <Button>Live Music</Button>
+          <Link to="/events">
+            <Button>Live Music</Button>
+          </Link>
         </div>
       </div>
     </section>

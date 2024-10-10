@@ -103,9 +103,14 @@ export default function Hero() {
 
 export function HeroContainer({ children }: ChildProps) {
   return (
-    <section className="relative mt-5 h-1/2 w-full shadow">
-      <div className="flex h-full w-full overflow-clip">{children}</div>
-    </section>
+    <>
+      <section className="relative h-[50vh] w-full shadow">
+        <div className="flex h-full w-full overflow-clip shadow-md">
+          {children}
+        </div>
+      </section>
+      <div className="mx-10 mt-5 border-t-2 border-logo-brown pt-5"></div>
+    </>
   );
 }
 
@@ -131,7 +136,7 @@ export function HeroImage({
   return (
     <img
       className={cn(
-        "h-full w-full object-cover brightness-75",
+        "h-full w-full object-cover brightness-50",
         props.className,
       )}
       {...props}

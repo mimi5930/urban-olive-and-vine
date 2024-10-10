@@ -1,6 +1,6 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
-import { CallToAction, Events, Footer, Hero } from "~/components";
+import { CallToAction, Events, Hero } from "~/components";
 import { mockEvents } from "~/mockData";
 
 export const meta: MetaFunction = () => {
@@ -44,11 +44,10 @@ export default function Index() {
   const data = useLoaderData<typeof loader>();
 
   return (
-    <section className="h-screen w-full">
+    <section className="m-h-screen w-full">
       <Hero />
       <CallToAction />
       <Events events={data} />
-      <Footer />
     </section>
   );
 }

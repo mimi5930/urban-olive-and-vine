@@ -17,7 +17,7 @@ type MenuSelection = {
   items: MenuItem[];
 };
 
-type MenuSection = {
+export type MenuSection = {
   menuTitle: string;
   menuSelections: MenuSelection[];
 };

@@ -8,28 +8,28 @@ import {
 import image from "~/img/urbanolive-logo.png";
 import { FacebookIcon, InstagramIcon } from "./svg";
 
+const navigationItems = [
+  { title: "Home", link: "/" },
+  { title: "Our Story", link: "/about" },
+  { title: "Hours & Location", link: "/location" },
+];
+
 export default function Navbar() {
   return (
-    <header className="flex justify-center">
+    <header className="mb-5 flex justify-center">
       <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
         <NavigationMenu className="relative max-w-full items-center justify-evenly">
           <div className="flex-1">
             <NavigationMenuList className="gap-4">
-              <NavigationMenuItem>
-                <Link to="/">
-                  <p>Home</p>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link to="/about">
-                  <p>Our Story</p>
-                </Link>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link to="/">
-                  <p>Contact</p>
-                </Link>
-              </NavigationMenuItem>
+              {navigationItems.map(({ title, link }, index) => {
+                return (
+                  <NavigationMenuItem key={index}>
+                    <Link to={link}>
+                      <p>{title}</p>
+                    </Link>
+                  </NavigationMenuItem>
+                );
+              })}
             </NavigationMenuList>
           </div>
           <div className="-mt-2 flex-1 self-start">
