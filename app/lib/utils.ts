@@ -57,6 +57,13 @@ export function mediumDateText(date: Date) {
   });
 }
 
+export function longDateText(date: Date) {
+  return date.toLocaleString(undefined, {
+    dateStyle: "full",
+    timeStyle: "short",
+  });
+}
+
 export function shortDateText(date: Date) {
   return date.toLocaleString(undefined, {
     month: "long",

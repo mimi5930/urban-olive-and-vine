@@ -8,7 +8,7 @@ import {
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 
-import { cn } from "~/lib/utils";
+import { cn, mediumDateText } from "~/lib/utils";
 import { CalendarIcon } from "./svg";
 import { SerializeFrom } from "@remix-run/node";
 import { Link } from "@remix-run/react";
@@ -65,7 +65,7 @@ export function EventCard({
             {title}
             <CalendarIcon />
           </CardTitle>
-          <CardDescription>{date}</CardDescription>
+          <CardDescription>{mediumDateText(new Date(date))}</CardDescription>
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center">
           <div className="aspect-square h-full p-6">
