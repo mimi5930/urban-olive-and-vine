@@ -8,9 +8,9 @@ import { Card } from "~/components/ui/card";
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
-import { ClassNames } from "react-day-picker";
+import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
 
-// Loader function
+//* Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
   console.log("called event loader function");
 
@@ -103,7 +103,7 @@ export default function Events() {
   );
 }
 
-//* ClassNames for existing eleemnts in Calendar
+//* ClassNames for existing elements in Calendar
 export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
   months: "flex w-full flex-col space-y-4 flex-1",
   month: "space-y-4 w-full flex flex-col ml-0",
@@ -127,18 +127,18 @@ export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
 export function calendarCustomComponents(sortedEvents: {
   [key: string]: Date[];
 }) {
+  // React DayPicker v9 type defs (not exported)
+
   return {
     // Chevrons
-    Chevron: (props) => {
-      // eslint-disable-next-line react/prop-types
+    Chevron: (props: ChevronProps) => {
       if (props.orientation === "left") {
         return <ChevronLeftIcon className="size-8" />;
       }
       return <ChevronRightIcon className="size-8" />;
     },
     // The Day component
-    Day: (props) => {
-      // eslint-disable-next-line react/prop-types
+    Day: (props: DayProps) => {
       const { children, ...dayProps } = props;
       let currentModifier = "";
       Object.keys(sortedEvents).forEach((title) => {
