@@ -8,7 +8,13 @@ import { Card } from "~/components/ui/card";
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
-import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
+import {
+  ChevronProps,
+  ClassNames,
+  DayProps,
+  WeekNumber,
+  WeekNumberProps,
+} from "react-day-picker";
 
 //* Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
@@ -116,7 +122,7 @@ export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
     buttonVariants({ variant: "ghost" }),
     "size-24 p-0 font-normal aria-selected:opacity-100 hover:bg-feldgrau hover:text-white",
   ),
-  day: ":rounded-md relative z-20 p-0 text-center text-sm focus-within:relative focus-within:z-20 focus-within:rounded-md [&:has([aria-selected])]:bg-feldgrau [&:has([aria-selected].day-outside)]:bg-feldgrau/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
+  day: "rounded-md relative z-50 p-0 text-center text-sm focus-within:relative focus-within:z-20 focus-within:rounded-md [&:has([aria-selected])]:bg-feldgrau [&:has([aria-selected].day-outside)]:bg-feldgrau/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
   selected:
     "rounded-md bg-feldgrau text-primary-foreground hover:bg-feldgrau hover:text-primary-foreground focus:bg-feldgrau focus:text-primary-foreground",
   weekday: "rounded-md w-8 font-semi-bold text-lg",

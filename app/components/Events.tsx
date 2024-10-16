@@ -38,13 +38,16 @@ export default function Events({
 }: React.ComponentPropsWithoutRef<"div"> & { events: SerializeFrom<Event[]> }) {
   return (
     <section
-      className={cn("mt-10 min-h-[50vh] bg-eggshell-50 p-12", className)}
+      className={cn(
+        "mt-10 min-h-[50vh] bg-feldgrau-950 p-12 shadow-2xl",
+        className,
+      )}
       {...props}
     >
-      <div className="flex items-center justify-center gap-5">
-        <div className="w-10 border-b-2 border-logo-brown"></div>
+      <div className="flex items-center justify-center gap-5 text-eggshell-50">
+        <div className="w-10 border-b-2 border-eggshell-50"></div>
         <h1 className="text-center text-7xl">Upcoming Events</h1>
-        <div className="w-10 border-b-2 border-logo-brown"></div>
+        <div className="w-10 border-b-2 border-eggshell-50"></div>
       </div>
 
       {/* <div className="flex justify-center py-12">
