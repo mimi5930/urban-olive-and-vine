@@ -7,17 +7,12 @@ import {
   CardFooter,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
+import picture from "~/img/musician.jpg";
 
-import { cn, mediumDateText } from "~/lib/utils";
+import { cn, imageDateText, mediumDateText, timeDateText } from "~/lib/utils";
 import { SerializeFrom } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import AddToCalendarButton from "./AddToCalendarButton";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./ui/accordion";
 
 //* Type Definitions
 export type Event = {
@@ -39,15 +34,42 @@ export default function Events({
   return (
     <section
       className={cn(
-        "mt-10 min-h-[50vh] bg-feldgrau-950 p-12 shadow-2xl",
+        "mt-10 flex min-h-[50vh] flex-col items-center gap-10 bg-feldgrau-950 p-12",
         className,
       )}
       {...props}
     >
       <div className="flex items-center justify-center gap-5 text-eggshell-50">
-        <div className="w-10 border-b-2 border-eggshell-50"></div>
-        <h1 className="text-center text-7xl">Upcoming Events</h1>
-        <div className="w-10 border-b-2 border-eggshell-50"></div>
+        <div className="w-10 border-b-2 border-eggshell-50" />
+        <h1 className="text-center text-7xl">
+          Upcoming <span className="text-logo-green-300">Events</span>
+        </h1>
+        <div className="w-10 border-b-2 border-eggshell-50" />
+      </div>
+      <div className="flex gap-5">
+        {events.map(({ title, startTime, endTime, id }, index) => {
+          const startTimeAsDate = new Date(startTime);
+          return (
+            <Link
+              className="flex flex-col items-center p-5 text-center text-eggshell-50 transition-transform hover:scale-105"
+              key={index}
+              to={`/events/${id}`}
+            >
+              <div className="relative size-[25vh] shadow-xl">
+                <img
+                  src={picture}
+                  alt=""
+                  className="size-full rounded-md object-cover"
+                />
+              </div>
+              {/* <div className="absolute right-1 top-1 rounded-sm bg-card p-1 font-semibold">
+                {imageDateText(startTimeAsDate)}
+              </div> */}
+              <h3>{title}</h3>
+              <p>{`${imageDateText(startTimeAsDate)} @ ${timeDateText(startTimeAsDate)}`}</p>
+            </Link>
+          );
+        })}
       </div>
 
       {/* <div className="flex justify-center py-12">
