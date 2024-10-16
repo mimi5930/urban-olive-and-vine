@@ -11,7 +11,10 @@ import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
 import {
   ChevronProps,
   ClassNames,
+  DayButton,
+  DayButtonProps,
   DayProps,
+  getDefaultClassNames,
   WeekNumber,
   WeekNumberProps,
 } from "react-day-picker";
@@ -175,7 +178,7 @@ export function calendarCustomComponents(sortedEvents: {
             </div>
           )}
           {dayProps.modifiers.today && (
-            <div className="pointer-events-none absolute top-0 box-border size-full rounded-sm border-4 border-logo-green"></div>
+            <div className="pointer-events-none absolute top-0 box-border size-full rounded-sm ring-4 ring-inset ring-logo-green-400"></div>
           )}
         </td>
       );
