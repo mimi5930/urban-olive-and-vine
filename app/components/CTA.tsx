@@ -5,7 +5,7 @@ import { Link } from "@remix-run/react";
 
 export default function CallToAction() {
   return (
-    <section className="h-[50vh]">
+    <section className="min-h-[50vh]">
       <div className="flex h-1/2 items-center justify-evenly bg-eggshell-50 p-12">
         <div className="w-96 shadow-2xl">
           <img
