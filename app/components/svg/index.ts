@@ -9,3 +9,5 @@ export { default as DownloadIcon } from "./DownloadIcon";
 export { default as CalendarIcon } from "./CalendarIcon";
 export { default as ClockIcon } from "./ClockIcon";
 export { default as CompassIcon } from "./CompassIcon";
+export { default as PhoneIcon } from "./PhoneIcon";
+export { default as MailIcon } from "./MailIcon";

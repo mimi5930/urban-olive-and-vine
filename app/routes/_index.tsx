@@ -1,14 +1,12 @@
 import { json, type MetaFunction } from "@remix-run/node";
-import { useLoaderData } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import { CallToAction, Events, Hero } from "~/components";
-import {
-  displayTime,
-  isOpenOnDay,
-  isToday,
-  parseTime,
-} from "~/lib/timeConversions";
+import { displayTime, isToday } from "~/lib/timeConversions";
 import { cn } from "~/lib/utils";
 import { mockEvents } from "~/mockData";
+import mapPic from "~/img/urban-map.png";
+import { Button } from "~/components/ui/button";
+import { CompassIcon, MailIcon, PhoneIcon } from "~/components/svg";
 
 export const meta: MetaFunction = () => {
   return [
@@ -89,6 +87,53 @@ export default function index() {
                 </div>
               );
             })}
+          </div>
+        </div>
+        <div className="flex justify-center gap-14 py-24">
+          <div className="group relative size-[30vh] overflow-clip">
+            <img
+              className="size-full rounded-md object-cover blur-[2px] transition-transform duration-500 group-hover:scale-105"
+              src={mapPic}
+              alt=""
+            />
+            <div className="absolute top-0 size-full rounded-md bg-feldgrau opacity-40 shadow-lg ring-2 ring-feldgrau brightness-50"></div>
+            <div className="absolute top-0 flex size-full flex-col items-center justify-center gap-2 p-2 text-eggshell-50">
+              <h2 className="text-3xl font-bold">Find Us</h2>
+              <CompassIcon />
+              <p className="text-center">
+                Why wait any longer? Come and join us at Urban Olive & Vine—your
+                ultimate sanctuary for delicious food, fine wines, and
+                unforgettable experiences. Dive into our vibrant atmosphere,
+                savor every moment, and let the good times flow!
+              </p>
+              <Link to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA">
+                <Button size="lg">Open in Maps</Button>
+              </Link>
+            </div>
+          </div>
+          <div className="flex size-[30vh] flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
+            <h2 className="text-3xl">Contact Us</h2>
+            <div className="flex flex-col items-center text-lg">
+              <MailIcon />
+              <span className="sr-only">Email</span>
+              <Link
+                className="hover:underline"
+                to="mailto:chadandcarol@urbanoliveandvine.com"
+              >
+                chadandcarol@urbanoliveandvine.com
+              </Link>
+            </div>
+            <div className="flex flex-col items-center text-lg">
+              <PhoneIcon />
+              <span className="sr-only">Phone Number</span>
+              <Link className="hover:underline" to="tel:7153860400">
+                715.386.0400
+              </Link>
+            </div>
+            <p className="px-4 text-center text-sm">
+              We do not accept reservations and look forward to welcoming you on
+              a first-come, first-served basis.
+            </p>
           </div>
         </div>
       </section>

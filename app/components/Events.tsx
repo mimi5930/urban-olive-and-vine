@@ -34,7 +34,7 @@ export default function Events({
   return (
     <section
       className={cn(
-        "flex min-h-[50vh] flex-col items-center gap-24 bg-feldgrau-900 p-12 pt-40",
+        "flex min-h-[50vh] flex-col items-center gap-24 bg-feldgrau-900 p-12 py-40",
         className,
       )}
       {...props}
