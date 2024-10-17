@@ -40,11 +40,23 @@ export default function Events({
       {...props}
     >
       <div className="flex items-center justify-center gap-5 text-eggshell-50">
-        <div className="w-10 border-b-2 border-eggshell-50" />
+        {/* <div className="w-10 border-b-2 border-eggshell-50" /> */}
         <h1 className="text-center text-7xl">
           Upcoming <span className="text-logo-green">Events</span>
         </h1>
-        <div className="w-10 border-b-2 border-eggshell-50" />
+        {/* <div className="w-10 border-b-2 border-eggshell-50" /> */}
+      </div>
+      <div className="text-lg text-eggshell-50">
+        <p>
+          At Urban Olive & Vine, we love to showcase the incredible talent of
+          our local artists and musicians. Our regular art exhibitions and live
+          music events create an inviting atmosphere where you can relax and let
+          the creativity flow. Come, sit back, and enjoy the vibrant sounds and
+          sights while savoring a glass of fine wine or a cup of freshly brewed
+          coffee. Whether you’re here to unwind or be inspired, our space is
+          your haven for enjoying the best of Hudson’s artistic community.
+        </p>
+        <p className="italic">Contact us if you would like to play</p>
       </div>
       <div className="flex gap-5">
         {events.map(({ title, startTime, endTime, id }, index) => {
