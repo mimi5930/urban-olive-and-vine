@@ -34,7 +34,7 @@ export default function Events({
   return (
     <section
       className={cn(
-        "mt-10 flex min-h-[50vh] flex-col items-center gap-10 bg-feldgrau-900 p-12",
+        "flex min-h-[50vh] flex-col items-center gap-24 bg-feldgrau-900 p-12 pt-40",
         className,
       )}
       {...props}
@@ -53,10 +53,16 @@ export default function Events({
           music events create an inviting atmosphere where you can relax and let
           the creativity flow. Come, sit back, and enjoy the vibrant sounds and
           sights while savoring a glass of fine wine or a cup of freshly brewed
-          coffee. Whether you’re here to unwind or be inspired, our space is
-          your haven for enjoying the best of Hudson’s artistic community.
+          coffee. Whether you&apos;re here to unwind or be inspired, our space
+          is your haven for enjoying the best of Hudson&apos;s artistic
+          community.
         </p>
-        <p className="italic">Contact us if you would like to play</p>
+        <p className="italic">
+          <Link className="underline" to="#">
+            Contact us
+          </Link>{" "}
+          if you would like to play
+        </p>
       </div>
       <div className="flex gap-5">
         {events.map(({ title, startTime, endTime, id }, index) => {
