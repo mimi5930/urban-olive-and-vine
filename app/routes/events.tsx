@@ -8,16 +8,7 @@ import { Card } from "~/components/ui/card";
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
-import {
-  ChevronProps,
-  ClassNames,
-  DayButton,
-  DayButtonProps,
-  DayProps,
-  getDefaultClassNames,
-  WeekNumber,
-  WeekNumberProps,
-} from "react-day-picker";
+import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
 
 //* Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
@@ -136,8 +127,6 @@ export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
 export function calendarCustomComponents(sortedEvents: {
   [key: string]: Date[];
 }) {
-  // React DayPicker v9 type defs (not exported)
-
   return {
     // Chevrons
     Chevron: (props: ChevronProps) => {
@@ -178,7 +167,7 @@ export function calendarCustomComponents(sortedEvents: {
             </div>
           )}
           {dayProps.modifiers.today && (
-            <div className="pointer-events-none absolute top-0 box-border size-full rounded-sm ring-4 ring-inset ring-logo-green-400"></div>
+            <div className="pointer-events-none absolute top-0 box-border size-full rounded-sm ring-4 ring-inset ring-logo-green-200"></div>
           )}
         </td>
       );

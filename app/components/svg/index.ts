@@ -7,3 +7,5 @@ export { default as GlutenFreeIcon } from "./GlutenFreeIcon";
 export { default as VeganIcon } from "./VeganIcon";
 export { default as DownloadIcon } from "./DownloadIcon";
 export { default as CalendarIcon } from "./CalendarIcon";
+export { default as ClockIcon } from "./ClockIcon";
+export { default as CompassIcon } from "./CompassIcon";

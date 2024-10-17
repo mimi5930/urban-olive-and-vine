@@ -34,7 +34,7 @@ export default function Events({
   return (
     <section
       className={cn(
-        "mt-10 flex min-h-[50vh] flex-col items-center gap-10 bg-feldgrau-950 p-12",
+        "mt-10 flex min-h-[50vh] flex-col items-center gap-10 bg-feldgrau-900 p-12",
         className,
       )}
       {...props}
@@ -42,7 +42,7 @@ export default function Events({
       <div className="flex items-center justify-center gap-5 text-eggshell-50">
         <div className="w-10 border-b-2 border-eggshell-50" />
         <h1 className="text-center text-7xl">
-          Upcoming <span className="text-logo-green-300">Events</span>
+          Upcoming <span className="text-logo-green">Events</span>
         </h1>
         <div className="w-10 border-b-2 border-eggshell-50" />
       </div>
