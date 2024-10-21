@@ -11,3 +11,4 @@ export { default as ClockIcon } from "./ClockIcon";
 export { default as CompassIcon } from "./CompassIcon";
 export { default as PhoneIcon } from "./PhoneIcon";
 export { default as MailIcon } from "./MailIcon";
+export { default as HamburgerIcon } from "./HamburgerIcon";
