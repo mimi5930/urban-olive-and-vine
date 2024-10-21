@@ -1,27 +1,32 @@
 import { ImageHeadingText } from "~/components";
-import { Card, CardContent } from "~/components/ui/card";
+import { Card, CardContent, CardHeader } from "~/components/ui/card";
 import urbanImage from "~/img/urban-outside.jpg";
 
 export default function about() {
   return (
-    <section className="min-h-screen">
-      <div className="relative h-[50vh] w-full">
-        <img
-          className="absolute size-full object-cover brightness-50"
-          src={urbanImage}
-          alt="An outside view of Urban Olive and Vine"
-        />
-        <ImageHeadingText className="absolute top-1/2 w-full -translate-y-1/2 transform text-center">
-          Nurture Your Senses
+    <section>
+      <div className="relative h-[50vh] w-full bg-feldgrau">
+        <ImageHeadingText className="absolute mt-32 w-full text-center">
+          About Us
         </ImageHeadingText>
       </div>
-      <div className="z-20 mx-10 border-b-2 border-logo-brown pt-5"></div>
-      <div className="flex h-[50vh] items-center justify-center">
-        <Card className="z-10 w-4/5 shadow-md">
+      <div className="flex items-center justify-center">
+        <Card className="z-10 -mt-[30vh] mb-40 w-2/3 border-none shadow-lg">
+          <CardHeader>
+            <div className="relative h-1/4 w-full">
+              <img
+                className="absoulte size-full rounded-md object-cover shadow-md"
+                src={urbanImage}
+                alt="An outside view of Urban Olive and Vine"
+              />
+            </div>
+          </CardHeader>
           <CardContent className="p-5 text-lg [&_*]:py-2.5">
             <p>
-              <span className="font-semibold">More than just a bistro,</span> we
-              created Urban Olive & Vine to be a place where you can nurture
+              <span className="text-2xl font-semibold">
+                More than just a bistro,
+              </span>{" "}
+              we created Urban Olive & Vine to be a place where you can nurture
               your senses and creativity through great food, fine wine, live
               music, local art and merchandise, and events like painting classes
               with Audrey Martin. Nestled in the heart of Hudson, Urban Olive &
