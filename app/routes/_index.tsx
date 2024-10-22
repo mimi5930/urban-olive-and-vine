@@ -90,13 +90,13 @@ export default function index() {
           </div>
         </div>
         <div className="flex justify-center gap-14 py-24">
-          <div className="group relative size-[30vh] overflow-clip">
+          <div className="group relative w-1/3 overflow-clip rounded-md">
             <img
-              className="size-full rounded-md object-cover blur-[2px] transition-transform duration-500 group-hover:scale-105"
+              className="size-full object-cover blur-[2px] transition-transform duration-500 group-hover:scale-105"
               src={mapPic}
               alt=""
             />
-            <div className="absolute top-0 size-full rounded-md bg-feldgrau opacity-40 shadow-lg ring-2 ring-feldgrau brightness-50"></div>
+            <div className="absolute top-0 size-full bg-feldgrau opacity-40 shadow-lg ring-2 ring-feldgrau brightness-50"></div>
             <div className="absolute top-0 flex size-full flex-col items-center justify-center gap-2 p-2 text-eggshell-50">
               <h2 className="text-3xl font-bold">Find Us</h2>
               <CompassIcon />
@@ -111,7 +111,7 @@ export default function index() {
               </Link>
             </div>
           </div>
-          <div className="flex size-[30vh] flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
+          <div className="flex w-1/3 flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
             <h2 className="text-3xl">Contact Us</h2>
             <div className="flex flex-col items-center text-lg">
               <MailIcon />
