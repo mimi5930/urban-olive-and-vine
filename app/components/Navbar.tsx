@@ -60,7 +60,7 @@ const socials: NavigationItem[] = [
   },
 ];
 
-export default function Navbar() {
+export default function navbar() {
   const allNavigation: NavigationItem[] =
     navigationItems.concat(navigationButtons);
   const [sheetOpen, setSheetOpen] = useState<boolean>(false);
@@ -69,63 +69,7 @@ export default function Navbar() {
     <header className="mb-5 flex justify-center">
       <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
         <NavigationMenu className="relative max-w-full items-center justify-between">
-          <div className="-mt-2 flex-1 self-start">
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <Link to="/">
-                  <img
-                    src={image}
-                    alt="Urban Olive and Vine logo"
-                    className="rounded-xl bg-eggshell p-5 shadow-md"
-                  />
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </div>
-          <div>
-            <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
-              <SheetTrigger onClick={() => setSheetOpen(!sheetOpen)}>
-                <HamburgerIcon />
-              </SheetTrigger>
-              <SheetContent className="flex items-center justify-center bg-eggshell-50">
-                <NavigationMenuList className="flex flex-col gap-14 space-x-0">
-                  {allNavigation.map(({ link, title, icon }, index) => {
-                    return (
-                      <NavigationMenuItem key={index}>
-                        <Link
-                          className="flex items-center gap-2 text-3xl"
-                          to={link}
-                          onClick={() => setSheetOpen(!sheetOpen)}
-                        >
-                          {icon}
-                          <p className="flex">{title}</p>
-                        </Link>
-                      </NavigationMenuItem>
-                    );
-                  })}
-                  <div className="mt-10 flex gap-12 text-3xl">
-                    {socials.map((social, index) => {
-                      return (
-                        <NavigationMenuItem key={index}>
-                          <Link to={social.link}>{social.icon}</Link>
-                        </NavigationMenuItem>
-                      );
-                    })}
-                  </div>
-                </NavigationMenuList>
-              </SheetContent>
-            </Sheet>
-          </div>
-        </NavigationMenu>
-      </div>
-    </header>
-  );
-
-  return (
-    <header className="mb-5 flex justify-center">
-      <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
-        <NavigationMenu className="relative max-w-full items-center justify-evenly">
-          <div className="flex-1">
+          <div className="hidden flex-1 lg:block">
             <NavigationMenuList className="gap-4">
               {navigationItems.map(({ title, link }, index) => {
                 return (
@@ -151,7 +95,7 @@ export default function Navbar() {
               </NavigationMenuItem>
             </NavigationMenuList>
           </div>
-          <div className="flex-1">
+          <div className="hidden flex-1 lg:block">
             <NavigationMenuList className="gap-4">
               {navigationButtons.map(({ link, buttonProps, title }, index) => {
                 return (
@@ -169,7 +113,41 @@ export default function Navbar() {
               })}
             </NavigationMenuList>
           </div>
-          <div className="group absolute right-0 top-0 flex h-full items-center gap-2">
+          <div className="lg:hidden">
+            <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
+              <SheetTrigger onClick={() => setSheetOpen(!sheetOpen)}>
+                <HamburgerIcon />
+              </SheetTrigger>
+              <SheetContent className="flex items-center justify-center bg-eggshell-50">
+                <NavigationMenuList className="flex flex-col gap-14 space-x-0">
+                  {allNavigation.map(({ link, title, icon }, index) => {
+                    return (
+                      <NavigationMenuItem key={index}>
+                        <Link
+                          className="flex items-center gap-2 text-3xl"
+                          to={link}
+                          onClick={() => setSheetOpen(!sheetOpen)}
+                        >
+                          {icon}
+                          <p className="flex">{title}</p>
+                        </Link>
+                      </NavigationMenuItem>
+                    );
+                  })}
+                  <div className="mt-10 flex gap-12 text-3xl">
+                    {socials.map(({ link, icon }, index) => {
+                      return (
+                        <NavigationMenuItem key={index}>
+                          <Link to={link}>{icon}</Link>
+                        </NavigationMenuItem>
+                      );
+                    })}
+                  </div>
+                </NavigationMenuList>
+              </SheetContent>
+            </Sheet>
+          </div>
+          <div className="group absolute right-0 top-0 hidden h-full items-center gap-2 lg:flex">
             {socials.map(({ link, title, icon }, index) => {
               return (
                 <Link to={link} key={index}>
