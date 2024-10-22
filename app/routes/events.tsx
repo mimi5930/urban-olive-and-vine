@@ -73,6 +73,45 @@ export default function Events() {
   }
 
   return (
+    <section className="my-32 flex flex-col">
+      <h1 className="pb-10 text-center text-5xl">Event Calendar</h1>
+      <div className="flex justify-center">
+        <Card>
+          <Calendar
+            mode="single"
+            required
+            selected={date}
+            onSelect={(date) => calendarSelectHandler(date)}
+            modifiers={sortedEvents}
+            className="relative flex h-full w-full p-5"
+            classNames={calendarCustomClassNames}
+            components={calendarCustomComponents(sortedEvents)}
+          />
+        </Card>
+      </div>
+      <div>
+        {mockEvents.map((event, index) => {
+          return (
+            <article key={index} className="p-10 px-[10%]">
+              <div className="flex items-center justify-between">
+                <h2 className="text-3xl font-bold">
+                  {event.title.toUpperCase()}
+                </h2>
+                <div className="bg-feldgrau p-5 text-2xl font-bold text-eggshell-50">
+                  {new Date(event.startTime).toLocaleString(undefined, {
+                    dateStyle: "medium",
+                  })}
+                </div>
+              </div>
+              <p>{event.description}</p>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+
+  return (
     <section className="mt-32 flex w-full flex-col">
       <h1 className="pb-5 text-center text-5xl">Events</h1>
       <Outlet
