@@ -12,3 +12,7 @@ export { default as CompassIcon } from "./CompassIcon";
 export { default as PhoneIcon } from "./PhoneIcon";
 export { default as MailIcon } from "./MailIcon";
 export { default as HamburgerIcon } from "./HamburgerIcon";
+export { default as ForkAndKnifeIcon } from "./ForkAndKnifeIcon";
+export { default as HomeIcon } from "./HomeIcon";
+export { default as InfoIcon } from "./InfoIcon";
+export { default as MusicIcon } from "./MusicIcon";
