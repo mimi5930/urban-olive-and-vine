@@ -3,13 +3,13 @@ import {
   DropdownMenu,
   DropdownMenuTrigger,
   DropdownMenuContent,
-  DropdownMenuLabel,
   DropdownMenuItem,
 } from "./ui/dropdown-menu";
 import { CalendarIcon } from "./svg";
 import { type Event } from "./Events";
 import createEventCalendarLinks from "~/lib/addToCalendar";
 import { SerializeFrom } from "@remix-run/node";
+import { Button } from "./ui/button";
 
 export default function AddToCalendarButton({
   currentEvent,
@@ -21,10 +21,12 @@ export default function AddToCalendarButton({
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <CalendarIcon />
+        <Button className="mt-5 flex gap-2">
+          <CalendarIcon />
+          <p>Save Event</p>
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>Add Event to</DropdownMenuLabel>
         {Object.keys(calendarLinks).map((objKey, index) => {
           return (
             <Link
