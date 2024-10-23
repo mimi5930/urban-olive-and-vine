@@ -9,13 +9,20 @@ import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
 import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
+import { Badge } from "~/components/ui/badge";
+import { isToday } from "~/lib/timeConversions";
 
 //* Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
   console.log("called event loader function");
-
+  // sort events by date
+  const sortEvents = mockEvents.sort(
+    ({ startTime }, { startTime: bStartTime }) =>
+      new Date(startTime).getTime() - new Date(bStartTime).getTime(),
+  );
+  // TODO: Chang this?
   const eventId = params.params.eventId;
-  return json({ mockEvents, eventId });
+  return json({ mockEvents: sortEvents, eventId });
 };
 
 //* Type defs
@@ -43,7 +50,6 @@ export default function Events() {
     findEventById(eventId, mockEvents),
   );
   const [date, setDate] = useState<Date | undefined>(() => {
-    console.log(eventId);
     if (!eventId || !currentEvent) {
       return new Date();
     } else {
@@ -93,7 +99,12 @@ export default function Events() {
         {mockEvents.map((event, index) => {
           return (
             <article key={index} className="p-10 px-[10%]">
-              <div className="flex items-center justify-between">
+              <div className="relative flex items-center justify-between">
+                {isToday(null, event.startTime) ? (
+                  <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
+                    Tonight!
+                  </Badge>
+                ) : null}
                 <h2 className="text-3xl font-bold">
                   {event.title.toUpperCase()}
                 </h2>
