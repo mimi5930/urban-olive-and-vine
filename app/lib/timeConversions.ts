@@ -9,8 +9,18 @@ function convertMinutesToString(minutes: number) {
   return minutes.toString().padStart(2, "0");
 }
 
-export function isToday(day: string) {
+export function isToday(
+  weekDayString: null | string,
+  normalDateString: null | string,
+) {
   const now = new Date();
   const currentDay = now.toLocaleString("en-US", { weekday: "long" });
-  return day.toLowerCase() === currentDay.toLowerCase();
+  if (weekDayString)
+    return weekDayString.toLowerCase() === currentDay.toLowerCase();
+  if (normalDateString)
+    return (
+      new Date(normalDateString).getMonth() === now.getMonth() &&
+      new Date(normalDateString).getDate() === now.getDate() &&
+      new Date(normalDateString).getFullYear() === now.getFullYear()
+    );
 }
