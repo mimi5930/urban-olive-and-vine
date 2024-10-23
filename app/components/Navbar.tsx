@@ -31,7 +31,7 @@ type NavigationItem = {
 const navigationItems: NavigationItem[] = [
   { title: "Home", link: "/", icon: <HomeIcon /> },
   { title: "Our Story", link: "/about", icon: <InfoIcon /> },
-  { title: "Hours & Location", link: "/location", icon: <CompassIcon /> },
+  { title: "Hours & Location", link: "/#location", icon: <CompassIcon /> },
 ];
 
 const navigationButtons: NavigationItem[] = [

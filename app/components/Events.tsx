@@ -58,7 +58,7 @@ export default function Events({
           community.
         </p>
         <p className="italic">
-          <Link className="underline" to="#">
+          <Link className="underline" to="#location">
             Contact us
           </Link>{" "}
           if you would like to play
