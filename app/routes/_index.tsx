@@ -64,21 +64,23 @@ export default function index() {
       <Hero />
       <CallToAction />
       <Events events={data} />
-      <section className="min-h-[40vh] p-10">
+      <section className="min-h-[40vh] p-10" id="location">
         <div className="my-10">
-          <h2 className="mb-5 text-center text-5xl">Hours</h2>
-          <div className="flex justify-center gap-5">
+          <h2 className="mb-12 text-center text-5xl lg:mb-6">Hours</h2>
+          <div className="flex flex-col items-center justify-center gap-5 lg:flex-row">
             {Object.keys(hours).map((day, index) => {
               const { open, close } = hours[day];
               return (
                 <div
                   key={index}
                   className={cn(
-                    "flex flex-col p-2.5",
-                    isToday(day) ? "text-logo-green" : "opacity-80",
+                    "flex flex-col items-center gap-2 p-2.5 lg:items-start lg:gap-0",
+                    isToday(day, null) ? "text-logo-green" : "opacity-80",
                   )}
                 >
-                  <p className="text-xl font-semibold">{day.toUpperCase()}</p>
+                  <p className="text-2xl font-semibold lg:text-xl">
+                    {day.toUpperCase()}
+                  </p>
                   <p className="text-md">
                     {open && close
                       ? `${displayTime(open)} - ${displayTime(close)}`
@@ -90,7 +92,7 @@ export default function index() {
           </div>
         </div>
         <div className="flex justify-center gap-14 py-24">
-          <div className="group relative w-1/3 overflow-clip rounded-md">
+          <div className="group relative w-1/3 max-w-lg overflow-clip rounded-md">
             <img
               className="size-full object-cover blur-[2px] transition-transform duration-500 group-hover:scale-105"
               src={mapPic}
@@ -99,7 +101,15 @@ export default function index() {
             <div className="absolute top-0 size-full bg-feldgrau opacity-40 shadow-lg ring-2 ring-feldgrau brightness-50"></div>
             <div className="absolute top-0 flex size-full flex-col items-center justify-center gap-2 p-2 text-eggshell-50">
               <h2 className="text-3xl font-bold">Find Us</h2>
-              <CompassIcon />
+              <Link
+                className="group/link flex gap-2"
+                to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
+              >
+                <CompassIcon />
+                <p className="group-hover/link:underline">
+                  520 2nd St, Hudson, WI 54016
+                </p>
+              </Link>
               <p className="text-center">
                 Why wait any longer? Come and join us at Urban Olive & Vine—your
                 ultimate sanctuary for delicious food, fine wines, and
@@ -111,7 +121,7 @@ export default function index() {
               </Link>
             </div>
           </div>
-          <div className="flex w-1/3 flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
+          <div className="flex w-1/3 max-w-lg flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
             <h2 className="text-3xl">Contact Us</h2>
             <div className="flex flex-col items-center text-lg">
               <MailIcon />
