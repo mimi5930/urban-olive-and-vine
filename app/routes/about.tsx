@@ -11,7 +11,7 @@ export default function about() {
         </ImageHeadingText>
       </div>
       <div className="flex items-center justify-center">
-        <Card className="z-10 -mt-[30vh] mb-40 w-2/3 border-none shadow-lg">
+        <Card className="z-10 -mt-[30vh] mb-40 w-2/3 max-w-5xl border-none shadow-lg">
           <CardHeader>
             <div className="relative h-1/4 w-full">
               <img
