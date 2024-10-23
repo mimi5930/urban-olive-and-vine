@@ -91,8 +91,8 @@ export default function index() {
             })}
           </div>
         </div>
-        <div className="flex justify-center gap-14 py-24">
-          <div className="group relative w-1/3 max-w-lg overflow-clip rounded-md">
+        <div className="flex flex-col items-center justify-center gap-14 py-24 lg:flex-row lg:items-stretch">
+          <div className="group relative h-[31.25rem] max-w-lg overflow-clip rounded-md lg:h-auto lg:w-1/3">
             <img
               className="size-full object-cover blur-[2px] transition-transform duration-500 group-hover:scale-105"
               src={mapPic}
@@ -121,7 +121,7 @@ export default function index() {
               </Link>
             </div>
           </div>
-          <div className="flex w-1/3 max-w-lg flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau">
+          <div className="flex h-[31.25rem] max-w-lg flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau lg:h-auto lg:w-1/3">
             <h2 className="text-3xl">Contact Us</h2>
             <div className="flex flex-col items-center text-lg">
               <MailIcon />
