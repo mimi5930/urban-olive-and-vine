@@ -1,16 +1,35 @@
 import { SerializeFrom } from "@remix-run/node";
-import { json, Outlet, useLoaderData, useNavigate } from "@remix-run/react";
-import { useState } from "react";
+import {
+  json,
+  Outlet,
+  useLoaderData,
+  useNavigate,
+  useSearchParams,
+} from "@remix-run/react";
+import { useEffect, useRef, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
 import { buttonVariants } from "~/components/ui/button";
 import { Calendar } from "~/components/ui/calendar";
 import { Card } from "~/components/ui/card";
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
-import { cn, findEventById, groupObjectsByTitle, sameDay } from "~/lib/utils";
+import {
+  cn,
+  findEventById,
+  groupObjectsByTitle,
+  sameDay,
+  timeDateText,
+} from "~/lib/utils";
 import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
 import { Badge } from "~/components/ui/badge";
 import { isToday } from "~/lib/timeConversions";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "~/components/ui/accordion";
+import AddToCalendarButton from "~/components/AddToCalendarButton";
 
 //* Loader function
 export const loader = async (params: { params: { eventId: string } }) => {
@@ -22,7 +41,7 @@ export const loader = async (params: { params: { eventId: string } }) => {
   );
   // TODO: Chang this?
   const eventId = params.params.eventId;
-  return json({ mockEvents: sortEvents, eventId });
+  return json({ eventsData: sortEvents, eventId });
 };
 
 //* Type defs
@@ -43,11 +62,32 @@ export type EventOutletContextProps = {
 export default function Events() {
   // state
   const navigate = useNavigate();
-  const { mockEvents, eventId } = useLoaderData<typeof loader>();
+  const { eventsData, eventId } = useLoaderData<typeof loader>();
+  const [searchParams] = useSearchParams();
+  const itemsRef = useRef<Map<string, HTMLElement | null>>(new Map());
+
+  useEffect(() => {
+    const eventId = searchParams.get("event");
+
+    function scrollToEvent(event: string) {
+      const map = getMap();
+      const node = map.get(event);
+      if (node) {
+        node.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    }
+
+    if (eventId) {
+      scrollToEvent(eventId);
+    }
+    return;
+  }, [searchParams]);
 
   // modify data
   const [currentEvent, setCurrentEvent] = useState(
-    findEventById(eventId, mockEvents),
+    findEventById(eventId, eventsData),
   );
   const [date, setDate] = useState<Date | undefined>(() => {
     if (!eventId || !currentEvent) {
@@ -56,26 +96,31 @@ export default function Events() {
       return new Date(currentEvent.startTime);
     }
   });
-  const sortedEvents = groupObjectsByTitle(mockEvents);
+  const sortedEvents = groupObjectsByTitle(eventsData);
 
   // Click handler
   function calendarSelectHandler(date: Date) {
     // see if date exists in the events array
-    const clickedEvent = mockEvents.find((event) => {
+    const clickedEvent = eventsData.find((event) => {
       return sameDay(new Date(event.startTime), date);
     });
-    console.log(clickedEvent ?? "there is a clicked event");
     // navigate to the event
     if (clickedEvent) {
-      setCurrentEvent(clickedEvent);
-      navigate(`/events/${clickedEvent.id}`, {
-        preventScrollReset: true,
-      });
+      navigate(
+        { pathname: "/events", search: "?event=" + clickedEvent.id },
+        {
+          preventScrollReset: true,
+        },
+      );
       // or navigate to current page
     } else {
       navigate("/events", { preventScrollReset: true });
     }
     setDate(date);
+  }
+
+  function getMap(): Map<string, HTMLElement | null> {
+    return itemsRef.current;
   }
 
   return (
@@ -95,26 +140,67 @@ export default function Events() {
           />
         </Card>
       </div>
-      <div>
-        {mockEvents.map((event, index) => {
+      <div className="my-24">
+        {eventsData.map((event, index) => {
           return (
-            <article key={index} className="p-10 px-[10%]">
-              <div className="relative flex items-center justify-between">
-                {isToday(null, event.startTime) ? (
-                  <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
-                    Tonight!
-                  </Badge>
-                ) : null}
-                <h2 className="text-3xl font-bold">
-                  {event.title.toUpperCase()}
-                </h2>
-                <div className="bg-feldgrau p-5 text-2xl font-bold text-eggshell-50">
-                  {new Date(event.startTime).toLocaleString(undefined, {
-                    dateStyle: "medium",
-                  })}
+            <article
+              key={index}
+              ref={(node) => {
+                const map = getMap();
+                if (node) {
+                  map.set(event.id.toString(), node);
+                } else {
+                  map.delete(event.id.toString());
+                }
+              }}
+              id={event.id.toString()}
+              className="m-auto flex max-w-7xl flex-col gap-2 p-10"
+            >
+              <div className="flex flex-col gap-3 p-10">
+                <div className="relative flex items-center justify-between">
+                  {isToday(null, event.startTime) ? (
+                    <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
+                      Tonight!
+                    </Badge>
+                  ) : null}
+                  <h2 className="text-3xl font-bold">
+                    {event.title.toUpperCase()}
+                  </h2>
+                  <div className="bg-feldgrau p-5 text-2xl font-bold text-eggshell-50">
+                    {new Date(event.startTime).toLocaleString(undefined, {
+                      dateStyle: "medium",
+                    })}
+                  </div>
                 </div>
+                <div className="flex flex-col-reverse">
+                  <Accordion className="peer" type="single" collapsible>
+                    <AccordionItem className="peer" value="show more">
+                      <AccordionContent>
+                        <AddToCalendarButton currentEvent={event} />
+                      </AccordionContent>
+                      <AccordionTrigger className="[&>svg]:rotate-180 [&[data-state=open]>svg]:rotate-0">
+                        Show more
+                      </AccordionTrigger>
+                    </AccordionItem>
+                  </Accordion>
+                  <p className="description line-clamp-3 max-w-[75%] peer-has-[*[data-state=open]]:line-clamp-none">
+                    {event.description}
+                  </p>
+                </div>
+                <p className="flex gap-2 text-xl text-logo-green">
+                  <span className="font-semibold text-black">
+                    Happening from:
+                  </span>
+                  {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
+                </p>
               </div>
-              <p>{event.description}</p>
+              <div className="m-auto h-[35vh] w-3/4">
+                <img
+                  className="size-full rounded-lg object-contain"
+                  src={event.image}
+                  alt={event.alt}
+                />
+              </div>
             </article>
           );
         })}

@@ -65,13 +65,13 @@ export default function Events({
         </p>
       </div>
       <div className="flex gap-5">
-        {events.map(({ title, startTime, endTime, id }, index) => {
+        {events.map(({ title, startTime, id }, index) => {
           const startTimeAsDate = new Date(startTime);
           return (
             <Link
               className="flex flex-col items-center p-5 text-center text-eggshell-50 transition-transform hover:scale-105"
               key={index}
-              to={`/events/${id}`}
+              to={`/events/?event=${id}`}
             >
               <div className="relative size-[25vh] shadow-xl">
                 <img
@@ -139,7 +139,7 @@ export function EventCard({
         </CardContent>
       </div>
       <CardFooter className="">
-        <Link to={`/events/${id}`}>
+        <Link to={`/events/?event=${id}`}>
           <Button>Learn More</Button>
         </Link>
       </CardFooter>
