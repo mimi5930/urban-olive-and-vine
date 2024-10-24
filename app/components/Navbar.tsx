@@ -9,7 +9,7 @@ import image from "~/img/urbanolive-logo.png";
 import {
   CompassIcon,
   FacebookIcon,
-  ForkAndKnifeIcon,
+  FoodMenuIcon,
   HamburgerIcon,
   HomeIcon,
   InfoIcon,
@@ -35,7 +35,7 @@ const navigationItems: NavigationItem[] = [
 ];
 
 const navigationButtons: NavigationItem[] = [
-  { title: "Menus", link: "/menu", icon: <ForkAndKnifeIcon /> },
+  { title: "Menus", link: "/menu", icon: <FoodMenuIcon /> },
   {
     title: "Live Music",
     link: "/events",
@@ -60,7 +60,7 @@ const socials: NavigationItem[] = [
   },
 ];
 
-export default function navbar() {
+export default function Navbar() {
   const allNavigation: NavigationItem[] =
     navigationItems.concat(navigationButtons);
   const [sheetOpen, setSheetOpen] = useState<boolean>(false);

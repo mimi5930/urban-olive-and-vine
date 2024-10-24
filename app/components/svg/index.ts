@@ -16,3 +16,4 @@ export { default as ForkAndKnifeIcon } from "./ForkAndKnifeIcon";
 export { default as HomeIcon } from "./HomeIcon";
 export { default as InfoIcon } from "./InfoIcon";
 export { default as MusicIcon } from "./MusicIcon";
+export { default as FoodMenuIcon } from "./FoodMenuIcon";
