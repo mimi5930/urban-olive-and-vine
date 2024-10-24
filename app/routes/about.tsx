@@ -5,7 +5,7 @@ import urbanImage from "~/img/urban-outside.jpg";
 export default function about() {
   return (
     <section>
-      <div className="relative h-[50vh] w-full bg-feldgrau">
+      <div className="relative h-[50vh] w-full bg-feldgrau-900">
         <ImageHeadingText className="absolute mt-32 w-full text-center">
           About Us
         </ImageHeadingText>

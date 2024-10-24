@@ -17,9 +17,8 @@ export default function VeganIcon({
         cx="256"
         cy="256"
         r="220"
-        fill="black"
         strokeWidth="25"
-        stroke="black"
+        className="fill-feldgrau-400 stroke-feldgrau-400"
       />
       <path fill="white" d="m140 120h44l72 225 72-225h44l-90 265h-52z" />
     </svg>

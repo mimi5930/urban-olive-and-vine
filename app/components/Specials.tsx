@@ -22,9 +22,17 @@ export default function SpecialsContainer({
   specials: Specials;
 }) {
   return (
-    <div className={cn("mt-32 flex w-full flex-col", className)} {...props}>
-      <h1 className="text-center text-5xl">Today&apos;s Specials</h1>
-      <div className="mt-5 flex justify-center gap-5">
+    <div
+      className={cn(
+        "flex w-full flex-col bg-feldgrau-900 pb-28 pt-32",
+        className,
+      )}
+      {...props}
+    >
+      <h1 className="text-center text-5xl text-eggshell-50">
+        Today&apos;s <span className="text-logo-green">Specials</span>
+      </h1>
+      <div className="mt-28 flex justify-center gap-8">
         <SpecialsCard cardTitle="Daily Soup" specialsInfo={specials.soups} />
         <SpecialsCard cardTitle="Daily Quiche" specialsInfo={specials.quiche} />
       </div>
@@ -42,9 +50,9 @@ export function SpecialsCard({
   specialsInfo: SpecialsInfo[];
 }) {
   return (
-    <Card className={cn("w-[40%]", className)} {...props}>
+    <Card className={cn("max-w-lg shadow-xl", className)} {...props}>
       <CardHeader>
-        <CardTitle className="text-center">{cardTitle}:</CardTitle>
+        <CardTitle className="text-center text-xl">{cardTitle}:</CardTitle>
       </CardHeader>
       <CardContent>
         {!specialsInfo.length ? (
@@ -61,7 +69,7 @@ export function SpecialsCard({
               return (
                 <li key={index}>
                   <div className="flex">
-                    <p className="font-bold">{name}</p>
+                    <p className="font-bold capitalize">{name}</p>
                     {isGlutenFree && (
                       <span>
                         <GlutenFreeIcon className="ml-2 opacity-80" />

@@ -7,13 +7,14 @@ export default function GlutenFreeIcon({
   return (
     <svg
       aria-label="Gluten Free"
-      className={cn("fill-black", className)}
+      className={cn("fill-feldgrau-400", className)}
       height="24px"
       width="24px"
       viewBox="0 0 1125.628 1125.628"
       {...props}
     >
       <g>
+        <circle cx="50%" cy="50%" r="500" fill="white" />
         <path
           d="M562.812,0.002C252.476,0.002,0,252.478,0,562.814s252.476,562.812,562.812,562.812
 		c310.34,0,562.816-252.476,562.816-562.812S873.152,0.002,562.812,0.002z M549.519,701.492c-14,15.033-28.964,28.403-52.992,40.11
