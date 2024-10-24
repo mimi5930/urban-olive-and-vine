@@ -65,6 +65,7 @@ export default function Events() {
   const { eventsData, eventId } = useLoaderData<typeof loader>();
   const [searchParams] = useSearchParams();
   const itemsRef = useRef<Map<string, HTMLElement | null>>(new Map());
+  const [month, setMonth] = useState(new Date());
 
   useEffect(() => {
     const eventId = searchParams.get("event");
@@ -131,6 +132,9 @@ export default function Events() {
           <Calendar
             mode="single"
             required
+            showOutsideDays={false}
+            month={month}
+            onMonthChange={setMonth}
             selected={date}
             onSelect={(date) => calendarSelectHandler(date)}
             modifiers={sortedEvents}
@@ -142,67 +146,71 @@ export default function Events() {
       </div>
       <div className="my-24">
         {eventsData.map((event, index) => {
-          return (
-            <article
-              key={index}
-              ref={(node) => {
-                const map = getMap();
-                if (node) {
-                  map.set(event.id.toString(), node);
-                } else {
-                  map.delete(event.id.toString());
-                }
-              }}
-              id={event.id.toString()}
-              className="m-auto flex max-w-7xl flex-col gap-2 p-10"
-            >
-              <div className="flex flex-col gap-3 p-10">
-                <div className="relative flex items-center justify-between">
-                  {isToday(null, event.startTime) ? (
-                    <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
-                      Tonight!
-                    </Badge>
-                  ) : null}
-                  <h2 className="text-3xl font-bold">
-                    {event.title.toUpperCase()}
-                  </h2>
-                  <div className="bg-feldgrau p-5 text-2xl font-bold text-eggshell-50">
-                    {new Date(event.startTime).toLocaleString(undefined, {
-                      dateStyle: "medium",
-                    })}
+          if (
+            new Date(event.startTime).getMonth() === month.getMonth() &&
+            new Date(event.startTime).getFullYear() === month.getFullYear()
+          )
+            return (
+              <article
+                key={index}
+                ref={(node) => {
+                  const map = getMap();
+                  if (node) {
+                    map.set(event.id.toString(), node);
+                  } else {
+                    map.delete(event.id.toString());
+                  }
+                }}
+                id={event.id.toString()}
+                className="m-auto flex max-w-7xl flex-col gap-2 p-10"
+              >
+                <div className="flex flex-col gap-3 p-10">
+                  <div className="relative flex items-center justify-between">
+                    {isToday(null, event.startTime) ? (
+                      <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
+                        Tonight!
+                      </Badge>
+                    ) : null}
+                    <h2 className="text-3xl font-bold">
+                      {event.title.toUpperCase()}
+                    </h2>
+                    <div className="bg-feldgrau p-5 text-2xl font-bold text-eggshell-50">
+                      {new Date(event.startTime).toLocaleString(undefined, {
+                        dateStyle: "medium",
+                      })}
+                    </div>
                   </div>
-                </div>
-                <div className="flex flex-col-reverse">
-                  <Accordion className="peer" type="single" collapsible>
-                    <AccordionItem className="peer" value="show more">
-                      <AccordionContent>
-                        <AddToCalendarButton currentEvent={event} />
-                      </AccordionContent>
-                      <AccordionTrigger className="[&>svg]:rotate-180 [&[data-state=open]>svg]:rotate-0">
-                        Show more
-                      </AccordionTrigger>
-                    </AccordionItem>
-                  </Accordion>
-                  <p className="description line-clamp-3 max-w-[75%] peer-has-[*[data-state=open]]:line-clamp-none">
-                    {event.description}
+                  <div className="flex flex-col-reverse">
+                    <Accordion className="peer" type="single" collapsible>
+                      <AccordionItem className="peer" value="show more">
+                        <AccordionContent>
+                          <AddToCalendarButton currentEvent={event} />
+                        </AccordionContent>
+                        <AccordionTrigger className="[&>svg]:rotate-180 [&[data-state=open]>svg]:rotate-0">
+                          Show more
+                        </AccordionTrigger>
+                      </AccordionItem>
+                    </Accordion>
+                    <p className="description line-clamp-3 max-w-[75%] peer-has-[*[data-state=open]]:line-clamp-none">
+                      {event.description}
+                    </p>
+                  </div>
+                  <p className="flex gap-2 text-xl text-logo-green">
+                    <span className="font-semibold text-black">
+                      Happening from:
+                    </span>
+                    {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
                   </p>
                 </div>
-                <p className="flex gap-2 text-xl text-logo-green">
-                  <span className="font-semibold text-black">
-                    Happening from:
-                  </span>
-                  {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
-                </p>
-              </div>
-              <div className="m-auto h-[35vh] w-3/4">
-                <img
-                  className="size-full rounded-lg object-contain"
-                  src={event.image}
-                  alt={event.alt}
-                />
-              </div>
-            </article>
-          );
+                <div className="m-auto h-[35vh] w-3/4">
+                  <img
+                    className="size-full rounded-lg object-contain"
+                    src={event.image}
+                    alt={event.alt}
+                  />
+                </div>
+              </article>
+            );
         })}
       </div>
     </section>
