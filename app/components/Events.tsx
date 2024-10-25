@@ -71,7 +71,7 @@ export default function Events({
             <Link
               className="flex flex-col items-center p-5 text-center text-eggshell-50 transition-transform hover:scale-105"
               key={index}
-              to={`/events/?event=${id}`}
+              to={`/events?event=${id}`}
             >
               <div className="relative size-[25vh] shadow-xl">
                 <img
