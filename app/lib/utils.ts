@@ -31,6 +31,12 @@ export function findEventById(
   });
 }
 
+export function findEventTimeById(id: string, events: SerializeFrom<Event[]>) {
+  return events.find((event) => {
+    return event.id === Number(id);
+  })?.startTime;
+}
+
 export function groupObjectsByTitle(objectsArray: SerializeFrom<Event[]>): {
   [key: string]: Date[];
 } {

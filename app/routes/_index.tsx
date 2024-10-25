@@ -42,7 +42,7 @@ export async function loader() {
     );
   });
 
-  return json(filteredEvents.slice(0, 4));
+  return json(filteredEvents.slice(0, 3));
 }
 
 const hours: { [key: string]: { open: string | null; close: string | null } } =

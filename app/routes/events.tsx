@@ -6,7 +6,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "@remix-run/react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
 import { buttonVariants } from "~/components/ui/button";
 import { Calendar } from "~/components/ui/calendar";
@@ -16,6 +16,7 @@ import { type Event } from "~/components/Events";
 import {
   cn,
   findEventById,
+  findEventTimeById,
   groupObjectsByTitle,
   sameDay,
   timeDateText,
@@ -62,10 +63,9 @@ export type EventOutletContextProps = {
 export default function Events() {
   // state
   const navigate = useNavigate();
-  const { eventsData, eventId } = useLoaderData<typeof loader>();
+  const { eventsData } = useLoaderData<typeof loader>();
   const [searchParams] = useSearchParams();
   const itemsRef = useRef<Map<string, HTMLElement | null>>(new Map());
-  const [month, setMonth] = useState(new Date());
 
   useEffect(() => {
     const eventId = searchParams.get("event");
@@ -87,16 +87,18 @@ export default function Events() {
   }, [searchParams]);
 
   // modify data
-  const [currentEvent, setCurrentEvent] = useState(
-    findEventById(eventId, eventsData),
-  );
-  const [date, setDate] = useState<Date | undefined>(() => {
-    if (!eventId || !currentEvent) {
+  const currentEventTime = useMemo(() => {
+    const searchParamsEvent = searchParams.get("event");
+    if (!searchParamsEvent) {
       return new Date();
     } else {
-      return new Date(currentEvent.startTime);
+      const eventTime = findEventTimeById(searchParamsEvent, eventsData);
+      if (!eventTime) return new Date();
+      return new Date(eventTime);
     }
-  });
+  }, [searchParams, eventsData]);
+  const [date, setDate] = useState<Date>(currentEventTime);
+  const [month, setMonth] = useState(currentEventTime);
   const sortedEvents = groupObjectsByTitle(eventsData);
 
   // Click handler

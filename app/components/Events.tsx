@@ -7,7 +7,6 @@ import {
   CardFooter,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-import picture from "~/img/musician.jpg";
 
 import { cn, imageDateText, mediumDateText, timeDateText } from "~/lib/utils";
 import { SerializeFrom } from "@remix-run/node";
@@ -46,7 +45,7 @@ export default function Events({
         </h1>
         {/* <div className="w-10 border-b-2 border-eggshell-50" /> */}
       </div>
-      <div className="text-lg text-eggshell-50">
+      <div className="max-w-7xl text-lg text-eggshell-50">
         <p>
           At Urban Olive & Vine, we love to showcase the incredible talent of
           our local artists and musicians. Our regular art exhibitions and live
@@ -64,8 +63,8 @@ export default function Events({
           if you would like to play
         </p>
       </div>
-      <div className="flex gap-5">
-        {events.map(({ title, startTime, id }, index) => {
+      <div className="flex flex-col items-center justify-center gap-5 lg:flex-row">
+        {events.map(({ title, startTime, id, image, alt }, index) => {
           const startTimeAsDate = new Date(startTime);
           return (
             <Link
@@ -73,18 +72,18 @@ export default function Events({
               key={index}
               to={`/events?event=${id}`}
             >
-              <div className="relative size-[25vh] shadow-xl">
+              <div className="relative aspect-square max-w-md shadow-xl">
                 <img
-                  src={picture}
-                  alt=""
+                  src={image}
+                  alt={alt}
                   className="size-full rounded-md object-cover"
                 />
+                <div className="absolute right-2 top-2 rounded-sm bg-feldgrau p-6 text-xl font-semibold text-eggshell-50 shadow-lg">
+                  {imageDateText(startTimeAsDate)}
+                </div>
               </div>
-              {/* <div className="absolute right-1 top-1 rounded-sm bg-card p-1 font-semibold">
-                {imageDateText(startTimeAsDate)}
-              </div> */}
-              <h3>{title}</h3>
-              <p>{`${imageDateText(startTimeAsDate)} @ ${timeDateText(startTimeAsDate)}`}</p>
+              <h3 className="text-lg font-semibold">{`${title} @ ${timeDateText(startTimeAsDate)}`}</h3>
+              {/* <p>{`${imageDateText(startTimeAsDate)} @ ${timeDateText(startTimeAsDate)}`}</p> */}
             </Link>
           );
         })}
