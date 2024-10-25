@@ -8,16 +8,18 @@ import {
 } from "@remix-run/react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
-import { buttonVariants } from "~/components/ui/button";
+import { Button, buttonVariants } from "~/components/ui/button";
 import { Calendar } from "~/components/ui/calendar";
 import { Card } from "~/components/ui/card";
 import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import {
   cn,
+  displayMonthText,
   findEventById,
   findEventTimeById,
   groupObjectsByTitle,
+  modifyDateMonth,
   sameDay,
   timeDateText,
 } from "~/lib/utils";
@@ -204,9 +206,9 @@ export default function Events() {
                     {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
                   </p>
                 </div>
-                <div className="m-auto h-[50vh]">
+                <div className="m-auto h-[50vh] w-3/4 bg-feldgrau">
                   <img
-                    className="size-full rounded-lg object-contain shadow-lg"
+                    className="size-full rounded-lg object-contain py-2 shadow-lg"
                     src={event.image}
                     alt={event.alt}
                   />
@@ -215,6 +217,30 @@ export default function Events() {
             );
         })}
       </div>
+      <nav className="margin-auto flex max-w-7xl items-center justify-between px-20">
+        <Button
+          size="lg"
+          onClick={() => {
+            setMonth(modifyDateMonth(month, 1, "subtract"));
+            window.scrollTo(0, 0);
+          }}
+        >
+          <ChevronLeftIcon />
+          {displayMonthText(modifyDateMonth(month, 1, "subtract"))}
+          {" Events"}
+        </Button>
+        <Button
+          size="lg"
+          onClick={() => {
+            setMonth(modifyDateMonth(month, 1, "add"));
+            window.scrollTo(0, 0);
+          }}
+        >
+          {displayMonthText(modifyDateMonth(month, 1, "add"))}
+          {" Events"}
+          <ChevronRightIcon />
+        </Button>
+      </nav>
     </section>
   );
 

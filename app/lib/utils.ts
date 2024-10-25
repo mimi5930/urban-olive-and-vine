@@ -90,6 +90,10 @@ export function timeDateText(date: Date) {
   });
 }
 
+export function displayMonthText(date: Date) {
+  return date.toLocaleString(undefined, { month: "long" });
+}
+
 export function findEventByDateAndTitle(
   date: Date,
   title: string,
@@ -99,4 +103,18 @@ export function findEventByDateAndTitle(
     return sameDay(date, new Date(event.startTime)) && title === event.title;
   });
   return `${event?.id}`;
+}
+
+export function modifyDateMonth(
+  date: Date,
+  amount: number,
+  modifier: "add" | "subtract",
+) {
+  const newDate = new Date(date);
+  if (modifier === "add") {
+    newDate.setMonth(newDate.getMonth() + amount);
+  } else {
+    newDate.setMonth(newDate.getMonth() - amount);
+  }
+  return newDate;
 }

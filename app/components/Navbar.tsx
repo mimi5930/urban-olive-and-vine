@@ -37,7 +37,7 @@ const navigationItems: NavigationItem[] = [
 const navigationButtons: NavigationItem[] = [
   { title: "Menus", link: "/menu", icon: <FoodMenuIcon /> },
   {
-    title: "Live Music",
+    title: "Events",
     link: "/events",
     buttonProps: { variant: "outline" },
     icon: <MusicIcon />,

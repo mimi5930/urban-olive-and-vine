@@ -72,7 +72,7 @@ export default function Events({
               key={index}
               to={`/events?event=${id}`}
             >
-              <div className="relative aspect-square max-w-md shadow-xl">
+              <div className="relative aspect-square max-w-sm shadow-xl">
                 <img
                   src={image}
                   alt={alt}
