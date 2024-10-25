@@ -202,9 +202,9 @@ export default function Events() {
                     {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
                   </p>
                 </div>
-                <div className="m-auto h-[35vh] w-3/4">
+                <div className="m-auto h-[50vh]">
                   <img
-                    className="size-full rounded-lg object-contain"
+                    className="size-full rounded-lg object-contain shadow-lg"
                     src={event.image}
                     alt={event.alt}
                   />
