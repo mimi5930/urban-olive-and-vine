@@ -104,7 +104,7 @@ export default function Hero() {
 export function HeroContainer({ children }: ChildProps) {
   return (
     <>
-      <section className="relative mb-5 h-[50vh] w-full">
+      <section className="relative h-[50vh] w-full">
         <div className="flex h-full w-full overflow-clip">{children}</div>
       </section>
       {/* <div className="mx-10 mt-5 border-t-2 border-logo-brown pt-5"></div> */}
