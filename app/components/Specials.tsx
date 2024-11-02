@@ -32,7 +32,7 @@ export default function SpecialsContainer({
       <h1 className="text-center text-5xl text-eggshell-50">
         Today&apos;s <span className="text-logo-green">Specials</span>
       </h1>
-      <div className="mt-28 flex justify-center gap-8">
+      <div className="mt-28 flex flex-col gap-8 px-2 lg:flex-row lg:justify-center lg:px-0">
         <SpecialsCard cardTitle="Daily Soup" specialsInfo={specials.soups} />
         <SpecialsCard cardTitle="Daily Quiche" specialsInfo={specials.quiche} />
       </div>

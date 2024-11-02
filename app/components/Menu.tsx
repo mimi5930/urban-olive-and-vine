@@ -1,6 +1,5 @@
-import { capitalizeFirstLetter, cn } from "~/lib/utils";
+import { cn } from "~/lib/utils";
 import { DownloadIcon, GlutenFreeIcon, VeganIcon } from "./svg";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 type MenuItem = {
   name: string;
@@ -33,7 +32,7 @@ export default function Menus({
   ...props
 }: MenusProps) {
   return (
-    <section className={cn("flex flex-col gap-5", className)} {...props}>
+    <section className={cn("mb-24 flex flex-col gap-5", className)} {...props}>
       <MenuSection menu={currentMenu} />
     </section>
   );
@@ -55,7 +54,7 @@ export function MenuSection({
           </a>
         </span>
       </h2>
-      <div className="grid grid-cols-1 gap-32 xl:grid-cols-2">
+      <div className="grid grid-cols-1 gap-x-32 gap-y-4 xl:grid-cols-2">
         {menuSelections.map((currentMenuSelection, index) => {
           return (
             <MenuSelection menuSelection={currentMenuSelection} key={index} />
@@ -74,7 +73,7 @@ export function MenuSelection({
 }) {
   const { title, notes, items } = menuSelection;
   return (
-    <div className="max-w-lg">
+    <div className="w-auto px-3 sm:w-[32rem]">
       <h2 className="border-b-8 border-double border-feldgrau text-2xl font-semibold">
         {title}
       </h2>

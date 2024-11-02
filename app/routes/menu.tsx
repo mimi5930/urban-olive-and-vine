@@ -16,7 +16,7 @@ export default function Menu() {
       <Specials specials={specials} />
       <section className="flex flex-col items-center justify-center">
         <h2 className="mb-14 mt-28 text-center text-5xl">Our Menus</h2>
-        <div className="mb-14 flex justify-center gap-4">
+        <div className="mb-14 flex flex-wrap justify-center gap-4">
           {menus.map((currentMenu, index) => {
             const { menuTitle: title } = currentMenu;
             return (
