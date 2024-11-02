@@ -1,12 +1,10 @@
 import { cn } from "~/lib/utils";
 
-type ImageHeadingTextProps = React.HTMLAttributes<HTMLHeadingElement>;
-
 export function ImageHeadingText({
   className,
   children,
   ...props
-}: ImageHeadingTextProps) {
+}: React.ComponentPropsWithoutRef<"h2">) {
   return (
     <h2
       className={cn(

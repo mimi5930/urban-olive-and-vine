@@ -9,10 +9,6 @@ import wineClinkImg from "../img/wine-clink.jpg";
 import { cn } from "~/lib/utils";
 import { ImageHeadingText } from "./Text";
 
-type ChildProps = {
-  children: React.ReactNode;
-};
-
 export type Slides = {
   image: string;
   alt: string;
@@ -101,18 +97,21 @@ export default function Hero() {
   );
 }
 
-export function HeroContainer({ children }: ChildProps) {
+export function HeroContainer({
+  children,
+}: React.ComponentPropsWithoutRef<"section">) {
   return (
-    <section className="relative h-[70vh] w-full">
+    <section className="relative h-[90vh] w-full md:h-[60vh]">
       <div className="flex h-full w-full overflow-clip">{children}</div>
     </section>
   );
 }
+HeroContainer.displayName = "HeroContainer";
 
 export function ImageContainer({
   children,
   currentHeroSlide,
-}: ChildProps & { currentHeroSlide: number }) {
+}: React.ComponentPropsWithoutRef<"div"> & { currentHeroSlide: number }) {
   return (
     <div
       className="relative box-border h-full w-full flex-shrink-0 flex-grow-0 transition-transform duration-500 ease-out"
@@ -126,22 +125,23 @@ export function ImageContainer({
 }
 
 export function HeroImage({
+  // eslint-disable-next-line react/prop-types
+  className,
+  // eslint-disable-next-line react/prop-types
+  alt,
   ...props
-}: React.ImgHTMLAttributes<HTMLImageElement>) {
+}: React.ComponentPropsWithoutRef<"img">) {
   return (
     <img
-      className={cn(
-        "h-full w-full object-cover brightness-50",
-        props.className,
-      )}
+      className={cn("h-full w-full object-cover brightness-50", className)}
       {...props}
-      alt={props.alt}
+      alt={alt}
     />
   );
 }
 
 // TODO Make linkButton and media props more specific?
-export type HeroContentProps = React.HTMLAttributes<HTMLDivElement> &
+export type HeroContentProps = React.ComponentPropsWithoutRef<"div"> &
   Omit<Slides[1], "image" | "alt">;
 
 export function HeroContent({
@@ -153,11 +153,11 @@ export function HeroContent({
 }: HeroContentProps) {
   return (
     <div
-      className="absolute bottom-0 left-0 flex h-full w-full items-center justify-evenly"
+      className="absolute bottom-0 left-0 flex h-full w-full flex-col items-center justify-evenly lg:flex-row"
       {...props}
     >
-      <div className="flex h-full w-1/3 flex-col items-start justify-center gap-5">
-        <ImageHeadingText>{title}</ImageHeadingText>
+      <div className="flex h-full w-full flex-col items-center justify-center gap-5 lg:w-1/3 lg:items-start">
+        <ImageHeadingText className="text-center">{title}</ImageHeadingText>
         {description && (
           <p className="text-start text-lg font-medium text-eggshell-50">
             {description}
@@ -165,7 +165,9 @@ export function HeroContent({
         )}
         {linkButton && linkButton}
       </div>
-      <div className="rounded-xlg h-1/2">{media}</div>
+      <div className="rounded-xlg mb-10 h-2/5 px-2 lg:mb-0 lg:h-1/2 lg:px-0">
+        {media}
+      </div>
     </div>
   );
 }

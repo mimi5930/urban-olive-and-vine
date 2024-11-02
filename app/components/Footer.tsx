@@ -43,7 +43,7 @@ export default function footer() {
         </div>
         <div className="flex flex-1 lg:justify-center">
           <div className="flex flex-col gap-2 text-sm">
-            <p className="text-lg font-bold text-logo-green">SITEMAP</p>
+            <p className="text-lg font-bold text-logo-green">NAVIGATION</p>
             <Link className="italic hover:underline" to="/">
               HOME
             </Link>
@@ -78,7 +78,7 @@ export default function footer() {
           </div>
         </div>
       </div>
-      <div className="m-auto my-10 flex max-w-7xl justify-between border-t-2 pt-5">
+      <div className="m-auto my-10 flex max-w-7xl flex-col gap-5 border-t-2 pt-5 md:flex-row md:justify-between md:gap-0">
         <p className="text-sm opacity-60">
           Copyright © {new Date().getFullYear()} Urban Olive & Vine • All
           Rights Reserved

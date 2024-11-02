@@ -7,7 +7,7 @@ export default function CallToAction() {
   return (
     <section className="min-h-[50vh] py-20">
       <div className="flex h-1/2 flex-col items-center justify-evenly gap-10 bg-eggshell-50 p-12 lg:flex-row lg:gap-0">
-        <div className="w-96 shadow-xl">
+        <div className="max-w-96 shadow-xl">
           <img
             className="h-full w-full rounded-xl object-cover"
             src={picture}
@@ -29,7 +29,7 @@ export default function CallToAction() {
         </div>
       </div>
       <div className="flex h-1/2 flex-col items-center justify-evenly gap-10 bg-eggshell-50 p-12 lg:flex-row-reverse lg:gap-0">
-        <div className="w-96 shadow-2xl">
+        <div className="max-w-96 shadow-2xl">
           <img
             className="h-full w-full rounded-xl object-cover"
             src={picture2}

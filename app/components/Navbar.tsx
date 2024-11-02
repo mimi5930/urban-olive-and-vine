@@ -67,7 +67,7 @@ export default function Navbar() {
 
   return (
     <header className="mb-5 flex justify-center">
-      <div className="mx-10 flex h-24 w-full justify-center border-b-2 border-logo-brown p-5">
+      <div className="flex h-24 w-full justify-center border-b-2 border-logo-brown p-5 lg:mx-10">
         <NavigationMenu className="relative max-w-full items-center justify-between">
           <div className="hidden flex-1 lg:block">
             <NavigationMenuList className="gap-4">
@@ -113,13 +113,13 @@ export default function Navbar() {
               })}
             </NavigationMenuList>
           </div>
-          <div className="lg:hidden">
+          <div className="flex flex-1 justify-center lg:hidden">
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger onClick={() => setSheetOpen(!sheetOpen)}>
                 <HamburgerIcon />
               </SheetTrigger>
               <SheetContent className="flex items-center justify-center bg-eggshell-50">
-                <NavigationMenuList className="flex flex-col gap-14 space-x-0">
+                <NavigationMenuList className="flex flex-col items-start gap-14 space-x-0">
                   {allNavigation.map(({ link, title, icon }, index) => {
                     return (
                       <NavigationMenuItem key={index}>
