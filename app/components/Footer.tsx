@@ -1,70 +1,94 @@
 import { Link } from "@remix-run/react";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
 import { FacebookIcon, InstagramIcon } from "./svg";
 
-export default function Footer() {
+export default function footer() {
   return (
-    <footer className="flex min-h-24 justify-center gap-[20%] bg-feldgrau-900 p-5 px-10 text-white">
-      <address className="flex justify-center">
-        <div className="flex flex-col justify-start gap-2 text-sm">
-          <p className="text-lg font-bold not-italic text-logo-green">
-            URBAN OLIVE & VINE
-          </p>
-          <Link
-            className="hover:underline"
-            to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
-          >
-            <p>520 SECOND STREET</p>
-            <p>HUDSON, WI 54016</p>
-          </Link>
-          <Link className="hover:underline" to="tel:7153860400">
-            <p>715.386.0400</p>
-          </Link>
-          <Link
-            className="tracking-wider hover:underline"
-            to="mailto:chadandcarol@urbanoliveandvine.com"
-          >
-            <p>chadandcarol@urbanoliveandvine.com</p>
-          </Link>
-          <p className="text-white/50">
-            Copyright © {new Date().getFullYear()} Urban Olive & Vine • All
-            Rights Reserved
-          </p>
-        </div>
-      </address>
-      <div className="flex flex-col gap-2 text-sm">
-        <p className="text-lg font-bold text-logo-green">LINKS</p>
-        <Link className="italic hover:underline" to="/about">
-          OUR STORY
-        </Link>
-        <Link className="italic hover:underline" to="/menu">
-          MENUS
-        </Link>
-        <Link className="italic hover:underline" to="/events">
-          EVENTS
-        </Link>
-      </div>
-      <div className="flex flex-col gap-2 text-sm">
-        {/* TODO: Add socials links */}
-        <p className="text-lg font-bold text-logo-green">FOLLOW US</p>
-        <div className="flex gap-4">
-          <Link to="/">
-            <FacebookIcon className="transition-all duration-300 hover:stroke-logo-green" />
-          </Link>
-          <Link to="/">
-            <InstagramIcon className="transition-all duration-300 hover:stroke-logo-green" />
-          </Link>
-        </div>
-        <form className="flex flex-col gap-2">
-          <p className="italic">SUBSCRIBE TO OUR NEWSLETTER</p>
-          <div className="flex gap-2">
-            <Input type="email" placeholder="Email"></Input>
-            <Button type="submit" variant="outline">
-              Subscribe
-            </Button>
+    <footer className="bg-feldgrau-900 px-10 py-24 text-white">
+      <div className="m-auto flex max-w-7xl flex-wrap gap-10 lg:gap-28">
+        <div className="flex flex-1 lg:justify-center">
+          <div className="flex flex-col justify-start gap-2 text-sm italic">
+            {/* <img
+              className="aspect-square h-44 object-contain"
+              src={urbanPic}
+              alt="Urban Olive and Vine"
+            /> */}
+            <p className="text-lg font-bold text-logo-green">
+              URBAN OLIVE AND VINE
+            </p>
+            <div className="flex gap-5">
+              <Link to="/">
+                <FacebookIcon className="transition-all duration-200 hover:stroke-logo-green" />
+              </Link>
+              <Link to="/">
+                <InstagramIcon className="transition-all duration-200 hover:stroke-logo-green" />
+              </Link>
+            </div>
+            <Link
+              className="hover:underline"
+              to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
+            >
+              <p>520 SECOND STREET</p>
+              <p>HUDSON, WI 54016</p>
+            </Link>
+            <Link className="hover:underline" to="tel:7153860400">
+              <p>715.386.0400</p>
+            </Link>
+            <Link
+              className="tracking-wider hover:underline"
+              to="mailto:chadandcarol@urbanoliveandvine.com"
+            >
+              <p className="text-wrap">chadandcarol@urbanoliveandvine.com</p>
+            </Link>
           </div>
-        </form>
+        </div>
+        <div className="flex flex-1 lg:justify-center">
+          <div className="flex flex-col gap-2 text-sm">
+            <p className="text-lg font-bold text-logo-green">SITEMAP</p>
+            <Link className="italic hover:underline" to="/">
+              HOME
+            </Link>
+            <Link className="italic hover:underline" to="/about">
+              OUR STORY
+            </Link>
+            <Link className="italic hover:underline" to="/menu">
+              MENUS
+            </Link>
+            <Link className="italic hover:underline" to="/events">
+              EVENTS
+            </Link>
+          </div>
+        </div>
+        <div className="flex flex-1 lg:justify-center">
+          <div>
+            <p className="text-lg font-bold text-logo-green">SCHEDULE</p>
+            <ol className="flex flex-col gap-2">
+              <li>
+                <p className="text-md italic">SUN</p>
+                <p className="text-xs opacity-60">CLOSED</p>
+              </li>
+              <li>
+                <p className="text-md italic">MON-WED</p>
+                <p className="text-xs opacity-60">8am-4pm</p>
+              </li>
+              <li>
+                <p className="text-md italic">THU-SAT</p>
+                <p className="text-xs opacity-60">8am-8pm</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div className="m-auto my-10 flex max-w-7xl justify-between border-t-2 pt-5">
+        <p className="text-sm opacity-60">
+          Copyright © {new Date().getFullYear()} Urban Olive & Vine • All
+          Rights Reserved
+        </p>
+        <Link
+          className="text-sm opacity-60 hover:underline"
+          to="https://millerdevelops.com/"
+        >
+          Developed by Michael Miller
+        </Link>
       </div>
     </footer>
   );
