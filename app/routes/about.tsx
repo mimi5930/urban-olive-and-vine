@@ -4,15 +4,15 @@ import urbanImage from "~/img/urban-outside.jpg";
 export default function about() {
   return (
     <section>
-      <div className="relative h-[30rem] w-full bg-feldgrau-900">
-        <ImageHeadingText className="absolute mt-32 w-full text-center">
+      <div className="relative flex h-[20vh] w-full flex-col justify-center bg-feldgrau-900 lg:block lg:h-[30rem]">
+        <ImageHeadingText className="w-full text-center lg:absolute lg:mt-32">
           About Us
         </ImageHeadingText>
       </div>
-      <div className="-mt-[12.5rem] flex flex-col items-center justify-center">
-        <div className="relative w-3/4">
+      <div className="mt-12 flex flex-col items-center justify-center lg:-mt-[12.5rem]">
+        <div className="relative max-w-screen-2xl px-5 lg:w-3/4">
           <img
-            className="size-full object-cover"
+            className="size-full rounded-lg object-cover shadow-lg"
             src={urbanImage}
             alt="An outside view of Urban Olive and Vine"
           />
