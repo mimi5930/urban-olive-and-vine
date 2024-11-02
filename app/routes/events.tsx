@@ -16,7 +16,6 @@ import { type Event } from "~/components/Events";
 import {
   cn,
   displayMonthText,
-  findEventById,
   findEventTimeById,
   groupObjectsByTitle,
   modifyDateMonth,
@@ -191,7 +190,7 @@ export default function Events() {
                           <AddToCalendarButton currentEvent={event} />
                         </AccordionContent>
                         <AccordionTrigger className="[&>svg]:rotate-180 [&[data-state=open]>svg]:rotate-0">
-                          Show more
+                          More Event Details
                         </AccordionTrigger>
                       </AccordionItem>
                     </Accordion>
@@ -206,9 +205,9 @@ export default function Events() {
                     {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
                   </p>
                 </div>
-                <div className="m-auto h-[50vh] w-3/4 bg-feldgrau">
+                <div className="m-auto h-[50vh] w-3/4 rounded-lg bg-feldgrau">
                   <img
-                    className="size-full rounded-lg object-contain py-2 shadow-lg"
+                    className="size-full object-cover"
                     src={event.image}
                     alt={event.alt}
                   />
@@ -217,7 +216,7 @@ export default function Events() {
             );
         })}
       </div>
-      <nav className="margin-auto flex max-w-7xl items-center justify-between px-20">
+      <nav className="flex w-full justify-center gap-20 px-20">
         <Button
           size="lg"
           onClick={() => {

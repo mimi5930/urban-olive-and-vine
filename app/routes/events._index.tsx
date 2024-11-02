@@ -9,7 +9,7 @@ export default function EventsIndex() {
       <h2 className="text-center text-2xl">{date && mediumDateText(date)}</h2>
       <h2 className="text-center text-2xl">No Live Musicians Tonight</h2>
       <p className="text-center">
-        Check out our Event Calendar below or{" "}
+        Check out our Event Calendar below or {/* TODO Add functionality */}
         <Link to="#" className="underline">
           go to our next event
         </Link>
