@@ -1,6 +1,7 @@
 import { SerializeFrom } from "@remix-run/node";
 import {
   json,
+  Link,
   Outlet,
   useLoaderData,
   useNavigate,
@@ -15,10 +16,8 @@ import { mockEvents } from "~/mockData";
 import { type Event } from "~/components/Events";
 import {
   cn,
-  displayMonthText,
   findEventTimeById,
   groupObjectsByTitle,
-  modifyDateMonth,
   sameDay,
   timeDateText,
 } from "~/lib/utils";
@@ -128,7 +127,7 @@ export default function Events() {
   }
 
   return (
-    <section className="my-32 flex flex-col">
+    <section className="my-32 flex flex-col items-center">
       <h1 className="pb-10 text-center text-5xl">Event Calendar</h1>
       <div className="flex justify-center">
         <Card>
@@ -141,13 +140,13 @@ export default function Events() {
             selected={date}
             onSelect={(date) => calendarSelectHandler(date)}
             modifiers={sortedEvents}
-            className="relative flex h-full w-full p-5"
+            className="relative flex p-1 lg:p-5"
             classNames={calendarCustomClassNames}
             components={calendarCustomComponents(sortedEvents)}
           />
         </Card>
       </div>
-      <div className="my-24">
+      <div className="my-16 flex flex-col gap-16 lg:my-24 lg:gap-10">
         {eventsData.map((event, index) => {
           if (
             new Date(event.startTime).getMonth() === month.getMonth() &&
@@ -165,9 +164,9 @@ export default function Events() {
                   }
                 }}
                 id={event.id.toString()}
-                className="m-auto flex max-w-7xl flex-col gap-2 p-10"
+                className="flex max-w-7xl flex-col gap-2 p-2 lg:p-10"
               >
-                <div className="flex flex-col gap-3 p-10">
+                <div className="flex flex-col gap-3 lg:p-10">
                   <div className="relative flex items-center justify-between">
                     {isToday(null, event.startTime) ? (
                       <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
@@ -205,7 +204,7 @@ export default function Events() {
                     {`${timeDateText(new Date(event.startTime))} - ${timeDateText(new Date(event.endTime))}`}
                   </p>
                 </div>
-                <div className="m-auto h-[50vh] w-3/4 rounded-lg bg-feldgrau">
+                <div className="m-auto h-[50vh] w-full rounded-lg lg:w-3/4">
                   <img
                     className="size-full object-cover"
                     src={event.image}
@@ -216,30 +215,9 @@ export default function Events() {
             );
         })}
       </div>
-      <nav className="flex w-full justify-center gap-20 px-20">
-        <Button
-          size="lg"
-          onClick={() => {
-            setMonth(modifyDateMonth(month, 1, "subtract"));
-            window.scrollTo(0, 0);
-          }}
-        >
-          <ChevronLeftIcon />
-          {displayMonthText(modifyDateMonth(month, 1, "subtract"))}
-          {" Events"}
-        </Button>
-        <Button
-          size="lg"
-          onClick={() => {
-            setMonth(modifyDateMonth(month, 1, "add"));
-            window.scrollTo(0, 0);
-          }}
-        >
-          {displayMonthText(modifyDateMonth(month, 1, "add"))}
-          {" Events"}
-          <ChevronRightIcon />
-        </Button>
-      </nav>
+      <Link className="m-auto" to="/events">
+        <Button className="hover:underline">Scroll Up to Event Calendar</Button>
+      </Link>
     </section>
   );
 
@@ -285,7 +263,7 @@ export const calendarCustomClassNames: Partial<ClassNames> | undefined = {
   caption_label: "text-xl font-medium",
   day_button: cn(
     buttonVariants({ variant: "ghost" }),
-    "size-24 p-0 font-normal aria-selected:opacity-100 hover:bg-feldgrau hover:text-white",
+    "md:size-24 size-[13dvw] p-0 font-normal aria-selected:opacity-100 hover:bg-feldgrau hover:text-white",
   ),
   day: "rounded-md relative z-50 p-0 text-center text-sm focus-within:relative focus-within:z-20 focus-within:rounded-md [&:has([aria-selected])]:bg-feldgrau [&:has([aria-selected].day-outside)]:bg-feldgrau/50 [&:has([aria-selected].day-range-end)]:rounded-r-md",
   selected:
