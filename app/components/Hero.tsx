@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, Circle } from "./svg";
 import image from "../img/restaurant-min.jpg";
@@ -18,53 +18,65 @@ export type Slides = {
   media: React.ReactNode;
 }[];
 
+const slides: Slides = [
+  {
+    image: image,
+    alt: "",
+    title: "Lorem, ipsum dolor.",
+    description: "Lorem ipsum dolor sit amet. Lora",
+    linkButton: <Button>Lorem</Button>,
+    media: (
+      <img
+        src={wineClinkImg}
+        alt=""
+        className="h-full w-full rounded-xl shadow-lg"
+      />
+    ),
+  },
+  {
+    image: image2,
+    alt: "",
+    title: "Lorem, ipsum dolor. 2",
+    description: "Lorem ipsum dolor sit amet. Lora 2",
+    linkButton: <Button>Lorem2</Button>,
+    media: (
+      <img
+        src={wineClinkImg}
+        alt=""
+        className="h-full w-full rounded-xl shadow-lg"
+      />
+    ),
+  },
+  {
+    image: image3,
+    alt: "",
+    title: "Lorem, ipsum dolor. 3",
+    description: "Lorem ipsum dolor sit amet. Lora 3",
+    linkButton: <Button>Lorem3</Button>,
+    media: (
+      <img
+        src={musician}
+        alt=""
+        className="h-full w-full rounded-xl shadow-lg"
+      />
+    ),
+  },
+];
+
 export default function Hero() {
   const [currentHeroSlide, setCurrentHeroSlide] = useState<number>(0);
 
-  const slides: Slides = [
-    {
-      image: image,
-      alt: "",
-      title: "Lorem, ipsum dolor.",
-      description: "Lorem ipsum dolor sit amet. Lora",
-      linkButton: <Button>Lorem</Button>,
-      media: (
-        <img
-          src={wineClinkImg}
-          alt=""
-          className="h-full w-full rounded-xl shadow-lg"
-        />
-      ),
-    },
-    {
-      image: image2,
-      alt: "",
-      title: "Lorem, ipsum dolor. 2",
-      description: "Lorem ipsum dolor sit amet. Lora 2",
-      linkButton: <Button>Lorem2</Button>,
-      media: (
-        <img
-          src={wineClinkImg}
-          alt=""
-          className="h-full w-full rounded-xl shadow-lg"
-        />
-      ),
-    },
-    {
-      image: image3,
-      alt: "",
-      title: "Lorem, ipsum dolor. 3",
-      description: "Lorem ipsum dolor sit amet. Lora 3",
-      linkButton: <Button>Lorem3</Button>,
-      media: (
-        <img
-          src={musician}
-          alt=""
-          className="h-full w-full rounded-xl shadow-lg"
-        />
-      ),
-    },
-  ];
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentHeroSlide((currentSlide) => {
+        return currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+      });
+      console.log("interval ran!");
+    }, 10_000);
+
+    // Cleanup function to clear the interval if the component unmounts
+    return () => clearInterval(intervalId);
+  }, [currentHeroSlide]); // reset interval when there's an interaction with the sate change
 
   return (
     <HeroContainer>
@@ -200,7 +212,7 @@ export function HeroContentArrows({
   return (
     <>
       <button
-        className="group absolute right-0 flex h-full w-1/12 items-center transition-colors duration-500 hover:bg-black/15"
+        className="group absolute right-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
         onClick={next}
         {...props}
       >
@@ -208,7 +220,7 @@ export function HeroContentArrows({
         <ChevronRightIcon className="transition-translate absolute right-0 mr-5 box-border text-eggshell duration-500 group-hover:scale-125" />
       </button>
       <button
-        className="group absolute left-0 flex h-full w-1/12 items-center transition-colors duration-500 hover:bg-black/15"
+        className="group absolute left-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
         onClick={prev}
         {...props}
       >
