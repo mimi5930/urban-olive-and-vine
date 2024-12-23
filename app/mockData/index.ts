@@ -3,6 +3,7 @@ import events from "./urban-events.json";
 import picture from "~/img/sample-musician.jpg";
 import landScapePic from "~/img/musician.jpg";
 import specials from "./urban-specials.json";
+import hours from "./urban-hours.json";
 
 const mockSpecials = specials[0];
 const nonImageEvents: Omit<Event, "image" | "endTime">[] = events;
@@ -20,4 +21,4 @@ nonImageEvents.forEach((currentEvent) => {
   });
 });
 
-export { mockEvents, mockSpecials };
+export { mockEvents, mockSpecials, hours as mockHours };

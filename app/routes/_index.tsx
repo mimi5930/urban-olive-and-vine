@@ -1,9 +1,8 @@
 import { json, type MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { CallToAction, Events, Hero } from "~/components";
-import { displayTime, isToday } from "~/lib/timeConversions";
-import { cn } from "~/lib/utils";
-import { mockEvents } from "~/mockData";
+import { Hours } from "~/components/Location";
+import { mockEvents, mockHours } from "~/mockData";
 import mapPic from "~/img/urban-map.png";
 import { Button } from "~/components/ui/button";
 import { CompassIcon, MailIcon, PhoneIcon } from "~/components/svg";
@@ -42,20 +41,13 @@ export async function loader() {
     );
   });
 
-  return json(filteredEvents.slice(0, 3));
+  // gather restaurant hours
+  const hours = mockHours;
+
+  return json({ events: filteredEvents.slice(0, 3), hours: hours });
 }
 
-const hours: { [key: string]: { open: string | null; close: string | null } } =
-  {
-    Sunday: { open: null, close: null },
-    Monday: { open: "8:00", close: "16:00" },
-    Tuesday: { open: "8:00", close: "16:00" },
-    Wednesday: { open: "8:00", close: "16:00" },
-    Thursday: { open: "8:00", close: "20:00" },
-    Friday: { open: "8:00", close: "20:00" },
-    Saturday: { open: "8:00", close: "20:00" },
-  };
-
+// ! Change to uppercase, so it's registered as a component!
 export default function index() {
   const data = useLoaderData<typeof loader>();
 
@@ -63,34 +55,9 @@ export default function index() {
     <section className="min-h-screen w-full">
       <Hero />
       <CallToAction />
-      <Events events={data} />
+      <Events events={data.events} />
       <section className="min-h-[40vh] p-10" id="location">
-        <div className="my-10">
-          <h2 className="mb-12 text-center text-5xl lg:mb-6">Hours</h2>
-          <div className="flex flex-col items-center justify-center gap-5 lg:flex-row">
-            {Object.keys(hours).map((day, index) => {
-              const { open, close } = hours[day];
-              return (
-                <div
-                  key={index}
-                  className={cn(
-                    "flex flex-col items-center gap-2 p-2.5 lg:items-start lg:gap-0",
-                    isToday(day, null) ? "text-logo-green" : "opacity-80",
-                  )}
-                >
-                  <p className="text-2xl font-semibold lg:text-xl">
-                    {day.toUpperCase()}
-                  </p>
-                  <p className="text-md">
-                    {open && close
-                      ? `${displayTime(open)} - ${displayTime(close)}`
-                      : "CLOSED"}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <Hours hours={data.hours} />
         <div className="flex flex-col items-center justify-center gap-14 py-24 lg:flex-row lg:items-stretch">
           <div className="group relative h-[31.25rem] max-w-lg overflow-clip rounded-md lg:h-auto lg:w-1/3">
             <img
