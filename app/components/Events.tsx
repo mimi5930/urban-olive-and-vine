@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Card,
   CardHeader,
@@ -21,7 +22,7 @@ export type Event = {
   endTime: string;
   image: string;
   alt: React.ComponentPropsWithoutRef<"img">["alt"];
-  description: string;
+  description: React.ReactNode;
 };
 
 //* Default Export
@@ -29,7 +30,8 @@ export default function Events({
   events,
   className,
   ...props
-}: React.ComponentPropsWithoutRef<"div"> & { events: SerializeFrom<Event[]> }) {
+  // This line was previously: }: React.ComponentPropsWithoutRef<"div"> & { events: SerializeFrom<Event[]> }) {
+}: React.ComponentPropsWithoutRef<"div"> & { events: Event[] }) {
   return (
     <section
       className={cn(
@@ -40,7 +42,7 @@ export default function Events({
     >
       <div className="flex items-center justify-center gap-5 text-eggshell-50">
         {/* <div className="w-10 border-b-2 border-eggshell-50" /> */}
-        <h1 className="text-center text-7xl">
+        <h1 className="text-center text-6xl sm:text-7xl">
           Upcoming <span className="text-logo-green">Events</span>
         </h1>
         {/* <div className="w-10 border-b-2 border-eggshell-50" /> */}
@@ -106,7 +108,9 @@ export function EventCard({
   event,
   className,
   ...props
-}: React.HTMLAttributes<HTMLDivElement> & { event: SerializeFrom<Event> }) {
+  // TODO: Change event back to what it used to be }: React.HTMLAttributes<HTMLDivElement> & { event: SerializeFrom<Event> }) {
+}: React.HTMLAttributes<HTMLDivElement> & { event: Event }) {
+  // TODO: will run into issues with rendering serialized jsx. Figure this out later lol
   const { id, title, startTime, image, alt, description } = event;
   return (
     <Card
@@ -134,7 +138,8 @@ export function EventCard({
               alt={alt}
             />
           </div>
-          <p className="justify-self-start text-ellipsis">{description}</p>
+          <div className="justify-self-start text-ellipsis">{description}</div>
+          {/* <p className="justify-self-start text-ellipsis">{description}</p> */}
         </CardContent>
       </div>
       <CardFooter className="">
@@ -146,3 +151,34 @@ export function EventCard({
   );
 }
 EventCard.displayName = "EventCard";
+
+// export function EventDescription({
+//   description,
+// }: {
+//   description: string | React.ReactElement[];
+// }) {
+//   if (typeof description === "string") {
+//     return <p className="justify-self-start text-ellipsis">{description}</p>;
+//   } else {
+//     return (
+//       <>
+//         {description.map((el, i) => {
+//           if (React.isValidElement(el) && el.type === "p") {
+//             const typedEl = el as React.ReactElement<
+//               React.HTMLAttributes<HTMLParagraphElement>,
+//               "p"
+//             >;
+//             const existingClass = typedEl.props.className || "";
+//             const defaultClass = "justify-self-start text-ellipsis";
+//             return React.cloneElement(typedEl, {
+//               key: i,
+//               className: `${defaultClass} ${existingClass}`.trim(),
+//             });
+//           }
+//           return null;
+//         })}
+//       </>
+//     );
+//   }
+// }
+// EventDescription.displayName = "EventDescription";
