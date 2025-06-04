@@ -1,13 +1,18 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, Circle } from "./svg";
-import image from "../img/restaurant-min.jpg";
-import image2 from "../img/restaurant -2.jpg";
 import image3 from "../img/restaurant-3.jpg";
 import musician from "../img/musician.jpg";
 import wineClinkImg from "../img/wine-clink.jpg";
+import {
+  musicCalendarPicture,
+  sliderPictureOne,
+  sliderPictureTwo,
+} from "~/img";
 import { cn } from "~/lib/utils";
 import { ImageHeadingText } from "./Text";
+import YouTubePlayer from "./YoutubePlayer";
+import { Link } from "@remix-run/react";
 
 export type Slides = {
   image: string;
@@ -18,65 +23,84 @@ export type Slides = {
   media: React.ReactNode;
 }[];
 
-const slides: Slides = [
-  {
-    image: image,
-    alt: "",
-    title: "Lorem, ipsum dolor.",
-    description: "Lorem ipsum dolor sit amet. Lora",
-    linkButton: <Button>Lorem</Button>,
-    media: (
-      <img
-        src={wineClinkImg}
-        alt=""
-        className="h-full w-full rounded-xl shadow-lg"
-      />
-    ),
-  },
-  {
-    image: image2,
-    alt: "",
-    title: "Lorem, ipsum dolor. 2",
-    description: "Lorem ipsum dolor sit amet. Lora 2",
-    linkButton: <Button>Lorem2</Button>,
-    media: (
-      <img
-        src={wineClinkImg}
-        alt=""
-        className="h-full w-full rounded-xl shadow-lg"
-      />
-    ),
-  },
-  {
-    image: image3,
-    alt: "",
-    title: "Lorem, ipsum dolor. 3",
-    description: "Lorem ipsum dolor sit amet. Lora 3",
-    linkButton: <Button>Lorem3</Button>,
-    media: (
-      <img
-        src={musician}
-        alt=""
-        className="h-full w-full rounded-xl shadow-lg"
-      />
-    ),
-  },
-];
-
 export default function Hero() {
   const [currentHeroSlide, setCurrentHeroSlide] = useState<number>(0);
+  const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  const slides: Slides = [
+    {
+      image: sliderPictureOne,
+      alt: "",
+      title: "Learn About Urban Olive and Vine",
+      description: "Hear from Chad & Carol, the owners of Urban Olive and Vine",
+      media: (
+        <YouTubePlayer
+          videoId="hECAbASrGLs"
+          isPlaying={isPlaying}
+          setIsPlaying={setIsPlaying}
+        />
+      ),
+    },
+    {
+      image: sliderPictureTwo,
+      alt: "",
+      title: "Special Live music",
+      description: "Check our events page for future dates",
+      linkButton: (
+        <Link to="/events">
+          <Button>Events</Button>
+        </Link>
+      ),
+      media: (
+        <img
+          src={musicCalendarPicture}
+          alt="A poster displaying all music events planned for the Summer"
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
+    },
+    {
+      image: sliderPictureOne,
+      alt: "",
+      title: "Lorem, ipsum dolor. 3",
+      description: "Lorem ipsum dolor sit amet. Lora 3",
+      linkButton: <Button>Lorem3</Button>,
+      media: (
+        <img
+          src={musician}
+          alt=""
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
+    },
+    {
+      image: sliderPictureTwo,
+      alt: "",
+      title: "Lorem, ipsum dolor. 3",
+      description: "Lorem ipsum dolor sit amet. Lora 3",
+      linkButton: <Button>Lorem3</Button>,
+      media: (
+        <img
+          src={musician}
+          alt=""
+          className="h-full w-full rounded-xl shadow-lg"
+        />
+      ),
+    },
+  ];
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setCurrentHeroSlide((currentSlide) => {
-        return currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
-      });
-      console.log("interval ran!");
+      if (!isPlaying) {
+        setCurrentHeroSlide((currentSlide) => {
+          return currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+        });
+      }
     }, 10_000);
 
     // Cleanup function to clear the interval if the component unmounts
     return () => clearInterval(intervalId);
-  }, [currentHeroSlide]); // reset interval when there's an interaction with the sate change
+  }, [currentHeroSlide, isPlaying]); // reset interval when there's an interaction with the sate change
 
   return (
     <HeroContainer>

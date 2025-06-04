@@ -5,6 +5,38 @@ export function displayTime(time: string) {
     : `${hours}${minutes !== 0 ? ":" + convertMinutesToString(minutes) : ""}AM`;
 }
 
+export function displayMonth(month: number) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  return months[month];
+}
+
+/**
+ *
+ * @param currentMonth The current month
+ * @param value - Value to change current month by
+ * @example 1 will add a month -1 will go to previous month
+ */
+export function changeMonth(currentMonth: Date, value: number) {
+  const newMonth = currentMonth;
+  newMonth.setDate(1);
+  newMonth.setHours(0, 0, 0, 0);
+  newMonth.setMonth(currentMonth.getMonth() + value);
+  return newMonth;
+}
+
 function convertMinutesToString(minutes: number) {
   return minutes.toString().padStart(2, "0");
 }

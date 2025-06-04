@@ -11,7 +11,14 @@ import {
   nancyBierma,
   tommyBentz,
   jefferySmith,
+  pegMeyer,
 } from "./music";
+import {
+  sliderPictureOne,
+  sliderPictureTwo,
+  musicCalendarPicture,
+  retailPicture,
+} from "./slides";
 
 export {
   coltonWarren,
@@ -26,4 +33,9 @@ export {
   nancyBierma,
   tommyBentz,
   jefferySmith,
+  pegMeyer,
+  sliderPictureOne,
+  sliderPictureTwo,
+  musicCalendarPicture,
+  retailPicture,
 };

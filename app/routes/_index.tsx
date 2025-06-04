@@ -2,10 +2,11 @@ import { json, type MetaFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { CallToAction, Events, Hero } from "~/components";
 import { Hours } from "~/components/Location";
-import { mockEvents, mockHours } from "~/mockData";
 import mapPic from "~/img/urban-map.png";
 import { Button } from "~/components/ui/button";
 import { CompassIcon, MailIcon, PhoneIcon } from "~/components/svg";
+import { hours, urbanSummerEvents } from "~/data";
+import { upcomingEvents } from "~/lib/utils";
 
 export const meta: MetaFunction = () => {
   return [
@@ -17,47 +18,51 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export async function loader() {
-  console.log("ran home page loader");
+//* Loader function ()
+// export async function loader() {
+//   console.log("ran home page loader");
 
-  // organize events
-  const organizedMockEvents = mockEvents.sort((a, b) => {
-    if (new Date(a.startTime) > new Date(b.startTime)) {
-      return 1;
-    } else if (new Date(a.startTime) < new Date(b.startTime)) {
-      return -1;
-    }
-    return 0;
-  });
+//   // organize events
+//   const organizedMockEvents = mockEvents.sort((a, b) => {
+//     if (new Date(a.startTime) > new Date(b.startTime)) {
+//       return 1;
+//     } else if (new Date(a.startTime) < new Date(b.startTime)) {
+//       return -1;
+//     }
+//     return 0;
+//   });
 
-  // show only events after today
-  const currentDate = new Date();
-  const filteredEvents = organizedMockEvents.filter((event) => {
-    return (
-      // event date
-      new Date(event.startTime) >
-      // current date - 1
-      new Date(currentDate.setDate(currentDate.getDate() - 1))
-    );
-  });
+//   // show only events after today
+//   const currentDate = new Date();
+//   const filteredEvents = organizedMockEvents.filter((event) => {
+//     return (
+//       // event date
+//       new Date(event.startTime) >
+//       // current date - 1
+//       new Date(currentDate.setDate(currentDate.getDate() - 1))
+//     );
+//   });
 
-  // gather restaurant hours
-  const hours = mockHours;
+//   // gather restaurant hours
+//   const hours = mockHours;
 
-  return json({ events: filteredEvents.slice(0, 3), hours: hours });
-}
+//   return json({ events: filteredEvents.slice(0, 3), hours: hours });
+// }
 
-// ! Change to uppercase, so it's registered as a component!
+// ! TODO Change to uppercase, so it's registered as a component!
 export default function index() {
-  const data = useLoaderData<typeof loader>();
+  // const data = useLoaderData<typeof loader>();
+  const urbanHours = hours;
+
+  const urbanEvents = upcomingEvents(urbanSummerEvents);
 
   return (
     <section className="min-h-screen w-full">
       <Hero />
       <CallToAction />
-      <Events events={data.events} />
+      <Events events={urbanEvents} />
       <section className="min-h-[40vh] p-10" id="location">
-        <Hours hours={data.hours} />
+        <Hours hours={urbanHours} />
         <div className="flex flex-col items-center justify-center gap-14 py-24 lg:flex-row lg:items-stretch">
           <div className="group relative h-[31.25rem] max-w-lg overflow-clip rounded-md lg:h-auto lg:w-1/3">
             <img
@@ -94,7 +99,7 @@ export default function index() {
               <MailIcon />
               <span className="sr-only">Email</span>
               <Link
-                className="hover:underline"
+                className="text-sm hover:underline sm:text-lg"
                 to="mailto:chadandcarol@urbanoliveandvine.com"
               >
                 chadandcarol@urbanoliveandvine.com

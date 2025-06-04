@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 
 export type SpecialsInfo = {
   name: string;
-  description: string;
+  description?: string;
   isGlutenFree?: boolean;
   isVegan?: boolean;
 };
@@ -32,7 +32,7 @@ export default function SpecialsContainer({
       <h1 className="text-center text-5xl text-eggshell-50">
         Today&apos;s <span className="text-logo-green">Specials</span>
       </h1>
-      <div className="mt-28 flex flex-col gap-8 px-2 lg:flex-row lg:justify-center lg:px-0">
+      <div className="mt-28 flex flex-col items-center gap-8 px-4 lg:flex-row lg:items-stretch lg:justify-center lg:px-0">
         <SpecialsCard cardTitle="Daily Soup" specialsInfo={specials.soups} />
         <SpecialsCard cardTitle="Daily Quiche" specialsInfo={specials.quiche} />
       </div>
@@ -50,15 +50,20 @@ export function SpecialsCard({
   specialsInfo: SpecialsInfo[];
 }) {
   return (
-    <Card className={cn("max-w-lg shadow-xl", className)} {...props}>
+    <Card
+      className={cn("w-full bg-eggshell-50 shadow-xl sm:w-[30rem]", className)}
+      {...props}
+    >
       <CardHeader>
-        <CardTitle className="text-center text-xl">{cardTitle}:</CardTitle>
+        <CardTitle className="border-b-8 border-double border-feldgrau text-center text-3xl">
+          {cardTitle}
+        </CardTitle>
       </CardHeader>
       <CardContent>
         {!specialsInfo.length ? (
           <NoSpecialsCardContent />
         ) : (
-          <ul>
+          <ul className="flex flex-col gap-8">
             {specialsInfo.map((specials, index) => {
               const {
                 name,
@@ -69,7 +74,7 @@ export function SpecialsCard({
               return (
                 <li key={index}>
                   <div className="flex">
-                    <p className="font-bold capitalize">{name}</p>
+                    <p className="text-xl font-semibold capitalize">~ {name}</p>
                     {isGlutenFree && (
                       <span>
                         <GlutenFreeIcon className="ml-2 opacity-80" />
@@ -81,7 +86,9 @@ export function SpecialsCard({
                       </span>
                     )}
                   </div>
-                  <p className="text-muted-foreground">{description}</p>
+                  {description && (
+                    <p className="text-muted-foreground">{description}</p>
+                  )}
                 </li>
               );
             })}

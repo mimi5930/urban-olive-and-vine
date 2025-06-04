@@ -10,6 +10,7 @@ import empireNight from "./empire-night.jpg";
 import nancyBierma from "./nancy-bierma.jpg";
 import tommyBentz from "./tommy-bentz.webp";
 import jefferySmith from "./jeffery-smith.jpg";
+import pegMeyer from "./peg-meyer.jpeg";
 export {
   coltonWarren,
   saraVanValkenburg,
@@ -23,4 +24,5 @@ export {
   nancyBierma,
   tommyBentz,
   jefferySmith,
+  pegMeyer,
 };

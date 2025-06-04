@@ -19,6 +19,18 @@ export function sameDay(d1: Date, d2: Date) {
   );
 }
 
+export function upcomingEvents(events: Event[]) {
+  // today's time set it to beginning of day as well if an event is currently happening
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  // filtered array
+  const eventsAfterToday = events.filter((event) => {
+    return new Date(event.startTime) >= today;
+  });
+  // return first two events in list
+  return [eventsAfterToday[0], eventsAfterToday[1]];
+}
+
 export function findEventById(
   id: string | undefined,
   events: SerializeFrom<Event[]>,
