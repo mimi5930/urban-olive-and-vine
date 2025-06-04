@@ -23,7 +23,7 @@ import {
 } from "~/lib/utils";
 import { ChevronProps, ClassNames, DayProps } from "react-day-picker";
 import { Badge } from "~/components/ui/badge";
-import { isToday } from "~/lib/timeConversions";
+import { changeMonth, displayMonth, isToday } from "~/lib/timeConversions";
 import {
   Accordion,
   AccordionContent,
@@ -31,19 +31,20 @@ import {
   AccordionTrigger,
 } from "~/components/ui/accordion";
 import AddToCalendarButton from "~/components/AddToCalendarButton";
+import { urbanSummerEvents } from "~/data";
 
 //* Loader function
-export const loader = async (params: { params: { eventId: string } }) => {
-  console.log("called event loader function");
-  // sort events by date
-  const sortEvents = mockEvents.sort(
-    ({ startTime }, { startTime: bStartTime }) =>
-      new Date(startTime).getTime() - new Date(bStartTime).getTime(),
-  );
-  // TODO: Chang this?
-  const eventId = params.params.eventId;
-  return json({ eventsData: sortEvents, eventId });
-};
+// export const loader = async (params: { params: { eventId: string } }) => {
+//   console.log("called event loader function");
+//   // sort events by date
+//   const sortEvents = mockEvents.sort(
+//     ({ startTime }, { startTime: bStartTime }) =>
+//       new Date(startTime).getTime() - new Date(bStartTime).getTime(),
+//   );
+//   // TODO: Chang this?
+//   const eventId = params.params.eventId;
+//   return json({ eventsData: urbanSummerEvents, eventId });
+// };
 
 //* Type defs
 export type EventOutletContextProps = {
@@ -63,7 +64,9 @@ export type EventOutletContextProps = {
 export default function Events() {
   // state
   const navigate = useNavigate();
-  const { eventsData } = useLoaderData<typeof loader>();
+  // TODO: Add loader back
+  // const { eventsData } = useLoaderData<typeof loader>();
+  const eventsData = urbanSummerEvents;
   const [searchParams] = useSearchParams();
   const itemsRef = useRef<Map<string, HTMLElement | null>>(new Map());
 
@@ -164,7 +167,7 @@ export default function Events() {
                   }
                 }}
                 id={event.id.toString()}
-                className="flex max-w-7xl flex-col gap-2 p-2 lg:p-10"
+                className="flex max-w-7xl flex-col gap-2 p-3 lg:p-10"
               >
                 <div className="flex flex-col gap-3 lg:p-10">
                   <div className="relative flex items-center justify-between">
@@ -185,17 +188,17 @@ export default function Events() {
                   <div className="flex flex-col-reverse">
                     <Accordion className="peer" type="single" collapsible>
                       <AccordionItem className="peer" value="show more">
-                        <AccordionContent>
-                          <AddToCalendarButton currentEvent={event} />
-                        </AccordionContent>
                         <AccordionTrigger className="[&>svg]:rotate-180 [&[data-state=open]>svg]:rotate-0">
                           More Event Details
                         </AccordionTrigger>
+                        <AccordionContent>
+                          {/* <AddToCalendarButton currentEvent={event} /> */}
+                        </AccordionContent>
                       </AccordionItem>
                     </Accordion>
-                    <p className="description line-clamp-3 max-w-[75%] peer-has-[*[data-state=open]]:line-clamp-none">
+                    <div className="description line-clamp-3 max-w-[75%] peer-has-[*[data-state=open]]:line-clamp-none">
                       {event.description}
-                    </p>
+                    </div>
                   </div>
                   <p className="flex gap-2 text-xl text-logo-green">
                     <span className="font-semibold text-black">
@@ -206,7 +209,7 @@ export default function Events() {
                 </div>
                 <div className="m-auto h-[50vh] w-full rounded-lg lg:w-3/4">
                   <img
-                    className="size-full object-cover"
+                    className="size-full object-contain"
                     src={event.image}
                     alt={event.alt}
                   />
@@ -215,41 +218,49 @@ export default function Events() {
             );
         })}
       </div>
-      <Link className="m-auto" to="/events">
-        <Button className="hover:underline">Scroll Up to Event Calendar</Button>
-      </Link>
-    </section>
-  );
-
-  return (
-    <section className="mt-32 flex w-full flex-col">
-      <h1 className="pb-5 text-center text-5xl">Events</h1>
-      <Outlet
-        context={{
-          date: date,
-          setDate: setDate,
-          events: mockEvents,
-          sortedEvents: sortedEvents,
-          currentEvent: currentEvent,
-          setCurrentEvent: setCurrentEvent,
-        }}
-      />
-      <div className="flex justify-center">
-        <Card>
-          <Calendar
-            mode="single"
-            required
-            selected={date}
-            onSelect={(date) => calendarSelectHandler(date)}
-            modifiers={sortedEvents}
-            className="relative flex h-full w-full p-5"
-            classNames={calendarCustomClassNames}
-            components={calendarCustomComponents(sortedEvents)}
-          />
-        </Card>
+      <div className="flex gap-3">
+        {/* <Button onClick={() => setMonth(changeMonth(month, -1))}>
+          <ChevronLeftIcon />
+          {displayMonth(month.getMonth() - 1)}&apos;s Events
+        </Button> */}
+        <Link className="m-auto" to="/events">
+          <Button className="hover:underline">
+            Scroll Up to Event Calendar
+          </Button>
+        </Link>
       </div>
     </section>
   );
+
+  // return (
+  //   <section className="mt-32 flex w-full flex-col">
+  //     <h1 className="pb-5 text-center text-5xl">Events</h1>
+  //     <Outlet
+  //       context={{
+  //         date: date,
+  //         setDate: setDate,
+  //         events: mockEvents,
+  //         sortedEvents: sortedEvents,
+  //         currentEvent: currentEvent,
+  //         setCurrentEvent: setCurrentEvent,
+  //       }}
+  //     />
+  //     <div className="flex justify-center">
+  //       <Card>
+  //         <Calendar
+  //           mode="single"
+  //           required
+  //           selected={date}
+  //           onSelect={(date) => calendarSelectHandler(date)}
+  //           modifiers={sortedEvents}
+  //           className="relative flex h-full w-full p-5"
+  //           classNames={calendarCustomClassNames}
+  //           components={calendarCustomComponents(sortedEvents)}
+  //         />
+  //       </Card>
+  //     </div>
+  //   </section>
+  // );
 }
 
 //* ClassNames for existing elements in Calendar
@@ -301,7 +312,10 @@ export function calendarCustomComponents(sortedEvents: {
         const object = objectsArray.find((obj) => obj.title === title);
         return object ? object.image : undefined;
       }
-      const currentPicture = getImageByTitle(mockEvents, currentModifier);
+      const currentPicture = getImageByTitle(
+        urbanSummerEvents,
+        currentModifier,
+      );
 
       return (
         <td {...dayProps}>
