@@ -5,8 +5,8 @@ import { Link } from "@remix-run/react";
 
 export default function CallToAction() {
   return (
-    <section className="min-h-[50vh] py-20">
-      <div className="flex h-1/2 flex-col items-center justify-evenly gap-10 bg-eggshell-50 p-12 lg:flex-row lg:gap-0">
+    <section className="flex min-h-[50vh] flex-col justify-evenly py-20 xl:flex-row">
+      <div className="flex h-1/2 flex-col items-center gap-28 p-12">
         <div className="max-w-96 shadow-xl">
           <img
             className="h-full w-full rounded-xl object-cover"
@@ -14,7 +14,7 @@ export default function CallToAction() {
             alt=""
           />
         </div>
-        <div className="flex h-3/4 max-w-[80%] flex-col items-center justify-center gap-5 lg:w-1/4 lg:max-w-none">
+        <div className="flex h-3/4 w-auto flex-col items-center justify-center gap-5 sm:w-[31.25rem]">
           <h2 className="text-5xl">Eat</h2>
           <p>
             We craft our food from scratch using only the freshest ingredients.
@@ -28,15 +28,8 @@ export default function CallToAction() {
           </Link>
         </div>
       </div>
-      <div className="flex h-1/2 flex-col items-center justify-evenly gap-10 bg-eggshell-50 p-12 lg:flex-row-reverse lg:gap-0">
-        <div className="max-w-96 shadow-2xl">
-          <img
-            className="h-full w-full rounded-xl object-cover"
-            src={picture2}
-            alt=""
-          />
-        </div>
-        <div className="flex h-3/4 max-w-[80%] flex-col items-center justify-center gap-5 lg:w-1/4 lg:max-w-none">
+      <div className="flex h-1/2 flex-col-reverse items-center gap-28 p-12 xl:flex-col">
+        <div className="flex h-3/4 w-auto flex-col items-center justify-center gap-5 sm:w-[31.25rem]">
           <h2 className="text-5xl">Enjoy</h2>
           <p className="text-center text-xl">LIVE MUSIC ON WEEKENDS</p>
           <p>
@@ -47,6 +40,13 @@ export default function CallToAction() {
           <Link to="/events">
             <Button>Live Music</Button>
           </Link>
+        </div>
+        <div className="max-w-96 shadow-2xl">
+          <img
+            className="h-full w-full rounded-xl object-cover"
+            src={picture2}
+            alt=""
+          />
         </div>
       </div>
     </section>
