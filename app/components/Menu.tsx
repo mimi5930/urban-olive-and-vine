@@ -1,5 +1,6 @@
 import { cn } from "~/lib/utils";
 import { DownloadIcon, GlutenFreeIcon, VeganIcon } from "./svg";
+import { Button } from "./ui/button";
 
 export type MenuItem = {
   name: string;
@@ -20,6 +21,7 @@ export type MenuSelection = {
 export type MenuSection = {
   menuTitle: string;
   menuSelections: MenuSelection[];
+  menuDocumentLink?: string;
 };
 
 type MenusProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -44,16 +46,18 @@ export function MenuSection({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement> & { menu: MenuSection }) {
-  const { menuTitle, menuSelections } = menu;
+  const { menuTitle, menuSelections, menuDocumentLink } = menu;
   return (
     <article id={menuTitle} {...props} className={className}>
       <h2 className="mb-6 flex items-center justify-center gap-2 p-4 text-center text-4xl capitalize">
         {menuTitle}
         <span className="group">
           {/* TODO: Add download link */}
-          <a href="#">
-            <DownloadIcon className="size-6 opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
-          </a>
+          {menuDocumentLink ? (
+            <a href={menuDocumentLink}>
+              <DownloadIcon className="size-6 opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
+            </a>
+          ) : null}
         </span>
       </h2>
       <div
