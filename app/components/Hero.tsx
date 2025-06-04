@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, Circle } from "./svg";
-import image3 from "../img/restaurant-3.jpg";
-import musician from "../img/musician.jpg";
-import wineClinkImg from "../img/wine-clink.jpg";
 import {
+  espressoPicture,
   musicCalendarPicture,
+  retailPicture,
   sliderPictureOne,
   sliderPictureTwo,
 } from "~/img";
@@ -44,8 +43,9 @@ export default function Hero() {
     {
       image: sliderPictureTwo,
       alt: "",
-      title: "Special Live music",
-      description: "Check our events page for future dates",
+      title: "Live music",
+      description:
+        "We love showcasing Hudson's local talent. Check out our event page for upcoming performances.",
       linkButton: (
         <Link to="/events">
           <Button>Events</Button>
@@ -62,13 +62,13 @@ export default function Hero() {
     {
       image: sliderPictureOne,
       alt: "",
-      title: "Lorem, ipsum dolor. 3",
-      description: "Lorem ipsum dolor sit amet. Lora 3",
-      linkButton: <Button>Lorem3</Button>,
+      title: "We are more than a restaurant.",
+      description:
+        "Besides offering a large retail selection, we also sell art from local artists",
       media: (
         <img
-          src={musician}
-          alt=""
+          src={retailPicture}
+          alt="A display of local art on the wall of Urban Olive and Vine"
           className="h-full w-full rounded-xl shadow-lg"
         />
       ),
@@ -76,13 +76,17 @@ export default function Hero() {
     {
       image: sliderPictureTwo,
       alt: "",
-      title: "Lorem, ipsum dolor. 3",
-      description: "Lorem ipsum dolor sit amet. Lora 3",
-      linkButton: <Button>Lorem3</Button>,
+      title: "Full Coffee Bar",
+      description: "Enjoy a large selection of coffees and over 60 teas",
+      linkButton: (
+        <Link to="/menu">
+          <Button>Our Menus</Button>
+        </Link>
+      ),
       media: (
         <img
-          src={musician}
-          alt=""
+          src={espressoPicture}
+          alt="An espresso machine pouring espresso into two coffee cups"
           className="h-full w-full rounded-xl shadow-lg"
         />
       ),
@@ -137,7 +141,8 @@ export function HeroContainer({
   children,
 }: React.ComponentPropsWithoutRef<"section">) {
   return (
-    <section className="relative h-[90vh] w-full md:h-[60vh]">
+    // <section className="relative h-[90vh] w-full md:h-[60vh]">
+    <section className="relative h-[60rem] w-full md:h-[60vh]">
       <div className="flex h-full w-full overflow-clip">{children}</div>
     </section>
   );
@@ -189,13 +194,13 @@ export function HeroContent({
 }: HeroContentProps) {
   return (
     <div
-      className="absolute bottom-0 left-0 flex h-full w-full flex-col items-center justify-evenly lg:flex-row"
+      className="absolute bottom-0 left-0 flex h-full w-full flex-col items-center justify-center gap-10 lg:flex-row"
       {...props}
     >
-      <div className="flex h-full w-full flex-col items-center justify-center gap-5 lg:w-1/3 lg:items-start">
+      <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-2 lg:w-1/3 lg:items-start">
         <ImageHeadingText className="text-center">{title}</ImageHeadingText>
         {description && (
-          <p className="text-start text-lg font-medium text-eggshell-50">
+          <p className="text-center text-lg font-medium text-eggshell-50 lg:text-start">
             {description}
           </p>
         )}
@@ -208,6 +213,7 @@ export function HeroContent({
   );
 }
 
+// Arrows to change slide in hero section
 export type HeroContentArrowProps = React.HTMLAttributes<HTMLButtonElement> & {
   currentHeroSlide: number;
   setCurrentHeroSlide: React.Dispatch<React.SetStateAction<number>>;
@@ -235,6 +241,7 @@ export function HeroContentArrows({
 
   return (
     <>
+      {/* Next slide button */}
       <button
         className="group absolute right-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
         onClick={next}
@@ -243,6 +250,7 @@ export function HeroContentArrows({
         {children}
         <ChevronRightIcon className="transition-translate absolute right-0 mr-5 box-border text-eggshell duration-500 group-hover:scale-125" />
       </button>
+      {/* Previous slide button */}
       <button
         className="group absolute left-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
         onClick={prev}

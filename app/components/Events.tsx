@@ -8,9 +8,7 @@ import {
   CardFooter,
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
-
 import { cn, imageDateText, mediumDateText, timeDateText } from "~/lib/utils";
-import { SerializeFrom } from "@remix-run/node";
 import { Link } from "@remix-run/react";
 import AddToCalendarButton from "./AddToCalendarButton";
 
@@ -85,19 +83,10 @@ export default function Events({
                 </div>
               </div>
               <h3 className="text-lg font-semibold">{`${title} @ ${timeDateText(startTimeAsDate)}`}</h3>
-              {/* <p>{`${imageDateText(startTimeAsDate)} @ ${timeDateText(startTimeAsDate)}`}</p> */}
             </Link>
           );
         })}
       </div>
-
-      {/* <div className="flex justify-center py-12">
-        <div className="grid w-4/5 grid-cols-3 justify-items-center gap-10">
-          {events.map((currentEvent) => {
-            return <EventCard event={currentEvent} key={currentEvent.id} />;
-          })}
-        </div>
-      </div> */}
     </section>
   );
 }

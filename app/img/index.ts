@@ -1,3 +1,4 @@
+// Musician Pictures
 import {
   coltonWarren,
   saraVanValkenburg,
@@ -13,11 +14,14 @@ import {
   jefferySmith,
   pegMeyer,
 } from "./music";
+
+// Hero section slider pictures
 import {
   sliderPictureOne,
   sliderPictureTwo,
   musicCalendarPicture,
   retailPicture,
+  espressoPicture,
 } from "./slides";
 
 export {
@@ -38,4 +42,5 @@ export {
   sliderPictureTwo,
   musicCalendarPicture,
   retailPicture,
+  espressoPicture,
 };

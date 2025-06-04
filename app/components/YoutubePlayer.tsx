@@ -54,7 +54,7 @@ function YouTubePlayer({
   return (
     <div>
       <div
-        className="aspect-video w-[20rem] sm:w-[25rem] md:w-[35rem]"
+        className="aspect-video w-[20rem] bg-slate-950/80 sm:w-[25rem] md:w-[35rem]"
         id="player"
       ></div>
     </div>
