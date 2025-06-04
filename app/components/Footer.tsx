@@ -3,7 +3,7 @@ import { FacebookIcon, InstagramIcon } from "./svg";
 
 export default function footer() {
   return (
-    <footer className="bg-feldgrau-900 px-10 py-24 text-white">
+    <footer className="bg-feldgrau-900 px-5 py-24 text-white sm:px-10">
       <div className="m-auto flex max-w-7xl flex-wrap gap-10 lg:gap-28">
         <div className="flex flex-1 lg:justify-center">
           <div className="flex flex-col justify-start gap-2 text-sm italic">
@@ -37,7 +37,7 @@ export default function footer() {
               className="tracking-wider hover:underline"
               to="mailto:chadandcarol@urbanoliveandvine.com"
             >
-              <p className="text-wrap">chadandcarol@urbanoliveandvine.com</p>
+              <p>chadandcarol@urbanoliveandvine.com</p>
             </Link>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function footer() {
           className="text-sm opacity-60 hover:underline"
           to="https://millerdevelops.com/"
         >
-          Developed by Michael Miller
+          Website developed by Michael Miller
         </Link>
       </div>
     </footer>
