@@ -3,7 +3,7 @@
   "Monday": { "open": "8:00", "close": "16:00" },
   "Tuesday": { "open": "8:00", "close": "16:00" },
   "Wednesday": { "open": "8:00", "close": "16:00" },
-  "Thursday": { "open": "8:00", "close": "20:00" },
+  "Thursday": { "open": "8:00", "close": "16:00" },
   "Friday": { "open": "8:00", "close": "20:00" },
   "Saturday": { "open": "8:00", "close": "20:00" }
 }

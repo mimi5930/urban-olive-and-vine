@@ -67,11 +67,11 @@ export default function footer() {
                 <p className="text-xs opacity-60">CLOSED</p>
               </li>
               <li>
-                <p className="text-md italic">MON-WED</p>
+                <p className="text-md italic">MON-THU</p>
                 <p className="text-xs opacity-60">8am-4pm</p>
               </li>
               <li>
-                <p className="text-md italic">THU-SAT</p>
+                <p className="text-md italic">FRI-SAT</p>
                 <p className="text-xs opacity-60">8am-8pm</p>
               </li>
             </ol>
