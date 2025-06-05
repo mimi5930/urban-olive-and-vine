@@ -52,9 +52,8 @@ export function MenuSection({
       <h2 className="mb-6 flex items-center justify-center gap-2 p-4 text-center text-4xl capitalize">
         {menuTitle}
         <span className="group">
-          {/* TODO: Add download link */}
           {menuDocumentLink ? (
-            <a href={menuDocumentLink}>
+            <a href={menuDocumentLink} download>
               <DownloadIcon className="size-6 opacity-50 transition-opacity duration-300 group-hover:opacity-100" />
             </a>
           ) : null}

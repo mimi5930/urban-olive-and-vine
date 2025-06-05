@@ -1,16 +1,24 @@
 import { Menus, Specials } from "~/components";
 import { Button } from "~/components/ui/button";
 import { capitalizeFirstLetter } from "~/lib/utils";
-// import menus from "../mockData/urban-menu.json";
-import { mockSpecials } from "~/mockData";
 import { useState } from "react";
 import { MenuSection } from "~/components/Menu";
 import { urbanSpecials } from "~/data";
+import {
+  beerMenuFile,
+  beverageMenuFile,
+  breakfastMenuFile,
+  mainMenuFile,
+  summerSpecialsMenuFile,
+  wineMenuFile,
+  yappyHourMenuFile,
+} from "~/documents";
 
 export default function Menu() {
   const menus: MenuSection[] = [
     {
       menuTitle: "SUMMER SPECIALS",
+      menuDocumentLink: summerSpecialsMenuFile,
       menuSelections: [
         {
           title: "FEATURED BEVERAGES",
@@ -172,6 +180,7 @@ export default function Menu() {
     },
     {
       menuTitle: "BREAKFAST",
+      menuDocumentLink: breakfastMenuFile,
       menuSelections: [
         {
           title: "WAFFLES",
@@ -322,6 +331,7 @@ export default function Menu() {
     },
     {
       menuTitle: "MAIN",
+      menuDocumentLink: mainMenuFile,
       menuSelections: [
         {
           title: "SALADS, SOUPS, & QUICHE",
@@ -597,6 +607,7 @@ export default function Menu() {
     },
     {
       menuTitle: "BEER",
+      menuDocumentLink: beerMenuFile,
       menuSelections: [
         {
           title: "Domestics",
@@ -663,6 +674,7 @@ export default function Menu() {
     },
     {
       menuTitle: "WINE",
+      menuDocumentLink: wineMenuFile,
       menuSelections: [
         {
           title: "WHITE WINES",
@@ -767,6 +779,7 @@ export default function Menu() {
     },
     {
       menuTitle: "BEVERAGES",
+      menuDocumentLink: beverageMenuFile,
       menuSelections: [
         {
           title: "Iced Tea",
@@ -1009,6 +1022,7 @@ export default function Menu() {
     },
     {
       menuTitle: "COFFEE BAR",
+      menuDocumentLink: beverageMenuFile,
       menuSelections: [
         {
           title: "Hand Crafted Espresso & Tea Beverages",
@@ -1169,6 +1183,7 @@ export default function Menu() {
     },
     {
       menuTitle: "TEA LIST",
+      menuDocumentLink: beverageMenuFile,
       menuSelections: [
         {
           title: "White Tea",
@@ -1510,6 +1525,7 @@ export default function Menu() {
     },
     {
       menuTitle: "YAPPY HOUR",
+      menuDocumentLink: yappyHourMenuFile,
       menuSelections: [
         {
           title: "Drinks",
@@ -1586,6 +1602,7 @@ export default function Menu() {
     },
     {
       menuTitle: "KID'S MENU (UNDER 10)",
+      menuDocumentLink: yappyHourMenuFile,
       menuSelections: [
         {
           title: "KID'S MENU (UNDER 10)",
@@ -1622,6 +1639,7 @@ export default function Menu() {
     },
     {
       menuTitle: "DESSERT FEATURES",
+      menuDocumentLink: yappyHourMenuFile,
       menuSelections: [
         {
           title: "DESSERT FEATURES",
