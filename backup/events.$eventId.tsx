@@ -7,7 +7,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "~/components/ui/accordion";
-import { EventOutletContextProps } from "./events";
+import { EventOutletContextProps } from "../app/routes/events";
 import {
   findEventByDateAndTitle,
   imageDateText,

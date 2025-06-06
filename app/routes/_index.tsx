@@ -73,24 +73,24 @@ export default function Index() {
             <div className="absolute top-0 size-full bg-feldgrau opacity-40 shadow-lg ring-2 ring-feldgrau brightness-50"></div>
             <div className="absolute top-0 flex size-full flex-col items-center justify-center gap-2 p-2 text-eggshell-50">
               <h2 className="text-3xl font-bold">Find Us</h2>
-              <Link
+              <a
                 className="group/link flex gap-2"
-                to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
+                href="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
               >
                 <CompassIcon />
                 <p className="group-hover/link:underline">
                   520 2nd St, Hudson, WI 54016
                 </p>
-              </Link>
+              </a>
               <p className="text-center">
                 Why wait any longer? Come and join us at Urban Olive & Vine—your
                 ultimate sanctuary for delicious food, fine wines, and
                 unforgettable experiences. Dive into our vibrant atmosphere,
                 savor every moment, and let the good times flow!
               </p>
-              <Link to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA">
+              <a href="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA">
                 <Button size="lg">Open in Maps</Button>
-              </Link>
+              </a>
             </div>
           </div>
           <div className="flex h-[31.25rem] max-w-lg flex-col items-center justify-center gap-5 rounded-md bg-feldgrau text-eggshell-50 shadow-lg ring-2 ring-feldgrau lg:h-auto lg:w-1/3">
@@ -98,19 +98,19 @@ export default function Index() {
             <div className="flex flex-col items-center text-lg">
               <MailIcon />
               <span className="sr-only">Email</span>
-              <Link
+              <a
                 className="text-sm hover:underline sm:text-lg"
-                to="mailto:chadandcarol@urbanoliveandvine.com"
+                href="mailto:chadandcarol@urbanoliveandvine.com"
               >
                 chadandcarol@urbanoliveandvine.com
-              </Link>
+              </a>
             </div>
             <div className="flex flex-col items-center text-lg">
               <PhoneIcon />
               <span className="sr-only">Phone Number</span>
-              <Link className="hover:underline" to="tel:7153860400">
+              <a className="hover:underline" href="tel:7153860400">
                 715.386.0400
-              </Link>
+              </a>
             </div>
             <p className="px-4 text-center text-sm">
               We do not accept reservations and look forward to welcoming you on

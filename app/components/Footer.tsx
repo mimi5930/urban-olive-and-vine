@@ -23,22 +23,22 @@ export default function footer() {
                 <InstagramIcon className="transition-all duration-200 hover:stroke-logo-green" />
               </a>
             </div>
-            <Link
+            <a
               className="hover:underline"
-              to="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
+              href="https://maps.app.goo.gl/sdZB1NJcqNT9wXKLA"
             >
               <p>520 SECOND STREET</p>
               <p>HUDSON, WI 54016</p>
-            </Link>
-            <Link className="hover:underline" to="tel:7153860400">
+            </a>
+            <a className="hover:underline" href="tel:7153860400">
               <p>715.386.0400</p>
-            </Link>
-            <Link
+            </a>
+            <a
               className="tracking-wider hover:underline"
-              to="mailto:chadandcarol@urbanoliveandvine.com"
+              href="mailto:chadandcarol@urbanoliveandvine.com"
             >
               <p>chadandcarol@urbanoliveandvine.com</p>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="flex flex-1 lg:justify-center">
@@ -83,12 +83,12 @@ export default function footer() {
           Copyright © {new Date().getFullYear()} Urban Olive & Vine • All
           Rights Reserved
         </p>
-        <Link
+        <a
           className="text-sm opacity-60 hover:underline"
-          to="https://millerdevelops.com/"
+          href="https://millerdevelops.com/"
         >
           Website developed by Michael Miller
-        </Link>
+        </a>
       </div>
     </footer>
   );
