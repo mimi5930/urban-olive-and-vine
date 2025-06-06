@@ -50,12 +50,12 @@ const socialIconClassNames: React.ComponentPropsWithoutRef<"svg">["className"] =
 const socials: NavigationItem[] = [
   {
     title: "Facebook",
-    link: "/",
+    link: "https://www.facebook.com/urbanoliveandvine/",
     icon: <FacebookIcon />,
   },
   {
     title: "Instagram",
-    link: "/",
+    link: "https://www.instagram.com/urbanoliveandvine/",
     icon: <InstagramIcon />,
   },
 ];
@@ -67,6 +67,7 @@ export default function Navbar() {
 
   return (
     <header className="mb-5 flex justify-center">
+      {/* Desktop view */}
       <div className="flex h-24 w-full justify-center border-b-2 border-logo-brown p-5 lg:mx-10">
         <NavigationMenu className="relative max-w-full items-center justify-between">
           <div className="hidden flex-1 lg:block">
@@ -113,6 +114,7 @@ export default function Navbar() {
               })}
             </NavigationMenuList>
           </div>
+          {/* Mobile view */}
           <div className="flex flex-1 justify-center lg:hidden">
             <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger onClick={() => setSheetOpen(!sheetOpen)}>

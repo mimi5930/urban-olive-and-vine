@@ -16,12 +16,12 @@ export default function footer() {
               URBAN OLIVE AND VINE
             </p>
             <div className="flex gap-5">
-              <Link to="/">
+              <a href="https://www.facebook.com/urbanoliveandvine/">
                 <FacebookIcon className="transition-all duration-200 hover:stroke-logo-green" />
-              </Link>
-              <Link to="/">
+              </a>
+              <a href="https://www.instagram.com/urbanoliveandvine/">
                 <InstagramIcon className="transition-all duration-200 hover:stroke-logo-green" />
-              </Link>
+              </a>
             </div>
             <Link
               className="hover:underline"

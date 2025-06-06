@@ -50,7 +50,7 @@ export const meta: MetaFunction = () => {
 // }
 
 // ! TODO Change to uppercase, so it's registered as a component!
-export default function index() {
+export default function Index() {
   // const data = useLoaderData<typeof loader>();
   const urbanHours = hours;
 

@@ -33,6 +33,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="min-h-screen bg-eggshell">
+        <div className="flex min-h-8 flex-wrap justify-center gap-x-3 bg-feldgrau px-2 text-sm text-eggshell-50">
+          <p className="text-center font-bold">
+            Adjusted Hours for Carol&apos;s Visitation and Celebration of Life
+          </p>
+          <p>*</p>
+          <p>Friday June 20th: CLOSING AT 3PM</p>
+          <p>*</p>
+          <p>Saturday June 21st: CLOSED</p>
+          <p>*</p>
+          <p>Monday June 23rd: CLOSED</p>
+        </div>
         <Navbar />
         {children}
         <Footer />

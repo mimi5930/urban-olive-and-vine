@@ -32,6 +32,9 @@ export default function Hours({ hours }: Hours) {
           );
         })}
       </div>
+      <p className="mt-12 text-center text-sm">
+        Closed Thanksgiving & Christmas Day & New Year&apos;s Day
+      </p>
     </div>
   );
 }

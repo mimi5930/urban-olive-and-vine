@@ -6,3 +6,4 @@ export { default as Footer } from "./Footer";
 export { ImageHeadingText } from "./Text";
 export { default as Specials } from "./Specials";
 export { default as Menus } from "./Menu";
+export { default as Announcement } from "./Announcement";
