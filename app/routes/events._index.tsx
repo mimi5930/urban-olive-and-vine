@@ -1,4 +1,4 @@
-import { Link, useOutletContext } from "@remix-run/react";
+import { Link, useOutletContext } from "react-router";
 import { EventOutletContextProps } from "./events";
 import { mediumDateText } from "~/lib/utils";
 

@@ -1,7 +1,7 @@
 import picture from "~/img/eat.jpg";
 import picture2 from "~/img/enjoy.jpg";
 import { Button } from "./ui/button";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 export default function CallToAction() {
   return (

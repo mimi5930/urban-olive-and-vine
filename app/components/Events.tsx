@@ -9,7 +9,7 @@ import {
 } from "~/components/ui/card";
 import { Button } from "~/components/ui/button";
 import { cn, imageDateText, mediumDateText, timeDateText } from "~/lib/utils";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import AddToCalendarButton from "./AddToCalendarButton";
 
 //* Type Definitions

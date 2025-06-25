@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import { FacebookIcon, InstagramIcon } from "./svg";
 
 export default function footer() {

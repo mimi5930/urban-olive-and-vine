@@ -1,4 +1,4 @@
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -8,7 +8,7 @@ import {
 import { CalendarIcon } from "./svg";
 import { type Event } from "./Events";
 import createEventCalendarLinks from "~/lib/addToCalendar";
-import { SerializeFrom } from "@remix-run/node";
+import { SerializeFrom } from "react-router";
 import { Button } from "./ui/button";
 
 export default function AddToCalendarButton({

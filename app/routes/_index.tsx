@@ -1,5 +1,5 @@
-import { json, type MetaFunction } from "@remix-run/node";
-import { Link, useLoaderData } from "@remix-run/react";
+import { json, type MetaFunction } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import { CallToAction, Events, Hero } from "~/components";
 import { Hours } from "~/components/Location";
 import mapPic from "~/img/urban-map.png";
@@ -53,7 +53,6 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   // const data = useLoaderData<typeof loader>();
   const urbanHours = hours;
-
   const urbanEvents = upcomingEvents(urbanSummerEvents);
 
   return (

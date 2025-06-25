@@ -1,5 +1,5 @@
 import { mockEvents } from "~/mockData";
-import { Link, useOutletContext } from "@remix-run/react";
+import { Link, useOutletContext } from "react-router";
 import { CalendarIcon } from "~/components/svg";
 import {
   Accordion,

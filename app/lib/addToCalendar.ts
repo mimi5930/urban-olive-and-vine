@@ -1,4 +1,4 @@
-import { SerializeFrom } from "@remix-run/node";
+import { SerializeFrom } from "react-router";
 import { type Event } from "../components/Events";
 import {
   google,

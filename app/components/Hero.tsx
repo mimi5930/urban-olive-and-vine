@@ -11,7 +11,7 @@ import {
 import { cn } from "~/lib/utils";
 import { ImageHeadingText } from "./Text";
 import YouTubePlayer from "./YoutubePlayer";
-import { Link } from "@remix-run/react";
+import { Link } from "react-router";
 
 export type Slides = {
   image: string;
@@ -142,9 +142,9 @@ export function HeroContainer({
 }: React.ComponentPropsWithoutRef<"section">) {
   return (
     // <section className="relative h-[90vh] w-full md:h-[60vh]">
-    <section className="relative h-[60rem] w-full md:h-[60vh]">
+    (<section className="relative h-[60rem] w-full md:h-[60vh]">
       <div className="flex h-full w-full overflow-clip">{children}</div>
-    </section>
+    </section>)
   );
 }
 HeroContainer.displayName = "HeroContainer";

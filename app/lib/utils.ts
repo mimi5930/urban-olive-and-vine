@@ -1,4 +1,4 @@
-import { SerializeFrom } from "@remix-run/node";
+import { SerializeFrom } from "react-router";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { type Event } from "~/components/Events";

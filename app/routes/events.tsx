@@ -1,12 +1,5 @@
-import { SerializeFrom } from "@remix-run/node";
-import {
-  json,
-  Link,
-  Outlet,
-  useLoaderData,
-  useNavigate,
-  useSearchParams,
-} from "@remix-run/react";
+import { SerializeFrom } from "react-router";
+import { json, Link, Outlet, useLoaderData, useNavigate, useSearchParams } from "react-router";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "~/components/svg";
 import { Button, buttonVariants } from "~/components/ui/button";
