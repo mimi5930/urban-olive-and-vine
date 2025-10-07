@@ -120,7 +120,11 @@ export default function Navbar() {
               <SheetTrigger onClick={() => setSheetOpen(!sheetOpen)}>
                 <HamburgerIcon />
               </SheetTrigger>
-              <SheetContent className="flex items-center justify-center bg-eggshell-50">
+              <SheetContent
+                className="flex items-center justify-center bg-eggshell-50"
+                // prevents jumping back up to top after selecting link on mobile
+                onCloseAutoFocus={(e) => e.preventDefault()}
+              >
                 <NavigationMenuList className="flex flex-col items-start gap-14 space-x-0">
                   {allNavigation.map(({ link, title, icon }, index) => {
                     return (
