@@ -1,12 +1,14 @@
-import { json, type MetaFunction } from "react-router";
-import { Link, useLoaderData } from "react-router";
+import { useLoaderData, type MetaFunction } from "react-router";
+// import { Link, useLoaderData } from "react-router";
 import { CallToAction, Events, Hero } from "~/components";
 import { Hours } from "~/components/Location";
 import mapPic from "~/img/urban-map.png";
 import { Button } from "~/components/ui/button";
 import { CompassIcon, MailIcon, PhoneIcon } from "~/components/svg";
-import { hours, urbanSummerEvents } from "~/data";
+// import { hours, urbanSummerEvents } from "~/data";
 import { upcomingEvents } from "~/lib/utils";
+import picture from "../img/musician.jpg";
+import { Event } from "~/components/Events";
 
 export const meta: MetaFunction = () => {
   return [
@@ -18,50 +20,77 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-//* Loader function ()
-// export async function loader() {
-//   console.log("ran home page loader");
+// mock Events
+const mockEvents: Event[] = [
+  {
+    id: 1,
+    title: "Event 1",
+    startTime: "2025-10-09T15:04:58Z",
+    alt: "alt description",
+    description: "Description",
+    image: picture,
+    endTime: "2025-10-09T17:04:58Z",
+  },
+];
 
-//   // organize events
-//   const organizedMockEvents = mockEvents.sort((a, b) => {
-//     if (new Date(a.startTime) > new Date(b.startTime)) {
-//       return 1;
-//     } else if (new Date(a.startTime) < new Date(b.startTime)) {
-//       return -1;
-//     }
-//     return 0;
-//   });
+// Mock Hours
+const mockHours = {
+  Sunday: { open: null, close: null },
+  Monday: { open: "8:00", close: "16:00" },
+  Tuesday: { open: "8:00", close: "16:00" },
+  Wednesday: { open: "8:00", close: "16:00" },
+  Thursday: { open: "8:00", close: "20:00" },
+  Friday: { open: "8:00", close: "20:00" },
+  Saturday: { open: "8:00", close: "20:00" },
+};
 
-//   // show only events after today
-//   const currentDate = new Date();
-//   const filteredEvents = organizedMockEvents.filter((event) => {
-//     return (
-//       // event date
-//       new Date(event.startTime) >
-//       // current date - 1
-//       new Date(currentDate.setDate(currentDate.getDate() - 1))
-//     );
-//   });
+//* Loader function
+export async function loader() {
+  console.log("ran home page loader");
 
-//   // gather restaurant hours
-//   const hours = mockHours;
+  // organize events
+  const organizedMockEvents = mockEvents.sort((a, b) => {
+    if (new Date(a.startTime) > new Date(b.startTime)) {
+      return 1;
+    } else if (new Date(a.startTime) < new Date(b.startTime)) {
+      return -1;
+    }
+    return 0;
+  });
 
-//   return json({ events: filteredEvents.slice(0, 3), hours: hours });
-// }
+  // show only events after today
+  const currentDate = new Date();
+  const filteredEvents = organizedMockEvents.filter((event) => {
+    return (
+      // event date
+      new Date(event.startTime) >
+      // current date - 1
+      new Date(currentDate.setDate(currentDate.getDate() - 1))
+    );
+  });
 
-// ! TODO Change to uppercase, so it's registered as a component!
+  // gather restaurant hours
+  const hours = mockHours;
+
+  return { events: filteredEvents.slice(0, 3), hours: hours };
+}
+
 export default function Index() {
-  // const data = useLoaderData<typeof loader>();
-  const urbanHours = hours;
-  const urbanEvents = upcomingEvents(urbanSummerEvents);
+  const { events, hours } = useLoaderData<typeof loader>();
+
+  console.log({ events, hours });
+  console.log("upcoming Events!", upcomingEvents(events));
+
+  // const urbanHours = hours;
+  // const urbanEvents = upcomingEvents(urbanSummerEvents);
 
   return (
     <section className="min-h-screen w-full">
       <Hero />
       <CallToAction />
-      <Events events={urbanEvents} />
+      <Events events={upcomingEvents(events)} />
       <section className="min-h-[40vh] p-10" id="location">
-        <Hours hours={urbanHours} />
+        <Hours hours={hours} />
         <div className="flex flex-col items-center justify-center gap-14 py-24 lg:flex-row lg:items-stretch">
           <div className="group relative h-[31.25rem] max-w-lg overflow-clip rounded-md lg:h-auto lg:w-1/3">
             <img

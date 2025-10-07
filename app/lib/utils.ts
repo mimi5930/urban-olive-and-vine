@@ -1,4 +1,3 @@
-import { SerializeFrom } from "react-router";
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { type Event } from "~/components/Events";
@@ -20,15 +19,19 @@ export function sameDay(d1: Date, d2: Date) {
 }
 
 export function upcomingEvents(events: Event[]) {
-  // today's time set it to beginning of day as well if an event is currently happening
+  // Today's date
   const today = new Date();
+
+  // Set today's hours to 12am (in case event has already began)
   today.setHours(0, 0, 0, 0);
-  // filtered array
+
+  // Filter for events starting after today
   const eventsAfterToday = events.filter((event) => {
     return new Date(event.startTime) >= today;
   });
-  // return first two events in list
-  return [eventsAfterToday[0], eventsAfterToday[1]];
+
+  // return only the first two events
+  return eventsAfterToday.slice(0, 2);
 }
 
 export function findEventById(

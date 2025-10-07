@@ -20,7 +20,7 @@ export type Event = {
   endTime: string;
   image: string;
   alt: React.ComponentPropsWithoutRef<"img">["alt"];
-  description: React.ReactNode;
+  description: string;
 };
 
 //* Default Export
@@ -127,8 +127,7 @@ export function EventCard({
               alt={alt}
             />
           </div>
-          <div className="justify-self-start text-ellipsis">{description}</div>
-          {/* <p className="justify-self-start text-ellipsis">{description}</p> */}
+          <p className="justify-self-start text-ellipsis">{description}</p>
         </CardContent>
       </div>
       <CardFooter className="">
