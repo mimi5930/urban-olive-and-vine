@@ -1,4 +1,11 @@
-import { Links, Meta, Outlet, Scripts, ScrollRestoration, BrowserRouter } from "react-router";
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  ScrollRestoration,
+  BrowserRouter,
+} from "react-router";
 import type { LinksFunction } from "react-router";
 
 import "./tailwind.css";
@@ -27,7 +34,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body className="min-h-screen bg-eggshell">
-        <div className="flex min-h-8 flex-wrap justify-center gap-x-3 bg-feldgrau px-2 text-sm text-eggshell-50">
+        {/* ! TODO: Add announcements section */}
+        {/* <div className="flex min-h-8 flex-wrap justify-center gap-x-3 bg-feldgrau px-2 text-sm text-eggshell-50">
           <p className="text-center font-bold">
             Adjusted Hours for Carol&apos;s Visitation and Celebration of Life
           </p>
@@ -37,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <p>Saturday June 21st: CLOSED</p>
           <p>*</p>
           <p>Monday June 23rd: CLOSED</p>
-        </div>
+        </div> */}
         <Navbar />
         {children}
         <Footer />

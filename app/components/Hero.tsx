@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import { ChevronLeftIcon, ChevronRightIcon, Circle } from "./svg";
 import {
@@ -12,6 +12,16 @@ import { cn } from "~/lib/utils";
 import { ImageHeadingText } from "./Text";
 import YouTubePlayer from "./YoutubePlayer";
 import { Link } from "react-router";
+import {
+  Carousel,
+  CarouselApi,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import useEmblaCarousel from "embla-carousel-react";
 
 export type Slides = {
   image: string;
@@ -22,9 +32,46 @@ export type Slides = {
   media: React.ReactNode;
 }[];
 
+type HeroContextProps = {
+  api: ReturnType<typeof useEmblaCarousel>[1];
+  slides: Slides;
+  current: number;
+};
+
+// TODO: get rid of the prop drilling through useContext api
+const HeroContext = createContext<HeroContextProps | null>(null);
+
+function useHero() {
+  const context = useContext(HeroContext);
+
+  if (!context) throw new Error("useHero must be used within a <Hero />");
+
+  return context;
+}
+
 export default function Hero() {
-  const [currentHeroSlide, setCurrentHeroSlide] = useState<number>(0);
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+  const [current, setCurrent] = useState<number>(0);
+
+  const [api, setApi] = useState<CarouselApi>();
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    if (isPlaying) {
+      api.plugins().autoplay.stop();
+    }
+
+    console.log("scrollsnap", api.selectedScrollSnap());
+
+    setCurrent(api.selectedScrollSnap());
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
+    });
+  }, [api, isPlaying]);
 
   const slides: Slides = [
     {
@@ -93,22 +140,54 @@ export default function Hero() {
     },
   ];
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      if (!isPlaying) {
-        setCurrentHeroSlide((currentSlide) => {
-          return currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
-        });
-      }
-    }, 10_000);
-
-    // Cleanup function to clear the interval if the component unmounts
-    return () => clearInterval(intervalId);
-  }, [currentHeroSlide, isPlaying]); // reset interval when there's an interaction with the sate change
-
   return (
-    <HeroContainer>
-      {slides.map(
+    <HeroContext.Provider value={{ api, slides, current }}>
+      <HeroContainer>
+        <Carousel
+          className="size-full"
+          opts={{ loop: true }}
+          plugins={[Autoplay({ delay: 5_000, stopOnMouseEnter: true })]}
+          setApi={setApi}
+        >
+          <CarouselContent className="ml-0 size-full">
+            {slides.map(
+              (
+                { image, alt, title, description, linkButton, media },
+                index,
+              ) => {
+                return (
+                  <CarouselItem key={title + index} className="w-full pl-0">
+                    <div className="relative size-full">
+                      <img
+                        src={image}
+                        alt={alt}
+                        className="size-full object-cover brightness-[40%]"
+                      />
+                      <div className="absolute right-0 top-0 flex size-full items-center justify-center gap-10">
+                        <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-2 lg:w-1/3 lg:items-start">
+                          <ImageHeadingText>{title}</ImageHeadingText>
+                          {description && (
+                            <p className="text-center text-lg font-medium text-eggshell-50 lg:text-start">
+                              {description}
+                            </p>
+                          )}
+                          {linkButton && linkButton}
+                        </div>
+                        <div className="rounded-xlg mb-10 h-2/5 px-2 lg:mb-0 lg:h-1/2 lg:px-0">
+                          {media}
+                        </div>
+                      </div>
+                    </div>
+                  </CarouselItem>
+                );
+              },
+            )}
+          </CarouselContent>
+          <CarouselPrevious className="left-4 my-auto translate-y-0 stroke-white/80" />
+          <CarouselNext className="right-4 my-auto translate-y-0 stroke-white/80" />
+          <HeroContentCircles />
+        </Carousel>
+        {/* {slides.map(
         ({ image, alt, title, description, linkButton, media }, index) => {
           return (
             <ImageContainer currentHeroSlide={currentHeroSlide} key={index}>
@@ -132,8 +211,9 @@ export default function Hero() {
         currentHeroSlide={currentHeroSlide}
         setCurrentHeroSlide={setCurrentHeroSlide}
         slides={slides}
-      />
-    </HeroContainer>
+      /> */}
+      </HeroContainer>
+    </HeroContext.Provider>
   );
 }
 
@@ -142,9 +222,10 @@ export function HeroContainer({
 }: React.ComponentPropsWithoutRef<"section">) {
   return (
     // <section className="relative h-[90vh] w-full md:h-[60vh]">
-    (<section className="relative h-[60rem] w-full md:h-[60vh]">
-      <div className="flex h-full w-full overflow-clip">{children}</div>
-    </section>)
+    <section className="relative h-[60rem] w-full md:h-[60vh]">
+      {/* <div className="flex h-full w-full overflow-clip">{children}</div> */}
+      {children}
+    </section>
   );
 }
 HeroContainer.displayName = "HeroContainer";
@@ -263,18 +344,11 @@ export function HeroContentArrows({
   );
 }
 
-export type HeroContentCirclesProps = React.HTMLAttributes<HTMLDivElement> & {
-  slides: Slides;
-  currentHeroSlide: number;
-  setCurrentHeroSlide: React.Dispatch<React.SetStateAction<number>>;
-};
-
 export function HeroContentCircles({
-  slides,
-  currentHeroSlide,
-  setCurrentHeroSlide,
   ...props
-}: HeroContentCirclesProps) {
+}: React.ComponentPropsWithoutRef<"div">) {
+  const { api, slides, current } = useHero();
+
   return (
     <div
       className="absolute bottom-0 flex w-full justify-center gap-1 p-2"
@@ -282,9 +356,9 @@ export function HeroContentCircles({
     >
       {slides.map((_, index) => {
         return (
-          <button key={index} onClick={() => setCurrentHeroSlide(index)}>
+          <button key={index} onClick={() => api?.scrollTo(index)}>
             <Circle
-              className={`h-3 w-3 stroke-eggshell-200 ${currentHeroSlide >= index ? "fill-eggshell-200" : ""}`}
+              className={`h-3 w-3 stroke-eggshell-200 ${current >= index ? "fill-eggshell-200" : ""}`}
             ></Circle>
           </button>
         );

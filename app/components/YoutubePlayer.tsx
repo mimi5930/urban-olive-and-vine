@@ -25,7 +25,6 @@ function YouTubePlayer({
       playerRef.current = new (window as any).YT.Player("player", {
         height: "100%",
         width: "100%",
-        // videoId: "hECAbASrGLs",
         videoId,
         events: {
           onStateChange: (event: any) => {
