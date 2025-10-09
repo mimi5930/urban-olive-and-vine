@@ -38,9 +38,10 @@ type HeroContextProps = {
   current: number;
 };
 
-// TODO: get rid of the prop drilling through useContext api
+// Hero Component Context
 const HeroContext = createContext<HeroContextProps | null>(null);
 
+// Hero Context Hook
 function useHero() {
   const context = useContext(HeroContext);
 
@@ -49,30 +50,39 @@ function useHero() {
   return context;
 }
 
+//* Default export
 export default function Hero() {
+  // State for playing status of YouTube video
   const [isPlaying, setIsPlaying] = useState<boolean>(false);
+
+  // Current slide for carousel
   const [current, setCurrent] = useState<number>(0);
 
+  // Embla Carousel Api state
   const [api, setApi] = useState<CarouselApi>();
 
+  // Embla Carousel api methods
   useEffect(() => {
+    // if api is not registered
     if (!api) {
       return;
     }
 
+    // If youtube video is playing, stop autoplay
     if (isPlaying) {
       api.plugins().autoplay.stop();
     }
 
-    console.log("scrollsnap", api.selectedScrollSnap());
-
+    // Update state for current slide
     setCurrent(api.selectedScrollSnap());
 
+    // Set event listener on carousel select
     api.on("select", () => {
       setCurrent(api.selectedScrollSnap());
     });
   }, [api, isPlaying]);
 
+  // Slides object
   const slides: Slides = [
     {
       image: sliderPictureOne,
@@ -149,69 +159,20 @@ export default function Hero() {
           plugins={[Autoplay({ delay: 5_000, stopOnMouseEnter: true })]}
           setApi={setApi}
         >
+          {/* Slides */}
           <CarouselContent className="ml-0 size-full">
-            {slides.map(
-              (
-                { image, alt, title, description, linkButton, media },
-                index,
-              ) => {
-                return (
-                  <CarouselItem key={title + index} className="w-full pl-0">
-                    <div className="relative size-full">
-                      <img
-                        src={image}
-                        alt={alt}
-                        className="size-full object-cover brightness-[40%]"
-                      />
-                      <div className="absolute right-0 top-0 flex size-full items-center justify-center gap-10">
-                        <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-2 lg:w-1/3 lg:items-start">
-                          <ImageHeadingText>{title}</ImageHeadingText>
-                          {description && (
-                            <p className="text-center text-lg font-medium text-eggshell-50 lg:text-start">
-                              {description}
-                            </p>
-                          )}
-                          {linkButton && linkButton}
-                        </div>
-                        <div className="rounded-xlg mb-10 h-2/5 px-2 lg:mb-0 lg:h-1/2 lg:px-0">
-                          {media}
-                        </div>
-                      </div>
-                    </div>
-                  </CarouselItem>
-                );
-              },
-            )}
+            <CarouselSlides />
           </CarouselContent>
+
+          {/* Previous Button */}
           <CarouselPrevious className="left-4 my-auto translate-y-0 stroke-white/80" />
+
+          {/* Next Button */}
           <CarouselNext className="right-4 my-auto translate-y-0 stroke-white/80" />
+
+          {/* Circles on bottom indicating index */}
           <HeroContentCircles />
         </Carousel>
-        {/* {slides.map(
-        ({ image, alt, title, description, linkButton, media }, index) => {
-          return (
-            <ImageContainer currentHeroSlide={currentHeroSlide} key={index}>
-              <HeroImage src={image} alt={alt} />
-              <HeroContent
-                title={title}
-                description={description}
-                linkButton={linkButton}
-                media={media}
-              />
-            </ImageContainer>
-          );
-        },
-      )}
-      <HeroContentArrows
-        currentHeroSlide={currentHeroSlide}
-        setCurrentHeroSlide={setCurrentHeroSlide}
-        slideAmount={slides.length}
-      />
-      <HeroContentCircles
-        currentHeroSlide={currentHeroSlide}
-        setCurrentHeroSlide={setCurrentHeroSlide}
-        slides={slides}
-      /> */}
       </HeroContainer>
     </HeroContext.Provider>
   );
@@ -221,128 +182,47 @@ export function HeroContainer({
   children,
 }: React.ComponentPropsWithoutRef<"section">) {
   return (
-    // <section className="relative h-[90vh] w-full md:h-[60vh]">
     <section className="relative h-[60rem] w-full md:h-[60vh]">
-      {/* <div className="flex h-full w-full overflow-clip">{children}</div> */}
       {children}
     </section>
   );
 }
 HeroContainer.displayName = "HeroContainer";
 
-export function ImageContainer({
-  children,
-  currentHeroSlide,
-}: React.ComponentPropsWithoutRef<"div"> & { currentHeroSlide: number }) {
-  return (
-    <div
-      className="relative box-border h-full w-full flex-shrink-0 flex-grow-0 transition-transform duration-500 ease-out"
-      style={{
-        transform: `translate(${-100 * currentHeroSlide}%)`,
-      }}
-    >
-      {children}
-    </div>
+export function CarouselSlides() {
+  const { slides } = useHero();
+
+  return slides.map(
+    ({ image, alt, title, description, linkButton, media }, index) => {
+      return (
+        <CarouselItem key={title + index} className="w-full pl-0">
+          <div className="relative size-full">
+            <img
+              src={image}
+              alt={alt}
+              className="size-full object-cover brightness-[40%]"
+            />
+            <div className="absolute right-0 top-0 flex size-full items-center justify-center gap-10">
+              <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-2 lg:w-1/3 lg:items-start">
+                <ImageHeadingText>{title}</ImageHeadingText>
+                {description && (
+                  <p className="text-center text-lg font-medium text-eggshell-50 lg:text-start">
+                    {description}
+                  </p>
+                )}
+                {linkButton && linkButton}
+              </div>
+              <div className="rounded-xlg mb-10 h-2/5 px-2 lg:mb-0 lg:h-1/2 lg:px-0">
+                {media}
+              </div>
+            </div>
+          </div>
+        </CarouselItem>
+      );
+    },
   );
 }
-
-export function HeroImage({
-  // eslint-disable-next-line react/prop-types
-  className,
-  // eslint-disable-next-line react/prop-types
-  alt,
-  ...props
-}: React.ComponentPropsWithoutRef<"img">) {
-  return (
-    <img
-      className={cn("h-full w-full object-cover brightness-50", className)}
-      {...props}
-      alt={alt}
-    />
-  );
-}
-
-// TODO Make linkButton and media props more specific?
-export type HeroContentProps = React.ComponentPropsWithoutRef<"div"> &
-  Omit<Slides[1], "image" | "alt">;
-
-export function HeroContent({
-  title,
-  description,
-  linkButton,
-  media,
-  ...props
-}: HeroContentProps) {
-  return (
-    <div
-      className="absolute bottom-0 left-0 flex h-full w-full flex-col items-center justify-center gap-10 lg:flex-row"
-      {...props}
-    >
-      <div className="flex h-full w-full flex-col items-center justify-center gap-5 px-2 lg:w-1/3 lg:items-start">
-        <ImageHeadingText className="text-center">{title}</ImageHeadingText>
-        {description && (
-          <p className="text-center text-lg font-medium text-eggshell-50 lg:text-start">
-            {description}
-          </p>
-        )}
-        {linkButton && linkButton}
-      </div>
-      <div className="rounded-xlg mb-10 h-2/5 px-2 lg:mb-0 lg:h-1/2 lg:px-0">
-        {media}
-      </div>
-    </div>
-  );
-}
-
-// Arrows to change slide in hero section
-export type HeroContentArrowProps = React.HTMLAttributes<HTMLButtonElement> & {
-  currentHeroSlide: number;
-  setCurrentHeroSlide: React.Dispatch<React.SetStateAction<number>>;
-  slideAmount: number;
-};
-
-export function HeroContentArrows({
-  children,
-  currentHeroSlide,
-  setCurrentHeroSlide,
-  slideAmount,
-  ...props
-}: HeroContentArrowProps) {
-  const prev = () => {
-    currentHeroSlide === 0
-      ? setCurrentHeroSlide(slideAmount - 1)
-      : setCurrentHeroSlide(currentHeroSlide - 1);
-  };
-
-  const next = () => {
-    currentHeroSlide === slideAmount - 1
-      ? setCurrentHeroSlide(0)
-      : setCurrentHeroSlide(currentHeroSlide + 1);
-  };
-
-  return (
-    <>
-      {/* Next slide button */}
-      <button
-        className="group absolute right-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
-        onClick={next}
-        {...props}
-      >
-        {children}
-        <ChevronRightIcon className="transition-translate absolute right-0 mr-5 box-border text-eggshell duration-500 group-hover:scale-125" />
-      </button>
-      {/* Previous slide button */}
-      <button
-        className="group absolute left-0 flex h-full w-1/6 items-center transition-colors duration-500 hover:bg-black/15 lg:w-1/12"
-        onClick={prev}
-        {...props}
-      >
-        <ChevronLeftIcon className="transition-translate absolute left-0 ml-5 box-border text-eggshell duration-500 group-hover:scale-125" />
-        {children}
-      </button>
-    </>
-  );
-}
+CarouselSlides.displayName = "CarouselSlides";
 
 export function HeroContentCircles({
   ...props
@@ -366,3 +246,4 @@ export function HeroContentCircles({
     </div>
   );
 }
+HeroContentCircles.displayName = "HeroContentCircles";
