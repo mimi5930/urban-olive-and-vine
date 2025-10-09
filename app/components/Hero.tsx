@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import { Button } from "./ui/button";
-import { ChevronLeftIcon, ChevronRightIcon, Circle } from "./svg";
+import { Circle } from "./svg";
 import {
   espressoPicture,
   musicCalendarPicture,
@@ -8,7 +8,6 @@ import {
   sliderPictureOne,
   sliderPictureTwo,
 } from "~/img";
-import { cn } from "~/lib/utils";
 import { ImageHeadingText } from "./Text";
 import YouTubePlayer from "./YoutubePlayer";
 import { Link } from "react-router";
