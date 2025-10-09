@@ -101,6 +101,7 @@ export default function Events() {
     }
   }, [searchParams, eventsData]);
   const [date, setDate] = useState<Date>(currentEventTime);
+  const [month, setMonth] = useState(currentEventTime);
   const sortedEvents = groupObjectsByTitle(eventsData);
 
   // Click handler
@@ -128,50 +129,31 @@ export default function Events() {
     return itemsRef.current;
   }
 
-  const [displayDate, setDisplayDate] = useState(currentEventTime);
-
-  const nextMonth = () => {
-    const currentDate = new Date(displayDate);
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    setDisplayDate(currentDate);
-  };
-
-  const prevMonth = () => {
-    const currentDate = new Date(displayDate);
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    setDisplayDate(currentDate);
-  };
-
-  const getMonthName = (date: Date) => {
-    return date.toLocaleString("en-US", { month: "long" });
-  };
-
-  const getYear = (date: Date) => {
-    return date.toLocaleString("en-US", { year: "numeric" });
-  };
-
   return (
-    <section className="my-32 flex flex-col items-center gap-10">
-      <h1 className="text-center text-5xl">Events</h1>
-      <h2 className="text-5xl font-bold text-feldgrau">
-        {getMonthName(displayDate)},{" "}
-        <span className="text-logo-green">{getYear(displayDate)}</span>
-      </h2>
-      <div className="flex gap-10">
-        <Button className="w-40" onClick={prevMonth}>
-          <ChevronLeftIcon />
-          Previous Month
-        </Button>
-        <Button className="w-40" onClick={nextMonth}>
-          Next Month <ChevronRightIcon />
-        </Button>
+    <section className="my-32 flex flex-col items-center">
+      <h1 className="pb-10 text-center text-5xl">Event Calendar</h1>
+      <div className="flex justify-center">
+        <Card>
+          <Calendar
+            mode="single"
+            required
+            showOutsideDays={false}
+            month={month}
+            onMonthChange={setMonth}
+            selected={date}
+            onSelect={(date) => calendarSelectHandler(date)}
+            modifiers={sortedEvents}
+            className="relative flex p-1 lg:p-5"
+            classNames={calendarCustomClassNames}
+            components={calendarCustomComponents(sortedEvents)}
+          />
+        </Card>
       </div>
       <div className="my-16 flex flex-col gap-16 lg:my-24 lg:gap-10">
         {eventsData.map((event, index) => {
-          const startTimeDate = new Date(event.startTime);
           if (
-            startTimeDate.getMonth() === displayDate.getMonth() &&
-            startTimeDate.getFullYear() === displayDate.getFullYear()
+            new Date(event.startTime).getMonth() === month.getMonth() &&
+            new Date(event.startTime).getFullYear() === month.getFullYear()
           )
             return (
               <article
@@ -191,7 +173,7 @@ export default function Events() {
                   <div className="relative flex items-center justify-between">
                     {isToday(null, event.startTime) ? (
                       <Badge className="absolute -right-2 -top-2 bg-feldgrau-300">
-                        Today!
+                        Tonight!
                       </Badge>
                     ) : null}
                     <h2 className="text-3xl font-bold">
@@ -249,6 +231,36 @@ export default function Events() {
       </div>
     </section>
   );
+
+  // return (
+  //   <section className="mt-32 flex w-full flex-col">
+  //     <h1 className="pb-5 text-center text-5xl">Events</h1>
+  //     <Outlet
+  //       context={{
+  //         date: date,
+  //         setDate: setDate,
+  //         events: mockEvents,
+  //         sortedEvents: sortedEvents,
+  //         currentEvent: currentEvent,
+  //         setCurrentEvent: setCurrentEvent,
+  //       }}
+  //     />
+  //     <div className="flex justify-center">
+  //       <Card>
+  //         <Calendar
+  //           mode="single"
+  //           required
+  //           selected={date}
+  //           onSelect={(date) => calendarSelectHandler(date)}
+  //           modifiers={sortedEvents}
+  //           className="relative flex h-full w-full p-5"
+  //           classNames={calendarCustomClassNames}
+  //           components={calendarCustomComponents(sortedEvents)}
+  //         />
+  //       </Card>
+  //     </div>
+  //   </section>
+  // );
 }
 
 //* ClassNames for existing elements in Calendar
