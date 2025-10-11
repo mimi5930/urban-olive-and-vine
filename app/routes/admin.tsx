@@ -1,10 +1,13 @@
-import { useForm, Resolver } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import * as z from "zod/v4";
+import * as z from "zod";
+import { Input } from "~/components/ui/input";
+import { Label } from "~/components/ui/label";
+import HoursForm from "~/components/Forms/HoursForm";
 
 export type DayFormValues = {
   open: string | null;
-  closed: string | null;
+  close: string | null;
 };
 
 export type HoursFormValues = {
@@ -16,7 +19,11 @@ export type HoursFormValues = {
   Friday: DayFormValues;
   Saturday: DayFormValues;
 };
-const openCloseSchema = z.object({ open: z.iso.time().optional() });
+
+const openCloseSchema = z.object({
+  open: z.string().nullable(),
+  close: z.string().nullable(),
+});
 
 const hoursSchema = z.object({
   Sunday: openCloseSchema,
@@ -29,21 +36,5 @@ const hoursSchema = z.object({
 });
 
 export default function Admin() {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({ resolver: zodResolver(hoursSchema) });
-  const onSubmit = handleSubmit((data) => console.log(data));
-
-  return (
-    <form onSubmit={onSubmit}>
-      <input {...register("Monday")} placeholder="Bill" />
-      {errors?.firstName && <p>{errors.firstName.message}</p>}
-
-      <input {...register("lastName")} placeholder="Luo" />
-
-      <input type="submit" />
-    </form>
-  );
+  return <HoursForm />;
 }
