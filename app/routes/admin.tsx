@@ -1,6 +1,13 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
-import { useFieldArray, useForm } from "react-hook-form";
+import {
+  Control,
+  Resolver,
+  useFieldArray,
+  useForm,
+  UseFormRegister,
+  UseFormSetValue,
+} from "react-hook-form";
 import { z } from "zod";
 import { Menus } from "~/components";
 import { MenuSection, MenuSelection } from "~/components/Menu";
@@ -32,6 +39,7 @@ const formMenuSection = z.object({
 });
 
 type MenuFormValues = z.infer<typeof formMenuSection>;
+type MenuFormSelection = z.infer<typeof formMenuSelection>;
 
 export default function Admin() {
   const [fileContent, setFileContent] = useState<MenuSelection[] | null>(null);
@@ -129,18 +137,35 @@ export default function Admin() {
     register,
     handleSubmit,
     setValue,
+    watch,
     control,
     formState: { errors },
-  } = useForm<MenuFormValues>({ resolver: zodResolver(formMenuSection) });
+  } = useForm<MenuFormValues>({
+    resolver: zodResolver(formMenuSection),
+    defaultValues: {
+      menuTitle: "",
+      menuDocumentLink: "",
+      menuSelections: [],
+    },
+  });
 
+  const menuSelections = watch("menuSelections");
+
+  // Menu Selection Fields
   const {
     fields: menuSelectionFields,
-    append: menuSelectionFieldAppend,
-    remove: menuSelectionFieldRemove,
+    append: appendMenuSelection,
+    remove: removeMenuSelection,
   } = useFieldArray({
     control,
     name: "menuSelections",
   });
+
+  const addNewNote = (menuIndex: number) => {
+    // Add a new empty note
+    const updatedNotes = [...(menuSelections[menuIndex].notes || ""), ""];
+    setValue(`menuSelections.${menuIndex}.notes`, updatedNotes);
+  };
 
   return (
     <>
@@ -159,6 +184,7 @@ export default function Admin() {
         onSubmit={handleMenuSubmit}
         className="mb-14 flex flex-wrap justify-center gap-4"
       >
+        {/* Menu Title Input */}
         <div className="mb-14 flex flex-wrap gap-4">
           <Label htmlFor="menu-title">Menu Title</Label>{" "}
           <Input
@@ -168,6 +194,8 @@ export default function Admin() {
             {...register("menuTitle")}
           />
         </div>
+
+        {/* PDF Menu Input */}
         <div className="mb-14 flex flex-wrap gap-4">
           <Label htmlFor="menu-title">Upload Menu PDF (optional)</Label>{" "}
           <Input
@@ -177,26 +205,56 @@ export default function Admin() {
             {...register("menuDocumentLink")}
           />
         </div>
-        {menuSelectionFields.map((field, index) => {
+
+        {/* Menu Sections */}
+        {menuSelectionFields.map((menuSelection, menuIndex) => {
           return (
-            <div key={field.id}>
+            <div key={menuSelection.id}>
               <div>
-                <Label htmlFor={`menu-selection-title-${field.id}`}>
+                <Label htmlFor={`menu-selection-title-${menuSelection.id}`}>
                   Menu Section Title
                 </Label>
                 <Input
-                  id={`menu-selection-title-${field.id}`}
-                  {...register(`menuSelections.${index}.title`)}
+                  id={`menu-selection-title-${menuSelection.id}`}
+                  {...register(`menuSelections.${menuIndex}.title`)}
                 />
               </div>
-              {/* TODO: NEXT Add notes */}
+
+              {/* Notes */}
+              <div className="mb-4">
+                <Label>Notes</Label>
+                {menuSelections[menuIndex]?.notes?.map((_, noteIndex) => (
+                  <MenuNotesField
+                    parentIndex={menuIndex}
+                    menuSelections={menuSelections}
+                    noteIndex={noteIndex}
+                    register={register}
+                    setValue={setValue}
+                    key={noteIndex}
+                  />
+                ))}
+                <Button type="button" onClick={() => addNewNote(menuIndex)}>
+                  Add Note
+                </Button>
+              </div>
             </div>
           );
         })}
         <Button
           type="button"
           onClick={() =>
-            menuSelectionFieldAppend({ title: "", items: [{ name: "" }] })
+            appendMenuSelection({
+              title: "",
+              notes: [],
+              items: [
+                {
+                  name: "",
+                  description: "",
+                  price: "",
+                  details: [],
+                },
+              ],
+            })
           }
         >
           Add Menu Section
@@ -205,4 +263,57 @@ export default function Admin() {
     </>
     // <HoursForm />;
   );
+}
+
+function MenuNotesField({
+  parentIndex,
+  noteIndex,
+  menuSelections,
+  setValue,
+  register,
+}: {
+  parentIndex: number;
+  noteIndex: number;
+  menuSelections: MenuFormSelection[];
+  register: UseFormRegister<MenuFormValues>;
+  setValue: UseFormSetValue<MenuFormValues>;
+}) {
+  const removeNote = () => {
+    // Remove the note at this index
+    const updatedNotes = [...(menuSelections[parentIndex].notes || "")];
+    updatedNotes.splice(noteIndex, 1);
+    setValue(`menuSelections.${parentIndex}.notes`, updatedNotes);
+  };
+
+  return (
+    <div className="mb-2 flex gap-2">
+      <Input
+        {...register(`menuSelections.${parentIndex}.notes.${noteIndex}`)}
+      />
+      <Button type="button" onClick={() => removeNote()} variant="destructive">
+        Remove
+      </Button>
+    </div>
+  );
+}
+
+function MenuItemsField({
+  control,
+  register,
+  parentFieldIndex,
+}: {
+  control: Control<MenuFormValues>;
+  register: UseFormRegister<MenuFormValues>;
+  parentFieldIndex: number;
+}) {
+  const { fields, append, remove } = useFieldArray({
+    control,
+    name: `menuSelections.${parentFieldIndex}.items`,
+  });
+
+  return fields.map((fields, index) => {
+    <div>
+      <Label htmlFor=""></Label>
+    </div>;
+  });
 }
