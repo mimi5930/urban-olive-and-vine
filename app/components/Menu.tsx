@@ -1,6 +1,5 @@
 import { cn } from "~/lib/utils";
 import { DownloadIcon, GlutenFreeIcon, VeganIcon } from "./svg";
-import { Button } from "./ui/button";
 
 export type MenuItem = {
   name: string;
