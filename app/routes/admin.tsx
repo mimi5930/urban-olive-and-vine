@@ -1,4 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
+import { Separator } from "@radix-ui/react-dropdown-menu";
 import { useState } from "react";
 import {
   Control,
@@ -14,6 +15,7 @@ import { Menus } from "~/components";
 import { MenuSection, MenuSelection } from "~/components/Menu";
 // import HoursForm from "~/components/Forms/HoursForm";
 import { Button } from "~/components/ui/button";
+import { Checkbox } from "~/components/ui/checkbox";
 import { Input } from "~/components/ui/input";
 import { Label } from "~/components/ui/label";
 
@@ -197,11 +199,11 @@ export default function Admin() {
       {/* Menu Form */}
       <form
         onSubmit={handleMenuSubmit}
-        className="mb-14 flex flex-wrap justify-center gap-4"
+        className="mb-14 flex flex-col justify-center gap-4 px-10"
       >
         {/* Menu Title Input */}
-        <div className="mb-14 flex flex-wrap gap-4">
-          <Label htmlFor="menu-title">Menu Title</Label>{" "}
+        <div className="flex flex-wrap gap-4">
+          <Label htmlFor="menu-title">Menu Title</Label>
           <Input
             id="menu-title"
             type="text"
@@ -211,11 +213,14 @@ export default function Admin() {
         </div>
 
         {/* PDF Menu Input */}
-        <div className="mb-14 flex flex-wrap gap-4">
-          <Label htmlFor="menu-title">Upload Menu PDF (optional)</Label>
+        <div className="flex flex-wrap gap-4">
+          <Label htmlFor="menu-title">
+            Upload Menu PDF for Customer Download (optional)
+          </Label>
           <Input
             id="menu-title"
-            type="text"
+            type="file"
+            accept=".pdf"
             className="bg-white"
             {...register("menuDocumentLink")}
           />
@@ -260,6 +265,26 @@ export default function Admin() {
                   setValue={setValue}
                   watch={watch}
                 />
+
+                {/* Vegan, Gluten Free, and Special Radios */}
+                <div>
+                  <Label htmlFor={`vegan-${menuSelection.id}`}>
+                    Menu Item is Vegan
+                  </Label>
+                  <Checkbox id={`vegan-${menuSelection.id}`} />
+                </div>
+                <div>
+                  <Label htmlFor={`GF-${menuSelection.id}`}>
+                    Menu Item is Gluten Free
+                  </Label>
+                  <Checkbox id={`GF-${menuSelection.id}`} />
+                </div>
+                <div>
+                  <Label htmlFor={`vegan-${menuSelection.id}`}>
+                    This Item is a Special
+                  </Label>
+                  <Checkbox id={`vegan-${menuSelection.id}`} />
+                </div>
 
                 {/* Remove menu section */}
                 <Button type="button" onClick={() => removeHandler(menuIndex)}>
