@@ -7,6 +7,7 @@ import {
   useForm,
   UseFormRegister,
   UseFormSetValue,
+  UseFormWatch,
 } from "react-hook-form";
 import { z } from "zod";
 import { Menus } from "~/components";
@@ -161,6 +162,20 @@ export default function Admin() {
     name: "menuSelections",
   });
 
+  // Append New Menu Section
+  const appendHandler = () => {
+    appendMenuSelection({
+      title: "",
+      items: [],
+    });
+  };
+
+  // Remove Menu Section
+  const removeHandler = (index: number) => {
+    removeMenuSelection(index);
+  };
+
+  // Add Note to Notes Array
   const addNewNote = (menuIndex: number) => {
     // Add a new empty note
     const updatedNotes = [...(menuSelections[menuIndex].notes || ""), ""];
@@ -197,7 +212,7 @@ export default function Admin() {
 
         {/* PDF Menu Input */}
         <div className="mb-14 flex flex-wrap gap-4">
-          <Label htmlFor="menu-title">Upload Menu PDF (optional)</Label>{" "}
+          <Label htmlFor="menu-title">Upload Menu PDF (optional)</Label>
           <Input
             id="menu-title"
             type="text"
@@ -236,27 +251,27 @@ export default function Admin() {
                 <Button type="button" onClick={() => addNewNote(menuIndex)}>
                   Add Note
                 </Button>
+
+                {/* Menu Items */}
+                <MenuItemsField
+                  control={control}
+                  parentFieldIndex={menuIndex}
+                  register={register}
+                  setValue={setValue}
+                  watch={watch}
+                />
+
+                {/* Remove menu section */}
+                <Button type="button" onClick={() => removeHandler(menuIndex)}>
+                  Remove Menu Section
+                </Button>
               </div>
             </div>
           );
         })}
-        <Button
-          type="button"
-          onClick={() =>
-            appendMenuSelection({
-              title: "",
-              notes: [],
-              items: [
-                {
-                  name: "",
-                  description: "",
-                  price: "",
-                  details: [],
-                },
-              ],
-            })
-          }
-        >
+
+        {/* Add new menu section */}
+        <Button type="button" onClick={() => appendHandler()}>
           Add Menu Section
         </Button>
       </form>
@@ -301,19 +316,163 @@ function MenuItemsField({
   control,
   register,
   parentFieldIndex,
+  setValue,
+  watch,
 }: {
   control: Control<MenuFormValues>;
   register: UseFormRegister<MenuFormValues>;
   parentFieldIndex: number;
+  setValue: UseFormSetValue<MenuFormValues>;
+  watch: UseFormWatch<MenuFormValues>;
 }) {
-  const { fields, append, remove } = useFieldArray({
+  // useFieldArray hook
+  const {
+    fields: itemFields,
+    append: appendItem,
+    remove: removeItem,
+  } = useFieldArray({
     control,
     name: `menuSelections.${parentFieldIndex}.items`,
   });
 
-  return fields.map((fields, index) => {
+  const menuSelections = watch("menuSelections");
+
+  const addNewDetail = (menuIndex: number, itemIndex: number) => {
+    const updatedDetails = [
+      ...(menuSelections[menuIndex].items[itemIndex].details || []),
+      "",
+    ];
+    setValue(
+      `menuSelections.${menuIndex}.items.${itemIndex}.details`,
+      updatedDetails,
+    );
+  };
+
+  return (
     <div>
-      <Label htmlFor=""></Label>
-    </div>;
-  });
+      {itemFields.map((item, itemIndex) => {
+        return (
+          <div key={item.id}>
+            {/* Item name */}
+            <div>
+              <Label htmlFor={`menu-item-name-${item.id}`}>Name</Label>
+              <Input
+                id={`menu-item-name-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.name`,
+                )}
+              />
+            </div>
+
+            {/* Item description */}
+            <div>
+              <Label htmlFor={`menu-description-${item.id}`}>Description</Label>
+              <Input
+                id={`menu-description-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.description`,
+                )}
+              />
+            </div>
+
+            {/* Item Details */}
+            <div className="mt-2">
+              <Label>Details</Label>
+              {menuSelections[parentFieldIndex]?.items?.[
+                itemIndex
+              ]?.details?.map((_, detailIndex) => (
+                <MenuDetailsField
+                  key={detailIndex}
+                  parentMenuIndex={parentFieldIndex}
+                  itemIndex={itemIndex}
+                  detailIndex={detailIndex}
+                  menuSelections={menuSelections}
+                  register={register}
+                  setValue={setValue}
+                />
+              ))}
+            </div>
+            <Button
+              type="button"
+              onClick={() => addNewDetail(parentFieldIndex, itemIndex)}
+            >
+              Add Detail
+            </Button>
+
+            {/* Price */}
+            <div>
+              <Label htmlFor={`menu-item-price-${item.id}`}>Price</Label>
+              <Input
+                id={`menu-item-price-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.price`,
+                )}
+              />
+            </div>
+
+            {/* Remove Menu Item */}
+            <Button
+              type="button"
+              variant="destructive"
+              onClick={() => removeItem(itemIndex)}
+            >
+              Remove Item
+            </Button>
+          </div>
+        );
+      })}
+
+      {/* Append Menu Item */}
+      <Button
+        type="button"
+        onClick={() => appendItem({ name: "", details: [] })}
+      >
+        Add Item
+      </Button>
+    </div>
+  );
+}
+
+function MenuDetailsField({
+  parentMenuIndex,
+  itemIndex,
+  detailIndex,
+  menuSelections,
+  register,
+  setValue,
+}: {
+  parentMenuIndex: number;
+  itemIndex: number;
+  detailIndex: number;
+  menuSelections: MenuFormSelection[];
+  register: UseFormRegister<MenuFormValues>;
+  setValue: UseFormSetValue<MenuFormValues>;
+}) {
+  const removeDetail = () => {
+    const updatedDetails = [
+      ...(menuSelections[parentMenuIndex].items[itemIndex].details || []),
+    ];
+    updatedDetails.splice(detailIndex, 1);
+    setValue(
+      `menuSelections.${parentMenuIndex}.items.${itemIndex}.details`,
+      updatedDetails,
+    );
+  };
+
+  return (
+    <div>
+      <Input
+        {...register(
+          `menuSelections.${parentMenuIndex}.items.${itemIndex}.details.${detailIndex}`,
+        )}
+      />
+      <Button
+        type="button"
+        onClick={() => removeDetail()}
+        variant="destructive"
+      >
+        Remove
+      </Button>
+    </div>
+  );
 }
