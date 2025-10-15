@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Separator } from "@radix-ui/react-dropdown-menu";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import {
   Control,
   Resolver,
@@ -202,12 +202,14 @@ export default function Admin() {
         className="mb-14 flex flex-col justify-center gap-4 px-10"
       >
         {/* Menu Title Input */}
-        <div className="flex flex-wrap gap-4">
-          <Label htmlFor="menu-title">Menu Title</Label>
+        <div className="flex w-48 flex-wrap gap-4 rounded-md bg-feldgrau p-4 text-white">
+          <Label htmlFor="menu-title" className="text-bold">
+            MENU TITLE
+          </Label>
           <Input
             id="menu-title"
             type="text"
-            className="bg-white"
+            className="bg-white text-black"
             {...register("menuTitle")}
           />
         </div>
@@ -231,28 +233,35 @@ export default function Admin() {
           return (
             <div key={menuSelection.id}>
               <div>
-                <Label htmlFor={`menu-selection-title-${menuSelection.id}`}>
+                <Label
+                  htmlFor={`menu-selection-title-${menuSelection.id}`}
+                  className="text-2xl font-semibold uppercase"
+                >
                   Menu Section Title
                 </Label>
                 <Input
                   id={`menu-selection-title-${menuSelection.id}`}
                   {...register(`menuSelections.${menuIndex}.title`)}
+                  className="mb-2 bg-white"
                 />
+                <div className="border-b-8 border-double border-feldgrau" />
               </div>
 
               {/* Notes */}
               <div className="mb-4">
-                <Label>Notes</Label>
-                {menuSelections[menuIndex]?.notes?.map((_, noteIndex) => (
-                  <MenuNotesField
-                    parentIndex={menuIndex}
-                    menuSelections={menuSelections}
-                    noteIndex={noteIndex}
-                    register={register}
-                    setValue={setValue}
-                    key={noteIndex}
-                  />
-                ))}
+                <Label className="mr-4">Notes</Label>
+                <div className="divide-y">
+                  {menuSelections[menuIndex]?.notes?.map((_, noteIndex) => (
+                    <MenuNotesField
+                      parentIndex={menuIndex}
+                      menuSelections={menuSelections}
+                      noteIndex={noteIndex}
+                      register={register}
+                      setValue={setValue}
+                      key={noteIndex}
+                    />
+                  ))}
+                </div>
                 <Button type="button" onClick={() => addNewNote(menuIndex)}>
                   Add Note
                 </Button>
@@ -266,28 +275,12 @@ export default function Admin() {
                   watch={watch}
                 />
 
-                {/* Vegan, Gluten Free, and Special Radios */}
-                <div>
-                  <Label htmlFor={`vegan-${menuSelection.id}`}>
-                    Menu Item is Vegan
-                  </Label>
-                  <Checkbox id={`vegan-${menuSelection.id}`} />
-                </div>
-                <div>
-                  <Label htmlFor={`GF-${menuSelection.id}`}>
-                    Menu Item is Gluten Free
-                  </Label>
-                  <Checkbox id={`GF-${menuSelection.id}`} />
-                </div>
-                <div>
-                  <Label htmlFor={`vegan-${menuSelection.id}`}>
-                    This Item is a Special
-                  </Label>
-                  <Checkbox id={`vegan-${menuSelection.id}`} />
-                </div>
-
                 {/* Remove menu section */}
-                <Button type="button" onClick={() => removeHandler(menuIndex)}>
+                <Button
+                  type="button"
+                  variant={"destructive"}
+                  onClick={() => removeHandler(menuIndex)}
+                >
                   Remove Menu Section
                 </Button>
               </div>
@@ -326,9 +319,10 @@ function MenuNotesField({
   };
 
   return (
-    <div className="mb-2 flex gap-2">
+    <div className="flex gap-2 py-2">
       <Input
         {...register(`menuSelections.${parentIndex}.notes.${noteIndex}`)}
+        className="bg-white"
       />
       <Button type="button" onClick={() => removeNote()} variant="destructive">
         Remove
@@ -416,6 +410,35 @@ function MenuItemsField({
                   setValue={setValue}
                 />
               ))}
+            </div>
+
+            {/* Vegan, Gluten Free, and Special Radios */}
+            <div>
+              <Label htmlFor={`vegan-${item.id}`}>Menu Item is Vegan</Label>
+              <Checkbox
+                id={`vegan-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.isVegan`,
+                )}
+              />
+            </div>
+            <div>
+              <Label htmlFor={`GF-${item.id}`}>Menu Item is Gluten Free</Label>
+              <Checkbox
+                id={`GF-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.isGlutenFree`,
+                )}
+              />
+            </div>
+            <div>
+              <Label htmlFor={`vegan-${item.id}`}>This Item is a Special</Label>
+              <Checkbox
+                id={`vegan-${item.id}`}
+                {...register(
+                  `menuSelections.${parentFieldIndex}.items.${itemIndex}.isSpecial`,
+                )}
+              />
             </div>
             <Button
               type="button"
