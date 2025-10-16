@@ -5,6 +5,13 @@ import {
   MenuFormSelection,
   MenuFormValues,
 } from "./MenuFormSchema";
+import {
+  openCloseSchema,
+  HoursFormValues,
+  Weekday,
+  hoursSchema,
+  weekdays,
+} from "./hoursFormSchema";
 
 export {
   formMenuItem,
@@ -12,4 +19,9 @@ export {
   type MenuFormSelection,
   type MenuFormValues,
   formMenuSelection,
+  openCloseSchema,
+  type HoursFormValues,
+  type Weekday,
+  hoursSchema,
+  weekdays,
 };

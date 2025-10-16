@@ -11,35 +11,7 @@ import { Label } from "~/components/ui/label";
 import { createContext, useContext, useState } from "react";
 import { Button } from "../ui/button";
 import { Checkbox } from "../ui/checkbox";
-
-const openCloseSchema = z.object({
-  open: z.string().nullable(),
-  close: z.string().nullable(),
-});
-
-const hoursSchema = z.object({
-  Sunday: openCloseSchema,
-  Monday: openCloseSchema,
-  Tuesday: openCloseSchema,
-  Wednesday: openCloseSchema,
-  Thursday: openCloseSchema,
-  Friday: openCloseSchema,
-  Saturday: openCloseSchema,
-});
-
-const weekdays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-] as const;
-
-type Weekday = (typeof weekdays)[number];
-
-type HoursFormValues = z.infer<typeof hoursSchema>;
+import { HoursFormValues, hoursSchema, Weekday, weekdays } from "./formSchema";
 
 type HoursFormContextProps = {
   register: UseFormRegister<HoursFormValues>;
