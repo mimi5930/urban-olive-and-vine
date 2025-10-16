@@ -4,7 +4,7 @@ import {
   formMenuSection,
   MenuFormSelection,
   MenuFormValues,
-} from "./MenuFormSchema";
+} from "./menuFormSchema";
 import {
   openCloseSchema,
   HoursFormValues,
